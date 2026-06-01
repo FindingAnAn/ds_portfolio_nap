@@ -38,60 +38,32 @@
   <section class="container section">
     <div class="grid-2">
 
-      <!-- 01: Churn v1 -->
+      <!-- 01: Churn (merged v1 + v2) -->
       <article class="card project-card reveal">
         <div class="project-visual">
           <div class="pipeline">
-            <div class="pipeline-step"><span>01</span><b>Ingest</b><small>ZIP files, schema checks, manifest</small></div>
-            <div class="pipeline-step"><span>02</span><b>Features</b><small>Lifetime and sliding windows</small></div>
-            <div class="pipeline-step"><span>03</span><b>Train</b><small>XGBoost model promotion</small></div>
-            <div class="pipeline-step"><span>04</span><b>Score</b><small>Monthly risk export</small></div>
-            <div class="pipeline-step"><span>05</span><b>Monitor</b><small>PSI, KS, backtests</small></div>
+            <div class="pipeline-step"><span>01</span><b>Ingest</b><small>ZIP scan, COPY to PostgreSQL</small></div>
+            <div class="pipeline-step"><span>02</span><b>Features</b><small>66 features, sliding windows</small></div>
+            <div class="pipeline-step"><span>03</span><b>EDA</b><small>Auto drift + quality reports</small></div>
+            <div class="pipeline-step"><span>04</span><b>Model</b><small>XGBoost, guardrail gate</small></div>
+            <div class="pipeline-step"><span>05</span><b>Score</b><small>SHAP export, top-5% list</small></div>
           </div>
         </div>
         <div class="project-copy">
           <h3>VNPost Churn Prediction System</h3>
-          <p>Airflow-orchestrated churn system deployed with Docker Compose and PostgreSQL, covering ingestion, validation, feature engineering, model training, monthly scoring, SHAP reasons, and production monitoring.</p>
+          <p>End-to-end B2B churn system — Docker Compose (v1) → Kubernetes KubernetesPodOperator (v2). ZIP ingestion, sliding-window features, walk-forward CV, guardrail promotion, SHAP explanations, Prometheus/Grafana monitoring.</p>
           <div class="metrics" style="margin-top:18px">
-            <div class="metric"><span>Pipeline</span><b>Airflow</b></div>
-            <div class="metric"><span>Model</span><b>XGBoost</b></div>
-            <div class="metric"><span>Output</span><b>Risk list</b></div>
+            <div class="metric"><span>Precision</span><b>0.918</b></div>
+            <div class="metric"><span>PR-AUC</span><b>0.866</b></div>
+            <div class="metric"><span>Features</span><b>66</b></div>
           </div>
           <div class="tag-row">
-            <span class="tag">Docker Compose</span><span class="tag">PostgreSQL</span>
-            <span class="tag">COPY</span><span class="tag">SHAP</span>
+            <span class="tag">Airflow</span><span class="tag">XGBoost</span>
+            <span class="tag">PostgreSQL</span><span class="tag">Kubernetes</span>
+            <span class="tag">SHAP</span><span class="tag">PSI / KS</span>
           </div>
           <div class="project-actions">
-            <a class="btn-case" href="case-study-churn-v1.html">Case Study</a>
-            <a class="btn-gh" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer">GitHub</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 02: Churn v2 -->
-      <article class="card project-card reveal">
-        <div class="project-visual">
-          <div class="stat-grid">
-            <div class="stat"><span>DAGS</span><b>5</b><em>Airflow</em></div>
-            <div class="stat"><span>DEPLOY</span><b>kind</b><em>Helm</em></div>
-            <div class="stat"><span>METRIC</span><b>F0.5</b><em>PR-AUC</em></div>
-            <div class="stat"><span>MONITOR</span><b>PromQL</b><em>Grafana</em></div>
-          </div>
-        </div>
-        <div class="project-copy">
-          <h3>Customer Churn Prediction ver 2</h3>
-          <p>Kubernetes-based second version using KubernetesPodOperator, local kind, Helm, automated EDA, walk-forward dataset logic, guardrail-based promotion, and Prometheus/Grafana monitoring.</p>
-          <div class="metrics" style="margin-top:18px">
-            <div class="metric"><span>Runtime</span><b>K8s pods</b></div>
-            <div class="metric"><span>Features</span><b>1–6M</b></div>
-            <div class="metric"><span>Status</span><b>Developing</b></div>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Kubernetes</span><span class="tag">Helm</span>
-            <span class="tag">Airflow</span><span class="tag">Prometheus</span>
-          </div>
-          <div class="project-actions">
-            <a class="btn-case" href="case-study-churn-v2.html">Case Study</a>
+            <a class="btn-case" href="case-study-churn.html">Case Study</a>
             <a class="btn-gh" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </div>
