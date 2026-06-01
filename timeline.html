@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Timeline — Nguyen Anh Phuong's monthly learning journey, work experiences, and milestones from 2020 to present.">
+  <title>Timeline | Nguyen Anh Phuong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container navbar">
+    <a class="brand" href="index.html">
+      <span class="logo">AP</span>
+      <span>Nguyen Anh Phuong<small>Data Scientist</small></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false">Menu</button>
+    <nav class="nav" data-nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a class="active" href="timeline.html">Timeline</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ── Hero ── -->
+  <section class="container timeline-page-hero">
+    <p class="kicker reveal">Living Journal · Monthly Updates</p>
+    <h1 class="reveal"><span class="gradient-text">My Journey</span> — month by month.</h1>
+    <p class="hero-text reveal">
+      A running log of what I learned, built, experienced, and reflected on — updated monthly.
+      From starting university to shipping production ML systems and publishing in IEEE Access.
+    </p>
+  </section>
+
+  <!-- ── Filters ── -->
+  <section class="container" style="padding-bottom: 16px;">
+    <div class="tl-filter-bar reveal" id="filter-bar">
+      <button class="tl-filter-btn active" data-filter="all">All</button>
+      <button class="tl-filter-btn" data-filter="work">💼 Work</button>
+      <button class="tl-filter-btn" data-filter="learn">📚 Learning</button>
+      <button class="tl-filter-btn" data-filter="award">🏆 Awards</button>
+      <button class="tl-filter-btn" data-filter="pub">📄 Publication</button>
+      <button class="tl-filter-btn" data-filter="project">🛠 Projects</button>
+    </div>
+  </section>
+
+  <!-- ── Timeline content ── -->
+  <section class="container section" style="padding-top: 0;">
+
+    <!-- ═══════════════════ 2026 ═══════════════════ -->
+    <div class="tl-year-block reveal">
+      <div class="tl-year-label">2026</div>
+
+      <!-- HOW TO ADD A NEW MONTH:
+           Copy a tl-month-block below, update data-types, month label, and entries.
+           data-types should list all entry types in this month, space-separated.
+      -->
+
+      <div class="tl-month-block" data-types="work learn">
+        <div class="tl-month-label">Jun</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>Vietnam Post — AI Technology Department</h4>
+            <p>Continuing to maintain and improve the B2B churn prediction pipeline. Monitoring weekly batch runs, reviewing Grafana dashboards, and investigating PSI drift alerts on volume-related features.</p>
+            <div class="tl-tags"><span>XGBoost</span><span>Airflow</span><span>Grafana</span><span>PostgreSQL</span></div>
+          </div>
+          <div class="tl-entry" data-type="learn">
+            <span class="tl-entry-type type-learn">📚 Learning</span>
+            <h4>Portfolio Refresh</h4>
+            <p>Rebuilt and redesigned this portfolio website — updated content to reflect real work experience, added a Timeline page for monthly tracking, and improved the design system.</p>
+            <div class="tl-tags"><span>HTML/CSS</span><span>Portfolio</span><span>Documentation</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work">
+        <div class="tl-month-label">May</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>Pipeline Observability Improvements</h4>
+            <p>Added structured logging to all 5 Airflow DAGs. Configured 30-day log retention and implemented fallback patterns to improve pipeline resilience on schema drift or upstream API failures.</p>
+            <div class="tl-tags"><span>Airflow</span><span>Kubernetes</span><span>Logging</span><span>Prometheus</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work learn">
+        <div class="tl-month-label">Apr</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>Model Versioning System</h4>
+            <p>Implemented model bundle versioning — retaining the 10 latest trained models with metadata (training date, window size, feature version, AUC). Enables rollback and retrospective comparison.</p>
+            <div class="tl-tags"><span>Python</span><span>PostgreSQL</span><span>Model Registry</span></div>
+          </div>
+          <div class="tl-entry" data-type="learn">
+            <span class="tl-entry-type type-learn">📚 Learning</span>
+            <h4>Studying MLOps Patterns</h4>
+            <p>Explored patterns for feature store design, model registry architecture, and online/offline feature serving. Applied learnings to improve the existing Airflow pipeline design.</p>
+            <div class="tl-tags"><span>MLOps</span><span>Feature Store</span><span>System Design</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work">
+        <div class="tl-month-label">Mar</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>Testing Suite Completion</h4>
+            <p>Reached 105 unit tests covering all core pipeline modules: ingestion validators, feature computation functions, dataset preparation steps, training guardrails, and scoring output schema. All tests integrated with CI.</p>
+            <div class="tl-tags"><span>pytest</span><span>Pydantic</span><span>CI/CD</span><span>Unit Tests</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work learn">
+        <div class="tl-month-label">Feb</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>SHAP Explainability Integration</h4>
+            <p>Integrated SHAP gain-based feature importance into the scoring DAG. Each exported customer record now includes top-3 risk drivers in human-readable form to support actionable retention strategies.</p>
+            <div class="tl-tags"><span>SHAP</span><span>XGBoost</span><span>Python</span><span>Airflow DAG 5</span></div>
+          </div>
+          <div class="tl-entry" data-type="learn">
+            <span class="tl-entry-type type-learn">📚 Learning</span>
+            <h4>Deepening SQL Window Functions</h4>
+            <p>Practiced advanced PostgreSQL: multi-level partitioning, FILTER clauses in aggregations, recursive CTEs. Applied to optimize the sliding-window feature computation in DAG 2.</p>
+            <div class="tl-tags"><span>PostgreSQL</span><span>SQL</span><span>Window Functions</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work">
+        <div class="tl-month-label">Jan</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>Walk-forward CV Validation Framework</h4>
+            <p>Implemented expanding-window walk-forward validation to select the optimal training window size. Compared AUC across 5 folds against Logistic Regression baseline. Selected XGBoost with 12-month window.</p>
+            <div class="tl-tags"><span>XGBoost</span><span>Walk-forward CV</span><span>scikit-learn</span><span>Optuna</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════ 2025 ═══════════════════ -->
+    <div class="tl-year-block reveal">
+      <div class="tl-year-label">2025</div>
+
+      <div class="tl-month-block" data-types="work award pub">
+        <div class="tl-month-label">Dec</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>Drift Monitoring Stack — Prometheus + Grafana</h4>
+            <p>Built observability stack for the churn pipeline: PSI/KS tests for feature drift, Prometheus metrics for DAG execution health, Grafana dashboards for weekly model performance review.</p>
+            <div class="tl-tags"><span>Prometheus</span><span>Grafana</span><span>PSI</span><span>KS Test</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work learn">
+        <div class="tl-month-label">Nov</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>Feature Engineering — EWMA + Delta-EWMA</h4>
+            <p>Implemented sliding-window EWMA framework in SQL (3/6/12-month pivots). Added delta-EWMA features to detect short-term momentum shifts — these became the top SHAP-ranked predictors in the final model.</p>
+            <div class="tl-tags"><span>PostgreSQL</span><span>EWMA</span><span>Feature Engineering</span><span>SQL</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work learn">
+        <div class="tl-month-label">Oct</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>Airflow DAG Architecture Design</h4>
+            <p>Designed 5-DAG Airflow pipeline orchestrated on Kubernetes with weekly execution. Defined DAG isolation strategy to enable parallel EDA, data quality checks, and scoring without inter-DAG blocking.</p>
+            <div class="tl-tags"><span>Airflow</span><span>Kubernetes</span><span>Pipeline Architecture</span></div>
+          </div>
+          <div class="tl-entry" data-type="learn">
+            <span class="tl-entry-type type-learn">📚 Learning</span>
+            <h4>Learning Kubernetes Orchestration</h4>
+            <p>Studied K8s fundamentals for data pipeline orchestration — pods, deployments, resource limits, and scheduling. Applied to configure Airflow workers for the production churn pipeline.</p>
+            <div class="tl-tags"><span>Kubernetes</span><span>Docker</span><span>Infrastructure</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work">
+        <div class="tl-month-label">Sep</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>Semi-supervised Labeling Strategy</h4>
+            <p>Designed the semi-supervised labeling approach for dataset preparation: prototype selection + label propagation to handle sparse ground-truth churn labels in historical BCCP data.</p>
+            <div class="tl-tags"><span>Semi-supervised Learning</span><span>Label Propagation</span><span>Python</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work learn pub">
+        <div class="tl-month-label">Aug</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="pub">
+            <span class="tl-entry-type type-pub">📄 Publication</span>
+            <h4>IEEE Access Paper Published Online</h4>
+            <p>
+              "Hierarchical Embedded System Based on FPGA for Classification of Respiratory Diseases" published in
+              <strong>IEEE Access</strong>, vol. 13, pp. 93017–93032, 2025.
+              DOI: <a href="https://doi.org/10.1109/ACCESS.2025.3573162" target="_blank" rel="noreferrer" style="color:var(--green)">10.1109/ACCESS.2025.3573162</a>
+            </p>
+            <div class="tl-tags"><span>IEEE Access</span><span>Published</span><span>Random Forest</span><span>FPGA</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work project">
+        <div class="tl-month-label">Jul</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="project">
+            <span class="tl-entry-type type-project">🛠 Project</span>
+            <h4>Gold Price Forecasting Pipeline</h4>
+            <p>Built a modular time-series prediction system: multi-source ingestion (yfinance, FRED, EIA), 3-layer PostgreSQL architecture (raw → staging → features), 70+ window-function features, Optuna hyperparameter search, TimeSeriesSplit CV.</p>
+            <div class="tl-tags"><span>XGBoost</span><span>LightGBM</span><span>PostgreSQL</span><span>Optuna</span><span>yfinance</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work learn">
+        <div class="tl-month-label">Jun</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>Data Ingestion Pipeline — BCCP System</h4>
+            <p>Built automated ingestion pipeline that scans ZIP files weekly from the BCCP system. Implemented schema validation, duplicate detection, outlier handling (IQR/domain rules), and clean record loading into PostgreSQL.</p>
+            <div class="tl-tags"><span>Python</span><span>PostgreSQL</span><span>ETL</span><span>Pydantic</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="work learn">
+        <div class="tl-month-label">May</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Work</span>
+            <h4>Onboarding at Vietnam Post — AI Technology Department</h4>
+            <p>Joined Vietnam Post as Data Scientist. First weeks: understanding the business domain (B2B delivery services), exploring BCCP data, and scoping the churn prediction problem with stakeholders.</p>
+            <div class="tl-tags"><span>Vietnam Post</span><span>B2B</span><span>EDA</span><span>Domain Learning</span></div>
+          </div>
+          <div class="tl-entry" data-type="learn">
+            <span class="tl-entry-type type-learn">📚 Learning</span>
+            <h4>Deepening XGBoost Internals</h4>
+            <p>Studied XGBoost's sample-weighted loss, regularization parameters, and gain-based feature importance computation. Applied learnings to configure the churn model for imbalanced B2B data.</p>
+            <div class="tl-tags"><span>XGBoost</span><span>Gradient Boosting</span><span>ML Theory</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="award pub">
+        <div class="tl-month-label">Feb</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="award">
+            <span class="tl-entry-type type-award">🏆 Award</span>
+            <h4>Best Graduation Thesis — HUST Defense Committee</h4>
+            <p>Graduation thesis "AI-based Respiratory Disease Diagnosis System using FPGA integrated circuits" was recognized as the Best Graduation Thesis by the HUST SEEE defense committee.</p>
+            <div class="tl-tags"><span>HUST</span><span>FPGA</span><span>Best Thesis</span><span>AI</span></div>
+          </div>
+          <div class="tl-entry" data-type="learn">
+            <span class="tl-entry-type type-learn">📚 Milestone</span>
+            <h4>Graduated from HUST</h4>
+            <p>Completed B.Eng. in Electronics and Telecommunication Engineering at Hanoi University of Science and Technology (SEEE). CPA: 3.0. 4.5 years of engineering foundations, signal processing, embedded systems, and AI.</p>
+            <div class="tl-tags"><span>HUST</span><span>B.Eng.</span><span>SEEE</span><span>Graduation</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════ 2024 ═══════════════════ -->
+    <div class="tl-year-block reveal">
+      <div class="tl-year-label">2024</div>
+
+      <div class="tl-month-block" data-types="award learn">
+        <div class="tl-month-label">Dec</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="award">
+            <span class="tl-entry-type type-award">🏆 Award</span>
+            <h4>1st Prize — HUST Scientific Research Award</h4>
+            <p>Received 1st Prize at the HUST Scientific Research Award for work on the hierarchical respiratory disease classification system.</p>
+            <div class="tl-tags"><span>HUST</span><span>Research Award</span><span>1st Prize</span></div>
+          </div>
+          <div class="tl-entry" data-type="award">
+            <span class="tl-entry-type type-award">🏆 Award</span>
+            <h4>1st Potential Award — SEEE Research Competition</h4>
+            <p>Awarded 1st Potential Prize at the HUST School of Electrical and Electronic Engineering (SEEE) research competition.</p>
+            <div class="tl-tags"><span>SEEE</span><span>Research Competition</span><span>HUST</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="learn work">
+        <div class="tl-month-label">Nov</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Research</span>
+            <h4>EDABK Lab — Model Evaluation &amp; Paper Writing</h4>
+            <p>Analyzed classification performance of the multi-class Random Forest model across 5 disease classes. Contributed to the manuscript for IEEE Access submission — finalized methodology and results sections.</p>
+            <div class="tl-tags"><span>Random Forest</span><span>scikit-learn</span><span>IEEE</span><span>Academic Writing</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="learn work">
+        <div class="tl-month-label">Aug</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Research</span>
+            <h4>Frame-Level Feature Engineering (Layers 2 &amp; 3)</h4>
+            <p>Contributed frame-level feature computation: ZCR and statistical descriptors (mean, std, skewness, kurtosis) over non-overlapping 20ms frames (Layer 2) and overlapping 35ms frames with 50% overlap (Layer 3).</p>
+            <div class="tl-tags"><span>Signal Processing</span><span>Python</span><span>NumPy</span><span>Feature Engineering</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="award">
+        <div class="tl-month-label">May</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="award">
+            <span class="tl-entry-type type-award">🏆 Award</span>
+            <h4>3rd Prize — Youth Creative Science Contest</h4>
+            <p>Received 3rd Prize at the Youth Creative Science Contest for work related to the AI-based respiratory disease classification research.</p>
+            <div class="tl-tags"><span>Science Contest</span><span>AI</span><span>3rd Prize</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════ 2023 ═══════════════════ -->
+    <div class="tl-year-block reveal">
+      <div class="tl-year-label">2023</div>
+
+      <div class="tl-month-block" data-types="work learn">
+        <div class="tl-month-label">Jul</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Research</span>
+            <h4>Joined EDABK Laboratory — HUST</h4>
+            <p>Joined EDABK Laboratory as Research Assistant on a team project. Started working on the hierarchical embedded system for respiratory disease classification — focusing on recording-level feature engineering (Layer 1).</p>
+            <div class="tl-tags"><span>EDABK Lab</span><span>HUST</span><span>Research</span><span>Signal Processing</span></div>
+          </div>
+          <div class="tl-entry" data-type="work">
+            <span class="tl-entry-type type-work">💼 Research</span>
+            <h4>Recording-Level Feature Engineering (Layer 1)</h4>
+            <p>Computed recording-level features per patient: Root Mean Square Energy (RMSE), Extreme Energy Difference (EED), Temporal Centroid, Log Attack Time, and amplitude statistics (mean, variance, min/max, histogram).</p>
+            <div class="tl-tags"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Audio Features</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-month-block" data-types="learn">
+        <div class="tl-month-label">Mar</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="learn">
+            <span class="tl-entry-type type-learn">📚 Learning</span>
+            <h4>Machine Learning Foundations</h4>
+            <p>Self-studied core ML algorithms: decision trees, ensemble methods (Random Forest, Gradient Boosting), model evaluation (cross-validation, precision/recall/AUC), and introductory feature engineering. Beginning Python for data science.</p>
+            <div class="tl-tags"><span>Python</span><span>scikit-learn</span><span>ML Fundamentals</span><span>Pandas</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════ 2020 ═══════════════════ -->
+    <div class="tl-year-block reveal">
+      <div class="tl-year-label">2020</div>
+
+      <div class="tl-month-block" data-types="learn">
+        <div class="tl-month-label">Oct</div>
+        <div class="tl-entries">
+          <div class="tl-entry" data-type="learn">
+            <span class="tl-entry-type type-learn">📚 Milestone</span>
+            <h4>Started B.Eng. at HUST — School of EEE</h4>
+            <p>Enrolled in B.Eng. Electronics and Telecommunication Engineering at Hanoi University of Science and Technology (SEEE). Began a 4.5-year journey through digital circuits, signal processing, embedded systems, and AI fundamentals.</p>
+            <div class="tl-tags"><span>HUST</span><span>B.Eng.</span><span>Electronics</span><span>Telecom</span><span>SEEE</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── Update Guide ── -->
+  <section class="container section" style="padding-top:0">
+    <article class="card reveal" style="border-color: var(--line-strong);">
+      <h3>📋 How to update this timeline</h3>
+      <p style="margin-top:12px">
+        Every month, add a new <code>&lt;div class="tl-month-block"&gt;</code> block inside the correct year section.
+        Set <code>data-types</code> to all entry types in that month (space-separated: <code>work learn award pub project</code>).
+        The filter buttons will automatically pick them up.
+      </p>
+      <div class="tag-row" style="margin-top:14px">
+        <span class="tag">type-work → 💼 Work</span>
+        <span class="tag">type-learn → 📚 Learning</span>
+        <span class="tag">type-award → 🏆 Award</span>
+        <span class="tag">type-pub → 📄 Publication</span>
+        <span class="tag">type-project → 🛠 Project</span>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span>© <span data-year></span> Nguyen Anh Phuong</span>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

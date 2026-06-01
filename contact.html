@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Nguyen Anh Phuong — Data Scientist open to research and industry roles.">
+  <title>Contact | Nguyen Anh Phuong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container navbar">
+    <a class="brand" href="index.html">
+      <span class="logo">AP</span>
+      <span>Nguyen Anh Phuong<small>Data Scientist</small></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false">Menu</button>
+    <nav class="nav" data-nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="about.html">About</a>
+      <a class="active" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="container hero">
+  <div class="reveal">
+    <p class="kicker">Contact</p>
+    <h1><span class="gradient-text">Open to Data Science</span> roles and collaborations.</h1>
+    <p class="hero-text">
+      For recruiter conversations, research collaborations, or portfolio feedback —
+      reach me by email or any of the channels below.
+    </p>
+    <div class="contact-box" style="margin-top:28px">
+      <a class="contact-item" href="mailto:phuong.na200480@gmail.com" id="contact-email">
+        <span class="logo" style="font-size:.8rem">@</span>
+        <span><strong>Email</strong><span>phuong.na200480@gmail.com</span></span>
+      </a>
+      <a class="contact-item" href="tel:+84989281069" id="contact-phone">
+        <span class="logo" style="font-size:.78rem">📞</span>
+        <span><strong>Phone</strong><span>(+84) 989 281 069</span></span>
+      </a>
+      <a class="contact-item" href="https://www.linkedin.com/in/phuong-nguyen-anh-873668355/" target="_blank" rel="noreferrer" id="contact-linkedin">
+        <span class="logo" style="font-size:.72rem">in</span>
+        <span><strong>LinkedIn</strong><span>linkedin.com/in/phuong-nguyen-anh-873668355</span></span>
+      </a>
+      <a class="contact-item" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer" id="contact-github">
+        <span class="logo" style="font-size:.72rem">GH</span>
+        <span><strong>GitHub</strong><span>github.com/FindingAnAn</span></span>
+      </a>
+    </div>
+  </div>
+
+  <form class="card form reveal" id="contact-form"
+        action="mailto:phuong.na200480@gmail.com?subject=Data%20Science%20Portfolio%20Contact"
+        method="post" enctype="text/plain">
+    <h2>Send a message</h2>
+    <label>Name<input id="form-name" name="name" placeholder="Your name"></label>
+    <label>Email<input id="form-email" type="email" name="email" placeholder="you@example.com"></label>
+    <label>Message<textarea id="form-message" name="message" rows="7" placeholder="Tell me about the role or project"></textarea></label>
+    <button class="btn btn-primary btn-block" type="submit">Send Message</button>
+    <p>This form opens your email client. You can also email me directly at <a href="mailto:phuong.na200480@gmail.com" style="color:var(--green)">phuong.na200480@gmail.com</a>.</p>
+  </form>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span>© <span data-year></span> Nguyen Anh Phuong</span>
+    <a href="projects.html">Projects</a>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

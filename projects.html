@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Data science projects by Nguyen Anh Phuong — Customer Churn Prediction, Gold Price Forecasting, IEEE research.">
+  <title>Projects | Nguyen Anh Phuong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container navbar">
+    <a class="brand" href="index.html">
+      <span class="logo">AP</span>
+      <span>Nguyen Anh Phuong<small>Data Scientist</small></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false">Menu</button>
+    <nav class="nav" data-nav>
+      <a href="index.html">Home</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="container case-hero reveal">
+    <p class="kicker">Project Portfolio</p>
+    <h1><span class="gradient-text">Production ML systems</span> built from scratch.</h1>
+    <p class="hero-text">Each project documents the full lifecycle: business framing, data engineering, feature design, model validation, explainability, and monitoring.</p>
+  </section>
+
+  <section class="container section">
+    <div class="grid-2">
+
+      <!-- 01: Churn -->
+      <article class="card project-card reveal">
+        <div class="project-visual">
+          <div class="stat-grid">
+            <div class="stat"><span>AUC</span><b>0.842</b><em>production</em></div>
+            <div class="stat"><span>Lift@10%</span><b>3.2×</b><em>targeting</em></div>
+            <div class="stat"><span>PSI</span><b>0.08</b><em>stable</em></div>
+            <div class="stat"><span>Cycle</span><b>Weekly</b><em>batch</em></div>
+          </div>
+        </div>
+        <div class="project-copy">
+          <h3>01 · Customer Churn Prediction System</h3>
+          <p>End-to-end B2B churn scoring at Vietnam Post: 70+ engineered features across 10 feature groups, 5-DAG Airflow on Kubernetes, SHAP top-3 risk drivers per customer, PSI/KS drift monitoring.</p>
+          <ul>
+            <li><strong>Problem:</strong> Identify B2B delivery customers at risk of churning or >50% volume decline.</li>
+            <li><strong>Approach:</strong> EWMA + delta-EWMA sliding-window feature engineering; walk-forward CV; semi-supervised labeling; sample-weighted XGBoost.</li>
+            <li><strong>Outcome:</strong> Weekly top-10% at-risk CSV export with SHAP-derived retention drivers.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">XGBoost</span><span class="tag">PostgreSQL</span><span class="tag">Airflow</span>
+            <span class="tag">Kubernetes</span><span class="tag">Prometheus</span><span class="tag">Grafana</span>
+          </div>
+          <p style="margin-top:18px"><a class="btn btn-primary" href="case-study-churn.html">Open full case</a></p>
+        </div>
+      </article>
+
+      <!-- 02: Gold Price -->
+      <article class="card project-card reveal">
+        <div class="project-visual">
+          <div class="chart-card">
+            <div class="chart-head"><strong>Model Comparison</strong><span>TimeSeriesSplit CV</span></div>
+            <div class="bar-row"><span>XGBoost R²</span><div class="bar"><i style="--w:84%"></i></div><b>0.84</b></div>
+            <div class="bar-row"><span>LightGBM R²</span><div class="bar"><i style="--w:79%"></i></div><b>0.79</b></div>
+            <div class="bar-row"><span>Ridge R²</span><div class="bar"><i style="--w:64%"></i></div><b>0.64</b></div>
+            <div class="bar-row"><span>Naive baseline R²</span><div class="bar"><i style="--w:31%"></i></div><b>0.31</b></div>
+          </div>
+        </div>
+        <div class="project-copy">
+          <h3>02 · Gold Price Forecasting Pipeline</h3>
+          <p>Modular time-series prediction system integrating multi-source financial data (yfinance, FRED, EIA) into a 3-layer PostgreSQL architecture with 70+ window-function features.</p>
+          <ul>
+            <li><strong>Problem:</strong> Daily gold price forecasting with interpretable feature signals.</li>
+            <li><strong>Approach:</strong> 70+ features across 8 groups (financial, macro, technical, sentiment); Optuna hyperparameter search; TimeSeriesSplit CV to prevent leakage.</li>
+            <li><strong>Outcome:</strong> Best model persisted with prediction logging for drift detection and retraining triggers.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">Optuna</span>
+            <span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">yfinance</span>
+          </div>
+          <p style="margin-top:18px"><a class="btn btn-primary" href="case-study-gold.html">Open full case</a></p>
+        </div>
+      </article>
+
+      <!-- 03: IEEE Research -->
+      <article class="card project-card reveal">
+        <div class="project-visual">
+          <div class="stat-grid">
+            <div class="stat"><span>Accuracy</span><b>98.81%</b><em>5-class</em></div>
+            <div class="stat"><span>Classes</span><b>5</b><em>diseases</em></div>
+            <div class="stat"><span>Layers</span><b>3</b><em>hierarchical</em></div>
+            <div class="stat"><span>Published</span><b>2025</b><em>IEEE Access</em></div>
+          </div>
+        </div>
+        <div class="project-copy">
+          <h3>03 · Respiratory Disease Classification (IEEE Access 2025)</h3>
+          <p>Hierarchical embedded system for classifying 5 respiratory diseases using FPGA-integrated Random Forest models — published IEEE Access 2025. 98.81% accuracy across Healthy, COPD, URTI, Bronchitis, and Pneumonia.</p>
+          <ul>
+            <li>Recording-level features (Layer 1): RMSE, EED, Temporal Centroid, Log Attack Time, amplitude statistics.</li>
+            <li>Frame-level features (Layers 2 &amp; 3): ZCR, mean, std, skewness, kurtosis over 20ms and 35ms overlapping frames.</li>
+            <li>3-layer hierarchical architecture — 98.81% overall accuracy on FPGA platform.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">Random Forest</span><span class="tag">scikit-learn</span>
+            <span class="tag">FPGA</span><span class="tag">Signal Processing</span><span class="tag">IEEE Access</span>
+          </div>
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="case-study-edabk.html">Read Case Study</a>
+            <a class="btn btn-ghost" href="https://doi.org/10.1109/ACCESS.2025.3573162" target="_blank" rel="noreferrer">View on IEEE →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04: Graduation Thesis -->
+      <article class="card project-card reveal">
+        <div class="project-visual">
+          <div class="pipeline">
+            <div class="pipeline-step"><span>01</span><b>Audio</b><small>Respiratory sound input</small></div>
+            <div class="pipeline-step"><span>02</span><b>Features</b><small>MFCC, ZCR, energy</small></div>
+            <div class="pipeline-step"><span>03</span><b>AI Model</b><small>Trained classifier</small></div>
+            <div class="pipeline-step"><span>04</span><b>FPGA</b><small>On-chip inference</small></div>
+            <div class="pipeline-step"><span>05</span><b>Output</b><small>Disease label</small></div>
+          </div>
+        </div>
+        <div class="project-copy">
+          <h3>04 · Graduation Thesis — Best Thesis Award</h3>
+          <p>AI-based Respiratory Disease Diagnosis System using FPGA integrated circuits. Awarded <strong style="color:var(--green)">Best Graduation Thesis</strong> by the HUST defense committee.</p>
+          <ul>
+            <li>Designed end-to-end inference pipeline from audio capture to on-device FPGA classification.</li>
+            <li>Implemented feature extraction and model compression for embedded deployment.</li>
+            <li>Evaluated across 5 disease classes with high accuracy on hardware-constrained platform.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">FPGA</span><span class="tag">Python</span><span class="tag">Embedded AI</span>
+            <span class="tag">Signal Processing</span><span class="tag">HUST SEEE</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span>© <span data-year></span> Nguyen Anh Phuong</span>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

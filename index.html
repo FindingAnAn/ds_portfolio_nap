@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nguyen Anh Phuong — Data Scientist portfolio. ML pipelines, XGBoost, Airflow, PostgreSQL, feature engineering, and explainable AI.">
+  <title>Nguyen Anh Phuong | Data Scientist Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="logo">AP</span>
+        <span>Nguyen Anh Phuong<small>Data Scientist</small></span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false">Menu</button>
+      <nav class="nav" data-nav>
+        <a class="active" href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── Hero ── -->
+    <section class="container hero">
+      <div class="hero-copy reveal">
+        <p class="kicker">Data Science · Machine Learning · AI Engineering</p>
+        <h1><span class="gradient-text">Building ML systems</span> that turn messy data into decisions.</h1>
+        <p class="hero-text">
+          B.Eng. Electronics &amp; Telecom (HUST) · Data Scientist at Vietnam Post · IEEE Access published researcher.
+          Specializing in end-to-end ML pipelines, feature engineering, model validation, and production observability.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="projects.html">View Projects</a>
+          <a class="btn btn-ghost" href="case-study-churn.html">Open Churn Case Study</a>
+        </div>
+        <div class="hero-meta">
+          <span class="meta-pill"><strong>Vietnam Post</strong> Data Scientist</span>
+          <span class="meta-pill"><strong>Python / SQL</strong> core stack</span>
+          <span class="meta-pill"><strong>Airflow / K8s</strong> pipelines</span>
+          <span class="meta-pill"><strong>IEEE Access</strong> publication</span>
+        </div>
+      </div>
+
+      <div class="dashboard-shell reveal" aria-label="Simulated model monitoring dashboard">
+        <div class="window-bar">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span>churn_monitoring.py · Vietnam Post</span>
+        </div>
+        <div class="dash-content">
+          <div class="stat-grid">
+            <div class="stat"><span>AUC</span><b>0.842</b><em>production</em></div>
+            <div class="stat"><span>Recall</span><b>0.731</b><em>target met</em></div>
+            <div class="stat"><span>Lift @10%</span><b>3.2×</b><em>high value</em></div>
+            <div class="stat"><span>PSI Drift</span><b>0.08</b><em>stable</em></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><strong>Top Churn Drivers (SHAP gain)</strong><span>weekly export</span></div>
+            <div class="bar-row"><span>volume_ewma_delta</span><div class="bar"><i style="--w:91%"></i></div><b>0.44</b></div>
+            <div class="bar-row"><span>tenure_months</span><div class="bar"><i style="--w:74%"></i></div><b>0.36</b></div>
+            <div class="bar-row"><span>complaints_30d</span><div class="bar"><i style="--w:62%"></i></div><b>0.30</b></div>
+            <div class="bar-row"><span>late_delivery_rate</span><div class="bar"><i style="--w:48%"></i></div><b>0.23</b></div>
+          </div>
+          <div class="mini-panels">
+            <div class="chart-card">
+              <div class="chart-head"><strong>Confusion Matrix</strong><span>threshold .42</span></div>
+              <div class="confusion">
+                <div class="cell good"><div><b>4,820</b><span>True Neg</span></div></div>
+                <div class="cell warn"><div><b>612</b><span>False Pos</span></div></div>
+                <div class="cell warn"><div><b>358</b><span>False Neg</span></div></div>
+                <div class="cell good"><div><b>972</b><span>True Pos</span></div></div>
+              </div>
+            </div>
+            <div class="chart-card">
+              <div class="chart-head"><strong>At-Risk Customers</strong><span>top 10% export</span></div>
+              <table class="mock-table">
+                <tr><th>Customer</th><th>Risk</th><th>Driver</th></tr>
+                <tr><td>B2B-1024</td><td><span class="score high">0.87</span></td><td>volume drop</td></tr>
+                <tr><td>B2B-1841</td><td><span class="score mid">0.61</span></td><td>complaints</td></tr>
+                <tr><td>B2B-2027</td><td><span class="score low">0.19</span></td><td>stable</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Portfolio Overview ── -->
+    <section class="container section">
+      <div class="section-top reveal">
+        <div><p class="kicker">Portfolio Structure</p><h2>End-to-end ML — from raw data to production.</h2></div>
+        <p>Each project covers the full lifecycle: business framing, data engineering, feature design, model training, validation, explainability, and monitoring.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card reveal">
+          <div class="card-icon">01</div>
+          <h3>Business-first framing</h3>
+          <p>Every project starts with the business decision: who to target, what risk to reduce, and how model output drives action.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">02</div>
+          <h3>Production-grade pipelines</h3>
+          <p>5-DAG Airflow orchestration on Kubernetes, PostgreSQL feature stores, weekly batch scoring, Prometheus/Grafana observability.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">03</div>
+          <h3>Rigorous validation</h3>
+          <p>Walk-forward expanding-window CV, leakage-free preprocessing, PSI/KS drift tests, 105 unit tests, Pydantic config validation.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── Featured Projects ── -->
+    <section class="container section">
+      <div class="section-top reveal">
+        <div><p class="kicker">Featured Projects</p><h2>Real systems, real problems.</h2></div>
+        <a class="btn btn-ghost" href="projects.html">See all projects</a>
+      </div>
+      <div class="grid-2">
+        <!-- Churn -->
+        <article class="card project-card reveal">
+          <div class="project-visual">
+            <div class="pipeline">
+              <div class="pipeline-step"><span>01</span><b>Ingest</b><small>BCCP ZIP · weekly</small></div>
+              <div class="pipeline-step"><span>02</span><b>Features</b><small>70+ EWMA signals</small></div>
+              <div class="pipeline-step"><span>03</span><b>Train</b><small>XGBoost · walk-forward CV</small></div>
+              <div class="pipeline-step"><span>04</span><b>Score</b><small>Top 10% at-risk</small></div>
+              <div class="pipeline-step"><span>05</span><b>Monitor</b><small>PSI · Grafana</small></div>
+            </div>
+          </div>
+          <div class="project-copy">
+            <h3>Customer Churn Prediction</h3>
+            <p>End-to-end B2B churn scoring at Vietnam Post — 70+ features, 5-DAG Airflow on Kubernetes, SHAP explainability, drift monitoring.</p>
+            <div class="metrics">
+              <div class="metric"><span>AUC</span><b>0.842</b></div>
+              <div class="metric"><span>Lift</span><b>3.2×</b></div>
+              <div class="metric"><span>Tests</span><b>105 unit</b></div>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Airflow</span><span class="tag">PostgreSQL</span><span class="tag">Kubernetes</span>
+            </div>
+            <p style="margin-top:18px"><a class="btn btn-primary" href="case-study-churn.html">Read Case Study</a></p>
+          </div>
+        </article>
+
+        <!-- Gold Price -->
+        <article class="card project-card reveal">
+          <div class="project-visual">
+            <div class="chart-card">
+              <div class="chart-head"><strong>Gold Price Model Metrics</strong><span>time-series CV</span></div>
+              <div class="bar-row"><span>XGBoost R²</span><div class="bar"><i style="--w:84%"></i></div><b>0.84</b></div>
+              <div class="bar-row"><span>LightGBM R²</span><div class="bar"><i style="--w:79%"></i></div><b>0.79</b></div>
+              <div class="bar-row"><span>Ridge R²</span><div class="bar"><i style="--w:64%"></i></div><b>0.64</b></div>
+              <div class="bar-row"><span>MAE (best)</span><div class="bar"><i style="--w:52%"></i></div><b>~18k</b></div>
+            </div>
+          </div>
+          <div class="project-copy">
+            <h3>Gold Price Forecasting Pipeline</h3>
+            <p>Modular time-series system integrating multi-source financial data (yfinance, FRED, EIA) into a 3-layer PostgreSQL architecture with 70+ engineered features.</p>
+            <div class="metrics">
+              <div class="metric"><span>Features</span><b>70+</b></div>
+              <div class="metric"><span>Models</span><b>5 families</b></div>
+              <div class="metric"><span>CV</span><b>TimeSeriesSplit</b></div>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">PostgreSQL</span><span class="tag">Optuna</span>
+            </div>
+            <p style="margin-top:18px"><a class="btn btn-primary" href="case-study-gold.html">Read Case Study</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── Skills Stack ── -->
+    <section class="container section">
+      <div class="section-top reveal">
+        <div><p class="kicker">Technical Stack</p><h2>Tools I build reliable systems with.</h2></div>
+      </div>
+      <div class="grid-3">
+        <article class="card reveal">
+          <h3>Modeling &amp; ML</h3>
+          <ul>
+            <li>XGBoost, LightGBM, Random Forest, Logistic Regression</li>
+            <li>Walk-forward CV, sample-weighted loss, calibration</li>
+            <li>SHAP explainability, feature importance, drift detection (PSI/KS)</li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <h3>Data Engineering</h3>
+          <ul>
+            <li>PostgreSQL — window functions, CTEs, schema design</li>
+            <li>Airflow 5-DAG orchestration on Kubernetes</li>
+            <li>Pydantic validation, 105 unit tests (pytest), ETL pipelines</li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <h3>Observability &amp; Research</h3>
+          <ul>
+            <li>Prometheus metrics, Grafana dashboards, structured logging</li>
+            <li>FPGA-based AI systems (IEEE Access 2025 publication)</li>
+            <li>Signal feature engineering: RMSE, ZCR, EWMA, temporal centroid</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© <span data-year></span> Nguyen Anh Phuong · Data Scientist</span>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
