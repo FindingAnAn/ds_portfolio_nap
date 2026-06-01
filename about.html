@@ -1,192 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About Nguyen Anh Phuong — B.Eng. HUST, Data Scientist at Vietnam Post, IEEE Access researcher.">
+  <meta name="description"
+    content="About Nguyen Anh Phuong — B.Eng. HUST, Data Scientist at Vietnam Post, IEEE Access researcher.">
   <title>About | Nguyen Anh Phuong</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<header class="header">
-  <div class="container navbar">
-    <a class="brand" href="index.html">
-      <span class="logo">AP</span>
-      <span>Nguyen Anh Phuong<small>Data Scientist</small></span>
-    </a>
-    <button class="nav-toggle" data-nav-toggle aria-expanded="false">Menu</button>
-    <nav class="nav" data-nav>
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="timeline.html">Timeline</a>
-      <a class="active" href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="container case-hero reveal">
-    <p class="kicker">About</p>
-    <h1><span class="gradient-text">Electronics engineer</span> turned Data Scientist.</h1>
-    <p class="hero-text">
-      I am Nguyen Anh Phuong, based in Bach Mai, Hanoi. B.Eng. in Electronics &amp; Telecommunication Engineering (HUST, 2025)
-      — Best Graduation Thesis award. Now building production ML systems at Vietnam Post's AI Technology Department.
-    </p>
-  </section>
-
-  <section class="container section about-split">
-    <!-- Left: Profile -->
-    <article class="card reveal">
-      <h2>Profile</h2>
-      <p style="margin-top:16px">
-        I like data science work that connects rigorous engineering with clear business outcomes.
-        A good ML system should be measurable, explainable, resilient under distribution shift,
-        and actually useful for the people who make decisions.
-      </p>
-      <div class="tag-row" style="margin-top:20px">
-        <span class="tag">Bach Mai, Hanoi</span>
-        <span class="tag">Data Science</span>
-        <span class="tag">Machine Learning</span>
-        <span class="tag">FPGA / Embedded AI</span>
-        <span class="tag">IEEE Author</span>
-      </div>
-
-      <div style="margin-top:28px">
-        <h3 style="margin-bottom:16px">Contact</h3>
-        <div class="contact-box">
-          <a class="contact-item" href="mailto:phuong.na200480@gmail.com">
-            <span class="logo" style="font-size:.8rem">@</span>
-            <span><strong>Email</strong><span>phuong.na200480@gmail.com</span></span>
-          </a>
-          <a class="contact-item" href="https://www.linkedin.com/in/phuong-nguyen-anh-873668355/" target="_blank" rel="noreferrer">
-            <span class="logo" style="font-size:.72rem">in</span>
-            <span><strong>LinkedIn</strong><span>phuong-nguyen-anh-873668355</span></span>
-          </a>
-          <a class="contact-item" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer">
-            <span class="logo" style="font-size:.72rem">GH</span>
-            <span><strong>GitHub</strong><span>github.com/FindingAnAn</span></span>
-          </a>
-        </div>
-      </div>
-
-      <div style="margin-top:28px">
-        <h3 style="margin-bottom:12px">Awards &amp; Honors</h3>
-        <div class="kpi-list">
-          <div class="kpi"><span>Best Graduation Thesis — HUST Defense Committee</span><b>Feb 2025</b></div>
-          <div class="kpi"><span>1st Prize, HUST Scientific Research Award</span><b>Dec 2024</b></div>
-          <div class="kpi"><span>1st Potential Award, SEEE Research Competition</span><b>Dec 2024</b></div>
-          <div class="kpi"><span>3rd Prize, Youth Creative Science Contest</span><b>May 2024</b></div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Right: Experience + Education + Skills -->
-    <div class="case-body">
-
-      <!-- Education -->
-      <article class="card reveal">
-        <h2>Education</h2>
-        <div class="timeline" style="margin-top:16px">
-          <div class="timeline-item">
-            <div class="timeline-num">🎓</div>
-            <div>
-              <h3>Hanoi University of Science and Technology (HUST)</h3>
-              <p style="margin-top:4px"><strong style="color:var(--soft)">B.Eng. Electronics &amp; Telecommunication — SEEE</strong></p>
-              <p>Oct 2020 – Feb 2025 · CPA 3.0</p>
-              <p style="margin-top:8px">
-                Graduation Thesis: <em>AI-based Respiratory Disease Diagnosis System using FPGA integrated circuits</em>
-                — recognized with <strong style="color:var(--green)">Best Graduation Thesis</strong> award by the defense committee.
-              </p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Experience -->
-      <article class="card reveal">
-        <h2>Experience</h2>
-        <div class="timeline" style="margin-top:16px">
-
-          <div class="timeline-item">
-            <div class="timeline-num">01</div>
-            <div>
-              <h3>Vietnam Post</h3>
-              <p style="margin-top:4px"><strong style="color:var(--soft)">Data Scientist, AI Technology Department</strong> · Mar 2025 – Present</p>
-              <p style="margin-top:8px">
-                Designed, built, and deployed a production ML pipeline predicting B2B customer churn risk
-                and significant volume decline covering 70+ engineered features across 10 feature groups.
-                5-DAG Airflow orchestration on Kubernetes, Prometheus/Grafana observability, 105 unit tests.
-              </p>
-              <div class="tag-row"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Airflow</span><span class="tag">Kubernetes</span><span class="tag">PostgreSQL</span><span class="tag">Optuna</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-num">02</div>
-            <div>
-              <h3>EDABK Laboratory — HUST</h3>
-              <p style="margin-top:4px"><strong style="color:var(--soft)">Research Assistant (Team Project)</strong> · Jul 2023 – Feb 2025</p>
-              <p style="margin-top:8px">
-                Contributed to a hierarchical embedded system for respiratory disease classification published in
-                <strong style="color:var(--green)">IEEE Access (2025)</strong> — DOI: 10.1109/ACCESS.2025.3573162.
-                Implemented recording-level and frame-level feature engineering; final system achieved 98.81% accuracy.
-              </p>
-              <div class="tag-row"><span class="tag">Python</span><span class="tag">Random Forest</span><span class="tag">scikit-learn</span><span class="tag">Signal Processing</span><span class="tag">FPGA</span></div>
-            </div>
-          </div>
-
-        </div>
-      </article>
-
-      <!-- Skills -->
-      <article class="card reveal">
-        <h2>Skills</h2>
-        <div class="kpi-list" style="margin-top:16px">
-          <div class="kpi">
-            <span><strong style="color:var(--soft)">Programming</strong></span>
-            <b style="font-weight:700;font-size:.88rem">Python, SQL (PostgreSQL, window functions, CTEs), Git</b>
-          </div>
-          <div class="kpi">
-            <span><strong style="color:var(--soft)">ML &amp; AI</strong></span>
-            <b style="font-weight:700;font-size:.88rem">XGBoost, LightGBM, Random Forest, Optuna, EWMA, scikit-learn</b>
-          </div>
-          <div class="kpi">
-            <span><strong style="color:var(--soft)">Data Engineering</strong></span>
-            <b style="font-weight:700;font-size:.88rem">ETL, Airflow, K8s, Pydantic, pytest (105 unit tests)</b>
-          </div>
-          <div class="kpi">
-            <span><strong style="color:var(--soft)">Analysis</strong></span>
-            <b style="font-weight:700;font-size:.88rem">EDA, PSI/KS drift, Pandas, NumPy, Matplotlib, SHAP</b>
-          </div>
-        </div>
-      </article>
-
-      <!-- Publication -->
-      <article class="card reveal">
-        <h2>Publication</h2>
-        <p style="margin-top:14px;line-height:1.8">
-          T.-T. Han, K. Le Trung, <strong>P. Nguyen Anh</strong> and A. Do Trung,
-          <em>"Hierarchical Embedded System Based on FPGA for Classification of Respiratory Diseases,"</em>
-          <strong style="color:var(--green)">IEEE Access</strong>, vol. 13, pp. 93017–93032, 2025.
-          <a href="https://doi.org/10.1109/ACCESS.2025.3573162" target="_blank" rel="noreferrer"
-             style="color:var(--green);text-decoration:underline">DOI: 10.1109/ACCESS.2025.3573162</a>
-        </p>
-      </article>
-
+  <header class="header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <span class="logo">AP</span>
+        <span>Nguyen Anh Phuong<small>Data Scientist</small></span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false">Menu</button>
+      <nav class="nav" data-nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="timeline.html">Timeline</a>
+        <a class="active" href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer class="footer">
-  <div class="container">
-    <span>© <span data-year></span> Nguyen Anh Phuong</span>
-    <a href="contact.html">Contact</a>
-  </div>
-</footer>
-<script src="script.js"></script>
+  <main>
+    <section class="container case-hero reveal">
+      <p class="kicker">About</p>
+      <h1><span class="gradient-text">Electronics engineer</span> turned Data Scientist.</h1>
+      <p class="hero-text">
+        I am Nguyen Anh Phuong, based in Bach Mai, Hanoi. B.Eng. in Electronics &amp; Telecommunication Engineering
+        (HUST, 2025)
+        — Best Graduation Thesis award. Now building production ML systems at Vietnam Post's AI Technology Department.
+      </p>
+    </section>
+
+    <section class="container section about-split">
+      <!-- Left: Profile -->
+      <article class="card reveal">
+        <h2>Profile</h2>
+        <p style="margin-top:16px">
+          I like data science work that connects rigorous engineering with clear business outcomes.
+          A good ML system should be measurable, explainable, resilient under distribution shift,
+          and actually useful for the people who make decisions.
+        </p>
+        <div class="tag-row" style="margin-top:20px">
+          <span class="tag">Bach Mai, Hanoi</span>
+          <span class="tag">Data Science</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">FPGA / Embedded AI</span>
+          <span class="tag">IEEE Author</span>
+          <span class="tag">Google Scholar</span>
+        </div>
+
+        <div style="margin-top:28px">
+          <h3 style="margin-bottom:16px">Contact</h3>
+          <div class="contact-box">
+            <a class="contact-item" href="mailto:phuong.na200480@gmail.com">
+              <span class="logo" style="font-size:.8rem">@</span>
+              <span><strong>Email</strong><span>phuong.na200480@gmail.com</span></span>
+            </a>
+            <a class="contact-item" href="https://www.linkedin.com/in/phuong-nguyen-anh-873668355/" target="_blank"
+              rel="noreferrer">
+              <span class="logo" style="font-size:.72rem">in</span>
+              <span><strong>LinkedIn</strong><span>phuong-nguyen-anh-873668355</span></span>
+            </a>
+            <a class="contact-item" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer">
+              <span class="logo" style="font-size:.72rem">GH</span>
+              <span><strong>GitHub</strong><span>github.com/FindingAnAn</span></span>
+            </a>
+            <a class="contact-item" href="https://scholar.google.com.vn/citations?user=zt-q12kAAAAJ&hl=en" target="_blank" rel="noreferrer">
+              <span class="logo" style="font-size:.64rem">GS</span>
+              <span><strong>Google Scholar</strong><span>scholar.google.com.vn</span></span>
+            </a>
+          </div>
+        </div>
+
+        <div style="margin-top:28px">
+          <h3 style="margin-bottom:12px">Awards &amp; Honors</h3>
+          <div class="kpi-list">
+            <div class="kpi"><span>Best Graduation Thesis — HUST Defense Committee</span><b>Feb 2025</b></div>
+            <div class="kpi"><span>1st Prize, HUST Scientific Research Award</span><b>Dec 2024</b></div>
+            <div class="kpi"><span>1st Potential Award, SEEE Research Competition</span><b>Dec 2024</b></div>
+            <div class="kpi"><span>3rd Prize, Youth Creative Science Contest</span><b>May 2024</b></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Right: Experience + Education + Skills -->
+      <div class="case-body">
+
+        <!-- Education -->
+        <article class="card reveal">
+          <h2>Education</h2>
+          <div class="timeline" style="margin-top:16px">
+            <div class="timeline-item">
+              <div class="timeline-num">🎓</div>
+              <div>
+                <h3>Hanoi University of Science and Technology (HUST)</h3>
+                <p style="margin-top:4px"><strong style="color:var(--soft)">B.Eng. Electronics &amp; Telecommunication —
+                    SEEE</strong></p>
+                <p>Oct 2020 – Feb 2025 · CPA 3.0</p>
+                <p style="margin-top:8px">
+                  Graduation Thesis: <em>AI-based Respiratory Disease Diagnosis System using FPGA integrated
+                    circuits</em>
+                  — recognized with <strong style="color:var(--green)">Best Graduation Thesis</strong> award by the
+                  defense committee.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Experience -->
+        <article class="card reveal">
+          <h2>Experience</h2>
+          <div class="timeline" style="margin-top:16px">
+
+            <div class="timeline-item">
+              <div class="timeline-num">01</div>
+              <div>
+                <h3>Vietnam Post</h3>
+                <p style="margin-top:4px"><strong style="color:var(--soft)">Data Scientist, AI Technology
+                    Department</strong> · Mar 2025 – Present</p>
+                <p style="margin-top:8px">
+                  Designed, built, and deployed a production ML pipeline predicting B2B customer churn risk
+                  and significant volume decline covering 70+ engineered features across 10 feature groups.
+                  5-DAG Airflow orchestration on Kubernetes, Prometheus/Grafana observability, 105 unit tests.
+                </p>
+                <div class="tag-row"><span class="tag">Python</span><span class="tag">XGBoost</span><span
+                    class="tag">Airflow</span><span class="tag">Kubernetes</span><span
+                    class="tag">PostgreSQL</span><span class="tag">Optuna</span></div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-num">02</div>
+              <div>
+                <h3>EDABK Laboratory — HUST</h3>
+                <p style="margin-top:4px"><strong style="color:var(--soft)">Research Assistant (Team Project)</strong> ·
+                  Jul 2023 – Feb 2025</p>
+                <p style="margin-top:8px">
+                  Contributed to a hierarchical embedded system for respiratory disease classification published in
+                  <strong style="color:var(--green)">IEEE Access (2025)</strong> — DOI: 10.1109/ACCESS.2025.3573162.
+                  Implemented recording-level and frame-level feature engineering; final system achieved 98.81%
+                  accuracy.
+                </p>
+                <div class="tag-row"><span class="tag">Python</span><span class="tag">Random Forest</span><span
+                    class="tag">scikit-learn</span><span class="tag">Signal Processing</span><span
+                    class="tag">FPGA</span></div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Skills -->
+        <article class="card reveal">
+          <h2>Skills</h2>
+          <div class="kpi-list" style="margin-top:16px">
+            <div class="kpi">
+              <span><strong style="color:var(--soft)">Programming</strong></span>
+              <b style="font-weight:700;font-size:.88rem">Python, SQL (PostgreSQL, window functions, CTEs), Git</b>
+            </div>
+            <div class="kpi">
+              <span><strong style="color:var(--soft)">ML &amp; AI</strong></span>
+              <b style="font-weight:700;font-size:.88rem">XGBoost, LightGBM, Random Forest, Optuna, EWMA,
+                scikit-learn</b>
+            </div>
+            <div class="kpi">
+              <span><strong style="color:var(--soft)">Data Engineering</strong></span>
+              <b style="font-weight:700;font-size:.88rem">ETL, Airflow, K8s, Pydantic, pytest</b>
+            </div>
+            <div class="kpi">
+              <span><strong style="color:var(--soft)">Analysis</strong></span>
+              <b style="font-weight:700;font-size:.88rem">EDA, PSI/KS drift, Pandas, NumPy, Matplotlib, SHAP</b>
+            </div>
+          </div>
+        </article>
+
+        <!-- Publication -->
+        <article class="card reveal">
+          <h2>Publication</h2>
+          <p style="margin-top:14px;line-height:1.8">
+            T.-T. Han, K. Le Trung, <strong>P. Nguyen Anh</strong> and A. Do Trung,
+            <em>"Hierarchical Embedded System Based on FPGA for Classification of Respiratory Diseases,"</em>
+            <strong style="color:var(--green)">IEEE Access</strong>, vol. 13, pp. 93017–93032, 2025.
+            <a href="https://doi.org/10.1109/ACCESS.2025.3573162" target="_blank" rel="noreferrer"
+              style="color:var(--green);text-decoration:underline">DOI: 10.1109/ACCESS.2025.3573162</a>
+          </p>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© <span data-year></span> Nguyen Anh Phuong</span>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
+
 </html>

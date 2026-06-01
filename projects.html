@@ -31,40 +31,73 @@
 <main>
   <section class="container case-hero reveal">
     <p class="kicker">Project Portfolio</p>
-    <h1><span class="gradient-text">Production ML systems</span> built from scratch.</h1>
+    <h1><span class="gradient-text">Four real applied ML</span> project tracks.</h1>
     <p class="hero-text">Each project documents the full lifecycle: business framing, data engineering, feature design, model validation, explainability, and monitoring.</p>
   </section>
 
   <section class="container section">
     <div class="grid-2">
 
-      <!-- 01: Churn -->
+      <!-- 01: Churn v1 -->
       <article class="card project-card reveal">
         <div class="project-visual">
-          <div class="stat-grid">
-            <div class="stat"><span>AUC</span><b>0.842</b><em>production</em></div>
-            <div class="stat"><span>Lift@10%</span><b>3.2×</b><em>targeting</em></div>
-            <div class="stat"><span>PSI</span><b>0.08</b><em>stable</em></div>
-            <div class="stat"><span>Cycle</span><b>Weekly</b><em>batch</em></div>
+          <div class="pipeline">
+            <div class="pipeline-step"><span>01</span><b>Ingest</b><small>ZIP files, schema checks, manifest</small></div>
+            <div class="pipeline-step"><span>02</span><b>Features</b><small>Lifetime and sliding windows</small></div>
+            <div class="pipeline-step"><span>03</span><b>Train</b><small>XGBoost model promotion</small></div>
+            <div class="pipeline-step"><span>04</span><b>Score</b><small>Monthly risk export</small></div>
+            <div class="pipeline-step"><span>05</span><b>Monitor</b><small>PSI, KS, backtests</small></div>
           </div>
         </div>
         <div class="project-copy">
-          <h3>01 · Customer Churn Prediction System</h3>
-          <p>End-to-end B2B churn scoring at Vietnam Post: 70+ engineered features across 10 feature groups, 5-DAG Airflow on Kubernetes, SHAP top-3 risk drivers per customer, PSI/KS drift monitoring.</p>
-          <ul>
-            <li><strong>Problem:</strong> Identify B2B delivery customers at risk of churning or >50% volume decline.</li>
-            <li><strong>Approach:</strong> EWMA + delta-EWMA sliding-window feature engineering; walk-forward CV; semi-supervised labeling; sample-weighted XGBoost.</li>
-            <li><strong>Outcome:</strong> Weekly top-10% at-risk CSV export with SHAP-derived retention drivers.</li>
-          </ul>
-          <div class="tag-row">
-            <span class="tag">XGBoost</span><span class="tag">PostgreSQL</span><span class="tag">Airflow</span>
-            <span class="tag">Kubernetes</span><span class="tag">Prometheus</span><span class="tag">Grafana</span>
+          <h3>VNPost Churn Prediction System</h3>
+          <p>Airflow-orchestrated churn system deployed with Docker Compose and PostgreSQL, covering ingestion, validation, feature engineering, model training, monthly scoring, SHAP reasons, and production monitoring.</p>
+          <div class="metrics" style="margin-top:18px">
+            <div class="metric"><span>Pipeline</span><b>Airflow</b></div>
+            <div class="metric"><span>Model</span><b>XGBoost</b></div>
+            <div class="metric"><span>Output</span><b>Risk list</b></div>
           </div>
-          <p style="margin-top:18px"><a class="btn btn-primary" href="case-study-churn.html">Open full case</a></p>
+          <div class="tag-row">
+            <span class="tag">Docker Compose</span><span class="tag">PostgreSQL</span>
+            <span class="tag">COPY</span><span class="tag">SHAP</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn-case" href="case-study-churn-v1.html">Case Study</a>
+            <a class="btn-gh" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
         </div>
       </article>
 
-      <!-- 02: Gold Price -->
+      <!-- 02: Churn v2 -->
+      <article class="card project-card reveal">
+        <div class="project-visual">
+          <div class="stat-grid">
+            <div class="stat"><span>DAGS</span><b>5</b><em>Airflow</em></div>
+            <div class="stat"><span>DEPLOY</span><b>kind</b><em>Helm</em></div>
+            <div class="stat"><span>METRIC</span><b>F0.5</b><em>PR-AUC</em></div>
+            <div class="stat"><span>MONITOR</span><b>PromQL</b><em>Grafana</em></div>
+          </div>
+        </div>
+        <div class="project-copy">
+          <h3>Customer Churn Prediction ver 2</h3>
+          <p>Kubernetes-based second version using KubernetesPodOperator, local kind, Helm, automated EDA, walk-forward dataset logic, guardrail-based promotion, and Prometheus/Grafana monitoring.</p>
+          <div class="metrics" style="margin-top:18px">
+            <div class="metric"><span>Runtime</span><b>K8s pods</b></div>
+            <div class="metric"><span>Features</span><b>1–6M</b></div>
+            <div class="metric"><span>Status</span><b>Developing</b></div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Kubernetes</span><span class="tag">Helm</span>
+            <span class="tag">Airflow</span><span class="tag">Prometheus</span>
+          </div>
+          <div class="project-actions">
+            <a class="btn-case" href="case-study-churn-v2.html">Case Study</a>
+            <a class="btn-gh" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03: Gold Price -->
       <article class="card project-card reveal">
         <div class="project-visual">
           <div class="chart-card">
@@ -80,18 +113,21 @@
           <p>Modular time-series prediction system integrating multi-source financial data (yfinance, FRED, EIA) into a 3-layer PostgreSQL architecture with 70+ window-function features.</p>
           <ul>
             <li><strong>Problem:</strong> Daily gold price forecasting with interpretable feature signals.</li>
-            <li><strong>Approach:</strong> 70+ features across 8 groups (financial, macro, technical, sentiment); Optuna hyperparameter search; TimeSeriesSplit CV to prevent leakage.</li>
-            <li><strong>Outcome:</strong> Best model persisted with prediction logging for drift detection and retraining triggers.</li>
+            <li><strong>Approach:</strong> 70+ features across 8 groups; Optuna hyperparameter search; TimeSeriesSplit CV.</li>
+            <li><strong>Outcome:</strong> Best model persisted with prediction logging for drift detection.</li>
           </ul>
           <div class="tag-row">
             <span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">Optuna</span>
             <span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">yfinance</span>
           </div>
-          <p style="margin-top:18px"><a class="btn btn-primary" href="case-study-gold.html">Open full case</a></p>
+          <div class="project-actions">
+            <a class="btn-case" href="case-study-gold.html">Case Study</a>
+            <a class="btn-gh" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
         </div>
       </article>
 
-      <!-- 03: IEEE Research -->
+      <!-- 04: IEEE Research -->
       <article class="card project-card reveal">
         <div class="project-visual">
           <div class="stat-grid">
@@ -113,35 +149,9 @@
             <span class="tag">Python</span><span class="tag">Random Forest</span><span class="tag">scikit-learn</span>
             <span class="tag">FPGA</span><span class="tag">Signal Processing</span><span class="tag">IEEE Access</span>
           </div>
-          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn btn-primary" href="case-study-edabk.html">Read Case Study</a>
-            <a class="btn btn-ghost" href="https://doi.org/10.1109/ACCESS.2025.3573162" target="_blank" rel="noreferrer">View on IEEE →</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 04: Graduation Thesis -->
-      <article class="card project-card reveal">
-        <div class="project-visual">
-          <div class="pipeline">
-            <div class="pipeline-step"><span>01</span><b>Audio</b><small>Respiratory sound input</small></div>
-            <div class="pipeline-step"><span>02</span><b>Features</b><small>MFCC, ZCR, energy</small></div>
-            <div class="pipeline-step"><span>03</span><b>AI Model</b><small>Trained classifier</small></div>
-            <div class="pipeline-step"><span>04</span><b>FPGA</b><small>On-chip inference</small></div>
-            <div class="pipeline-step"><span>05</span><b>Output</b><small>Disease label</small></div>
-          </div>
-        </div>
-        <div class="project-copy">
-          <h3>04 · Graduation Thesis — Best Thesis Award</h3>
-          <p>AI-based Respiratory Disease Diagnosis System using FPGA integrated circuits. Awarded <strong style="color:var(--green)">Best Graduation Thesis</strong> by the HUST defense committee.</p>
-          <ul>
-            <li>Designed end-to-end inference pipeline from audio capture to on-device FPGA classification.</li>
-            <li>Implemented feature extraction and model compression for embedded deployment.</li>
-            <li>Evaluated across 5 disease classes with high accuracy on hardware-constrained platform.</li>
-          </ul>
-          <div class="tag-row">
-            <span class="tag">FPGA</span><span class="tag">Python</span><span class="tag">Embedded AI</span>
-            <span class="tag">Signal Processing</span><span class="tag">HUST SEEE</span>
+          <div class="project-actions">
+            <a class="btn-case" href="case-study-edabk.html">Case Study</a>
+            <a class="btn-gh" href="https://doi.org/10.1109/ACCESS.2025.3573162" target="_blank" rel="noreferrer">IEEE →</a>
           </div>
         </div>
       </article>

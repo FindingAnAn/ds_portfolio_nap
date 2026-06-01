@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Customer Churn Prediction v2 — Kubernetes, KubernetesPodOperator, Prometheus, Grafana case study by Nguyen Anh Phuong.">
+  <title>Churn v2 Case Study | Nguyen Anh Phuong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container navbar">
+    <a class="brand" href="index.html">
+      <span class="logo">AP</span>
+      <span>Nguyen Anh Phuong<small>Data Scientist</small></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false">Menu</button>
+    <nav class="nav" data-nav>
+      <a href="index.html">Home</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="container case-hero reveal">
+    <div class="breadcrumbs">
+      <a href="index.html">Home</a><span>›</span>
+      <a href="projects.html">Projects</a><span>›</span>
+      <span>Customer Churn Prediction — v2</span>
+    </div>
+    <p class="kicker">Case Study 02 · Vietnam Post · Kubernetes · Developing</p>
+    <h1><span class="gradient-text">Churn Prediction</span> ver 2</h1>
+    <p class="hero-text">Kubernetes-based second version using KubernetesPodOperator, local kind, Helm, automated EDA, walk-forward dataset logic, guardrail-based promotion, and Prometheus/Grafana monitoring.</p>
+    <div class="tag-row" style="margin-top:16px">
+      <span class="tag">Kubernetes</span><span class="tag">KubernetesPodOperator</span><span class="tag">Helm</span>
+      <span class="tag">Airflow</span><span class="tag">Prometheus</span><span class="tag">Grafana</span>
+      <span class="tag">XGBoost</span>
+    </div>
+  </section>
+
+  <!-- Layout -->
+  <section class="container section case-layout">
+
+    <!-- Sidebar -->
+    <aside class="side-panel case-body">
+      <article class="card reveal">
+        <h3>Project Snapshot</h3>
+        <div class="kpi-list" style="margin-top:16px">
+          <div class="kpi"><span>DAGs</span><b>5</b></div>
+          <div class="kpi"><span>Runtime</span><b>K8s pods</b></div>
+          <div class="kpi"><span>Model</span><b>XGBoost</b></div>
+          <div class="kpi"><span>Features</span><b>66</b></div>
+          <div class="kpi"><span>Precision</span><b>0.918</b></div>
+          <div class="kpi"><span>PR-AUC</span><b>0.866</b></div>
+        </div>
+        <div class="tag-row" style="margin-top:16px">
+          <span class="tag">KubernetesPodOperator</span>
+          <span class="tag">kind</span>
+          <span class="tag">Helm</span>
+          <span class="tag">Prometheus</span>
+          <span class="tag">Grafana</span>
+        </div>
+        <div class="project-actions" style="margin-top:20px">
+          <a class="btn-gh" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer">GitHub →</a>
+        </div>
+      </article>
+    </aside>
+
+    <!-- Body -->
+    <div class="case-body">
+
+      <!-- 1. What v2 Fixes -->
+      <article class="card reveal">
+        <h2>1. What v2 Fixes</h2>
+        <p style="margin-top:12px">V1 already had the main ML workflow. V2 raises the engineering bar: heavy jobs run in isolated Kubernetes pods, project code is packaged as a modular monolith, and monitoring is split between model-quality tables and infrastructure metrics.</p>
+        <ul>
+          <li>Airflow uses <strong>KubernetesPodOperator</strong> for the main feature, EDA, and monthly model tasks.</li>
+          <li>Local deployment uses <strong>kind, Helm values, Docker images, Kubernetes secrets</strong>, and host-mounted churn data.</li>
+          <li>The accepted model bundle stores metrics, threshold, feature names, feature importance, model config, and pipeline config.</li>
+        </ul>
+      </article>
+
+      <!-- 2. DAG Architecture -->
+      <article class="card reveal">
+        <h2>2. DAG Architecture</h2>
+        <div class="pipeline" style="margin-top:18px">
+          <div class="pipeline-step"><span>01</span><b>Ingest</b><small>Scan ZIP files, validate, load source tables, emit XCom status.</small></div>
+          <div class="pipeline-step"><span>02</span><b>Features</b><small>Build lifetime and 1–6 month sliding-window SQL tables.</small></div>
+          <div class="pipeline-step"><span>03</span><b>EDA</b><small>Generate missing, outlier, correlation, class balance, and drift reports.</small></div>
+          <div class="pipeline-step"><span>04</span><b>Pipeline</b><small>Dataset prep, train, evaluate, accept/reject, score, export.</small></div>
+          <div class="pipeline-step"><span>05</span><b>Housekeep</b><small>Clean old bundles, logs, saved files, failed files, incoming files.</small></div>
+        </div>
+      </article>
+
+      <!-- 3. Dataset Preparation -->
+      <article class="card reveal">
+        <h2>3. Dataset Preparation</h2>
+        <p style="margin-top:12px">The dataset pipeline is the core intellectual part of v2. It handles limited churn labels by combining business scope rules, temporal validation, prototype similarity, PU-style weighting, and label smoothing.</p>
+        <div class="two-col" style="margin-top:14px">
+          <div class="chart-card">
+            <div class="chart-head"><strong>Temporal logic</strong></div>
+            <ul style="margin:0;padding-left:16px;line-height:1.9">
+              <li>2-month prediction horizon.</li>
+              <li>Walk-forward window selection with minimum train windows.</li>
+              <li>Active and at-risk tiers using recency thresholds.</li>
+              <li>Train-only scaling to avoid leakage.</li>
+            </ul>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><strong>Label logic</strong></div>
+            <ul style="margin:0;padding-left:16px;line-height:1.9">
+              <li>Confirmed churners from CSKH files.</li>
+              <li>Reliable negatives from recent active customers.</li>
+              <li>Prototype-based pseudo churn via Mahalanobis similarity.</li>
+              <li>Sample weights and soft labels for uncertain groups.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Accepted Model Card -->
+      <article class="card reveal">
+        <h2>4. Accepted Model Card</h2>
+        <p style="margin-top:12px">The current bundle is accepted with rule <code>accepted_no_previous</code> and stores 66 features. The portfolio-facing story should focus on the high-precision risk list, PR-AUC, selected threshold, and reproducible bundle metadata.</p>
+        <div class="stat-grid" style="margin-top:18px">
+          <div class="stat"><span>Eval rows</span><b>46,991</b><em>held-out eval</em></div>
+          <div class="stat"><span>Precision</span><b>0.918</b><em>risk-list trust</em></div>
+          <div class="stat"><span>PR-AUC</span><b>0.866</b><em>imbalance metric</em></div>
+          <div class="stat"><span>Threshold</span><b>0.487</b><em>auto selected</em></div>
+        </div>
+      </article>
+
+      <!-- 5. Top Drivers -->
+      <article class="card reveal">
+        <h2>5. Top Drivers</h2>
+        <div class="chart-card" style="margin-top:14px">
+          <div class="chart-head"><strong>Feature Importance</strong><span>latest accepted bundle</span></div>
+          <div class="bar-row"><span>recency</span><div class="bar"><i style="--w:96%"></i></div><b>0.193</b></div>
+          <div class="bar-row"><span>inactive_months</span><div class="bar"><i style="--w:94%"></i></div><b>0.188</b></div>
+          <div class="bar-row"><span>active_months</span><div class="bar"><i style="--w:74%"></i></div><b>0.148</b></div>
+          <div class="bar-row"><span>delta_ewma_revenue</span><div class="bar"><i style="--w:46%"></i></div><b>0.091</b></div>
+          <div class="bar-row"><span>delta_ewma_item</span><div class="bar"><i style="--w:22%"></i></div><b>0.043</b></div>
+        </div>
+      </article>
+
+      <!-- 6. Monthly Pipeline Contract -->
+      <article class="card reveal">
+        <h2>6. Monthly Pipeline Contract</h2>
+        <p style="margin-top:12px">The monthly entry point <code>python -m pipelines.monthly.monthly_v2_cli</code> coordinates eight steps from dataset prep to export. If a new model fails the gate or loses to the prior bundle, the system can still score with the accepted bundle.</p>
+        <table class="mock-table" style="margin-top:18px">
+          <tr><th>Stage</th><th>Code responsibility</th><th>Operational value</th></tr>
+          <tr><td>Dataset Prep</td><td>Build train/eval/predict sets</td><td>Same logic every run</td></tr>
+          <tr><td>Guardrail</td><td>Check model-quality minimums</td><td>Blocks degenerate candidates</td></tr>
+          <tr><td>Accept/Reject</td><td>Compare against previous production bundle</td><td>Prevents regression</td></tr>
+          <tr><td>Score + Export</td><td>Write <code>churn_risk_predictions</code></td><td>Feeds CSKH action list</td></tr>
+        </table>
+      </article>
+
+      <!-- 7. Observability Proof -->
+      <article class="card reveal">
+        <h2>7. Observability Proof</h2>
+        <p style="margin-top:12px">The local Prometheus endpoint is reachable and currently reports 14 healthy scrape targets across Kubernetes and monitoring jobs. Grafana requires authentication, so the portfolio uses recreated monitoring panels.</p>
+        <div class="stat-grid" style="margin-top:18px">
+          <div class="stat"><span>Prom targets</span><b>14/14</b><em>up</em></div>
+          <div class="stat"><span>Namespaces</span><b>3</b><em>default, monitoring, kube-system</em></div>
+          <div class="stat"><span>Airflow memory</span><b>1.77 GB</b><em>current query</em></div>
+          <div class="stat"><span>Monitoring</span><b>1.62 GB</b><em>current query</em></div>
+        </div>
+        <ul>
+          <li>PromQL checks cover failed/pending KPO pods, XGBoost pod memory, and Airflow scheduler restarts.</li>
+          <li>Model-quality monitoring still lives in PostgreSQL: PSI, KS, score drift, run logs, and precision-in-list backtests.</li>
+          <li>For a polished portfolio visual, recreated panels are better than screenshots from an authenticated Grafana UI.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span>© <span data-year></span> Nguyen Anh Phuong</span>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
