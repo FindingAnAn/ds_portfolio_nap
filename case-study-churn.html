@@ -47,8 +47,61 @@
     </div>
   </section>
 
+  <!-- ── Monitoring Dashboard Visual ── -->
+  <section class="container reveal" style="padding-bottom:0">
+    <div class="dashboard-shell" aria-label="Production monitoring dashboard — churn_monitoring.py · Vietnam Post">
+      <div class="window-bar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <span>churn_monitoring.py · Vietnam Post</span>
+      </div>
+      <div class="dash-content">
+        <div class="stat-grid">
+          <div class="stat"><span>Precision</span><b>0.918</b><em>v2 bundle</em></div>
+          <div class="stat"><span>PR-AUC</span><b>0.866</b><em>imbalance metric</em></div>
+          <div class="stat"><span>Features</span><b>66</b><em>v2 model</em></div>
+          <div class="stat"><span>Prom targets</span><b>14/14</b><em>up</em></div>
+        </div>
+        <div class="mini-panels">
+          <div class="chart-card">
+            <div class="chart-head"><strong>Top Churn Drivers (SHAP)</strong><span>latest bundle</span></div>
+            <div class="bar-row"><span>recency</span><div class="bar"><i style="--w:96%"></i></div><b>0.193</b></div>
+            <div class="bar-row"><span>inactive_months</span><div class="bar"><i style="--w:94%"></i></div><b>0.188</b></div>
+            <div class="bar-row"><span>active_months</span><div class="bar"><i style="--w:74%"></i></div><b>0.148</b></div>
+            <div class="bar-row"><span>delta_ewma_revenue</span><div class="bar"><i style="--w:46%"></i></div><b>0.091</b></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><strong>Feature drift (PSI)</strong><span>monthly check</span></div>
+            <div class="bar-row"><span>recency</span><div class="bar"><i style="--w:8%"></i></div><b>0.04</b></div>
+            <div class="bar-row"><span>inactive_months</span><div class="bar"><i style="--w:12%"></i></div><b>0.06</b></div>
+            <div class="bar-row"><span>ewma_revenue</span><div class="bar"><i style="--w:18%"></i></div><b>0.09</b></div>
+            <div class="bar-row"><span>active_months</span><div class="bar"><i style="--w:10%"></i></div><b>0.05</b></div>
+          </div>
+        </div>
+        <div class="mini-panels">
+          <div class="chart-card">
+            <div class="chart-head"><strong>Score drift</strong><span>current vs. training</span></div>
+            <div class="bar-row"><span>p10 score</span><div class="bar"><i style="--w:14%"></i></div><b>0.07</b></div>
+            <div class="bar-row"><span>p50 score</span><div class="bar"><i style="--w:34%"></i></div><b>0.17</b></div>
+            <div class="bar-row"><span>p90 score</span><div class="bar"><i style="--w:72%"></i></div><b>0.49</b></div>
+            <div class="bar-row"><span>risk ratio</span><div class="bar"><i style="--w:10%"></i></div><b>stable</b></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><strong>At-Risk Export</strong><span>top 5% · monthly</span></div>
+            <table class="mock-table">
+              <tr><th>Customer</th><th>Risk</th><th>Driver</th></tr>
+              <tr><td>B2B-1024</td><td><span class="score high">0.87</span></td><td>recency</td></tr>
+              <tr><td>B2B-1841</td><td><span class="score mid">0.61</span></td><td>inactive</td></tr>
+              <tr><td>B2B-2027</td><td><span class="score low">0.19</span></td><td>stable</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Layout ── -->
   <section class="container section case-layout">
+
 
     <!-- Sidebar -->
     <aside class="side-panel case-body">
