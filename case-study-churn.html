@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VNPost Customer Churn Prediction System — full case study (v1 Docker Compose + v2 Kubernetes) by Nguyen Anh Phuong.">
-  <title>Churn Prediction Case Study | Nguyen Anh Phuong</title>
+  <meta name="description" content="VNPost Churn Warning case study by Nguyen Anh Phuong.">
+  <title>Churn Warning Case Study | Nguyen Anh Phuong</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -21,77 +21,58 @@
     <nav class="nav" data-nav>
       <a href="index.html">Home</a>
       <a class="active" href="projects.html">Projects</a>
-      <a href="timeline.html">Timeline</a>
       <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <!-- ── Hero ── -->
   <section class="container case-hero reveal">
     <div class="breadcrumbs">
-      <a href="index.html">Home</a><span>›</span>
-      <a href="projects.html">Projects</a><span>›</span>
-      <span>Customer Churn Prediction System</span>
+      <a href="index.html">Home</a><span>/</span>
+      <a href="projects.html">Projects</a><span>/</span>
+      <span>Churn Warning</span>
     </div>
-    <p class="kicker">Case Study · Vietnam Post · Production ML System</p>
-    <h1><span class="gradient-text">Customer Churn</span> Prediction System</h1>
-    <p class="hero-text">End-to-end B2B churn prediction at Vietnam Post — from raw ZIP ingestion through Airflow DAGs to Kubernetes-deployed scoring with SHAP explanations, walk-forward CV, guardrail-based model promotion, and Prometheus/Grafana observability.</p>
+    <p class="kicker">Case Study - Vietnam Post</p>
+    <h1><span class="gradient-text">Churn Warning</span> for B2B Customers</h1>
+    <p class="hero-text">
+      A monthly machine learning workflow that identifies B2B customers with high churn risk,
+      explains the main risk signals, and exports a focused list for customer-care follow-up.
+    </p>
     <div class="tag-row" style="margin-top:16px">
-      <span class="tag">Airflow</span><span class="tag">XGBoost</span><span class="tag">PostgreSQL</span>
-      <span class="tag">Docker Compose</span><span class="tag">Kubernetes</span><span class="tag">KubernetesPodOperator</span>
-      <span class="tag">Helm</span><span class="tag">Prometheus</span><span class="tag">Grafana</span>
-      <span class="tag">SHAP</span><span class="tag">PSI / KS</span><span class="tag">Optuna</span>
+      <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">PostgreSQL</span>
+      <span class="tag">Airflow</span><span class="tag">XGBoost</span><span class="tag">SHAP</span>
     </div>
   </section>
 
-  <!-- ── Monitoring Dashboard Visual ── -->
-  <section class="container reveal" style="padding-bottom:0">
-    <div class="dashboard-shell" aria-label="Production monitoring dashboard — churn_monitoring.py · Vietnam Post">
+  <section class="container reveal" style="padding:28px 0 0">
+    <div class="dashboard-shell" aria-label="Churn warning workflow mockup">
       <div class="window-bar">
         <div class="dots"><span></span><span></span><span></span></div>
-        <span>churn_monitoring.py · Vietnam Post</span>
+        <span>monthly_churn_pipeline.py</span>
       </div>
       <div class="dash-content">
-        <div class="stat-grid">
-          <div class="stat"><span>Precision</span><b>0.918</b><em>v2 bundle</em></div>
-          <div class="stat"><span>PR-AUC</span><b>0.866</b><em>imbalance metric</em></div>
-          <div class="stat"><span>Features</span><b>66</b><em>v2 model</em></div>
-          <div class="stat"><span>Prom targets</span><b>14/14</b><em>up</em></div>
+        <div class="pipeline">
+          <div class="pipeline-step"><span>01</span><b>Ingest</b><small>Load monthly customer and transaction data.</small></div>
+          <div class="pipeline-step"><span>02</span><b>Features</b><small>Create lifetime and recent behavior metrics.</small></div>
+          <div class="pipeline-step"><span>03</span><b>Train</b><small>Validate and select the monthly model.</small></div>
+          <div class="pipeline-step"><span>04</span><b>Score</b><small>Rank active customers by churn risk.</small></div>
+          <div class="pipeline-step"><span>05</span><b>Export</b><small>Send high-risk list with reason signals.</small></div>
         </div>
         <div class="mini-panels">
           <div class="chart-card">
-            <div class="chart-head"><strong>Top Churn Drivers (SHAP)</strong><span>latest bundle</span></div>
-            <div class="bar-row"><span>recency</span><div class="bar"><i style="--w:96%"></i></div><b>0.193</b></div>
-            <div class="bar-row"><span>inactive_months</span><div class="bar"><i style="--w:94%"></i></div><b>0.188</b></div>
-            <div class="bar-row"><span>active_months</span><div class="bar"><i style="--w:74%"></i></div><b>0.148</b></div>
-            <div class="bar-row"><span>delta_ewma_revenue</span><div class="bar"><i style="--w:46%"></i></div><b>0.091</b></div>
+            <div class="chart-head"><strong>Main Risk Drivers</strong><span>example output</span></div>
+            <div class="bar-row"><span>recency</span><div class="bar"><i style="--w:96%"></i></div><b>high</b></div>
+            <div class="bar-row"><span>inactive months</span><div class="bar"><i style="--w:84%"></i></div><b>high</b></div>
+            <div class="bar-row"><span>order decline</span><div class="bar"><i style="--w:58%"></i></div><b>mid</b></div>
           </div>
           <div class="chart-card">
-            <div class="chart-head"><strong>Feature drift (PSI)</strong><span>monthly check</span></div>
-            <div class="bar-row"><span>recency</span><div class="bar"><i style="--w:8%"></i></div><b>0.04</b></div>
-            <div class="bar-row"><span>inactive_months</span><div class="bar"><i style="--w:12%"></i></div><b>0.06</b></div>
-            <div class="bar-row"><span>ewma_revenue</span><div class="bar"><i style="--w:18%"></i></div><b>0.09</b></div>
-            <div class="bar-row"><span>active_months</span><div class="bar"><i style="--w:10%"></i></div><b>0.05</b></div>
-          </div>
-        </div>
-        <div class="mini-panels">
-          <div class="chart-card">
-            <div class="chart-head"><strong>Score drift</strong><span>current vs. training</span></div>
-            <div class="bar-row"><span>p10 score</span><div class="bar"><i style="--w:14%"></i></div><b>0.07</b></div>
-            <div class="bar-row"><span>p50 score</span><div class="bar"><i style="--w:34%"></i></div><b>0.17</b></div>
-            <div class="bar-row"><span>p90 score</span><div class="bar"><i style="--w:72%"></i></div><b>0.49</b></div>
-            <div class="bar-row"><span>risk ratio</span><div class="bar"><i style="--w:10%"></i></div><b>stable</b></div>
-          </div>
-          <div class="chart-card">
-            <div class="chart-head"><strong>At-Risk Export</strong><span>top 5% · monthly</span></div>
+            <div class="chart-head"><strong>Action List</strong><span>monthly</span></div>
             <table class="mock-table">
-              <tr><th>Customer</th><th>Risk</th><th>Driver</th></tr>
-              <tr><td>B2B-1024</td><td><span class="score high">0.87</span></td><td>recency</td></tr>
-              <tr><td>B2B-1841</td><td><span class="score mid">0.61</span></td><td>inactive</td></tr>
-              <tr><td>B2B-2027</td><td><span class="score low">0.19</span></td><td>stable</td></tr>
+              <tr><th>Customer</th><th>Risk</th><th>Reason</th></tr>
+              <tr><td>B2B-1024</td><td><span class="score high">0.87</span></td><td>long recency</td></tr>
+              <tr><td>B2B-1841</td><td><span class="score mid">0.61</span></td><td>inactive months</td></tr>
+              <tr><td>B2B-2027</td><td><span class="score low">0.19</span></td><td>stable activity</td></tr>
             </table>
           </div>
         </div>
@@ -99,286 +80,108 @@
     </div>
   </section>
 
-  <!-- ── Layout ── -->
   <section class="container section case-layout">
-
-
-    <!-- Sidebar -->
     <aside class="side-panel case-body">
       <article class="card reveal">
         <h3>Project Snapshot</h3>
         <div class="kpi-list" style="margin-top:16px">
           <div class="kpi"><span>Company</span><b>Vietnam Post</b></div>
           <div class="kpi"><span>Role</span><b>Data Scientist</b></div>
-          <div class="kpi"><span>Period</span><b>Mar 2025 – Present</b></div>
-          <div class="kpi"><span>Orchestrator</span><b>Airflow DAGs</b></div>
-          <div class="kpi"><span>Runtime v1</span><b>Docker Compose</b></div>
-          <div class="kpi"><span>Runtime v2</span><b>K8s pods (KPO)</b></div>
-          <div class="kpi"><span>Database</span><b>PostgreSQL</b></div>
+          <div class="kpi"><span>Problem</span><b>Customer churn</b></div>
+          <div class="kpi"><span>Frequency</span><b>Monthly</b></div>
+          <div class="kpi"><span>Output</span><b>Risk list</b></div>
           <div class="kpi"><span>Model</span><b>XGBoost</b></div>
-          <div class="kpi"><span>Features (v2)</span><b>66</b></div>
-          <div class="kpi"><span>Precision (v2)</span><b>0.918</b></div>
-          <div class="kpi"><span>PR-AUC (v2)</span><b>0.866</b></div>
-          <div class="kpi"><span>Risk cut</span><b>Top 5%</b></div>
-          <div class="kpi"><span>Feature opt.</span><b>82% faster</b></div>
-          <div class="kpi"><span>Prom targets</span><b>14 / 14 up</b></div>
-        </div>
-        <div class="tag-row" style="margin-top:16px">
-          <span class="tag">Docker Compose</span>
-          <span class="tag">KubernetesPodOperator</span>
-          <span class="tag">kind</span>
-          <span class="tag">Helm</span>
-          <span class="tag">COPY</span>
-          <span class="tag">SHAP</span>
-          <span class="tag">Prometheus</span>
-          <span class="tag">Grafana</span>
         </div>
         <div class="project-actions" style="margin-top:20px">
-          <a class="btn-gh" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer">GitHub →</a>
+          <a class="btn-gh" href="https://github.com/FindingAnAn/crm_churn_warning" target="_blank" rel="noreferrer">GitHub Repo</a>
         </div>
       </article>
     </aside>
 
-    <!-- Body -->
     <div class="case-body">
-
-      <!-- ── SECTION DIVIDER: v1 ── -->
-      <div class="card card-grey reveal" style="padding:16px 22px">
-        <p class="kicker" style="margin:0">Version 1 — Docker Compose + Airflow</p>
-      </div>
-
-      <!-- 1. System Goal -->
       <article class="card reveal">
-        <h2>1. System Goal</h2>
-        <p style="margin-top:12px">The system turns monthly VNPost customer and transaction data into an operational churn risk list. The output is designed for customer-care action: who is risky, how risky they are, and which behavioral signals explain the score.</p>
-        <ul>
-          <li>Score active customers on a <strong style="color:var(--soft)">2-month churn horizon</strong>.</li>
-          <li>Export high-risk customers into PostgreSQL and CSV-compatible tables.</li>
-          <li>Attach reason signals from SHAP where possible, with rule-based fallback when explanation artifacts are unavailable.</li>
-        </ul>
+        <h2>1. Business Goal</h2>
+        <p>
+          The project supports customer-care teams by identifying active B2B customers who may stop using
+          services in the next period. Instead of producing only a model score, the workflow creates a
+          practical output: a short list of high-risk customers and the main signals behind each risk score.
+        </p>
       </article>
 
-      <!-- 2. Airflow Chain -->
       <article class="card reveal">
-        <h2>2. Airflow Chain</h2>
-        <div class="pipeline" style="margin-top:18px">
-          <div class="pipeline-step"><span>01</span><b>Ingest</b><small>Saturday 05:00 ZIP scan and load.</small></div>
-          <div class="pipeline-step"><span>02</span><b>Validate</b><small>Run ingest validation before downstream trigger.</small></div>
-          <div class="pipeline-step"><span>03</span><b>Features</b><small>Build lifetime and sliding-window tables.</small></div>
-          <div class="pipeline-step"><span>04</span><b>Model</b><small>Monthly XGBoost pipeline — horizon 2.</small></div>
-          <div class="pipeline-step"><span>05</span><b>Monitor</b><small>Run logs, score drift, PSI/KS, backtests.</small></div>
-        </div>
-        <p style="margin-top:14px">Real DAG chain: <code>ds_churn_ingest → ds_churn_features → ds_churn_model_monthly</code>. Model DAG runs <code>python modeling/main.py run-monthly --horizon 2 --risk-threshold-pct 95</code>.</p>
-      </article>
-
-      <!-- 3. ZIP Ingestion -->
-      <article class="card reveal">
-        <h2>3. ZIP Ingestion Design</h2>
-        <p style="margin-top:12px">Built around controlled full-refresh loads instead of ad hoc file appends — making repeated monthly uploads auditable and recoverable.</p>
+        <h2>2. Data Pipeline</h2>
+        <p>
+          Monthly source files are loaded into PostgreSQL, checked for basic quality, and transformed into
+          customer-level features. The features combine long-term customer history with recent behavior,
+          such as recency, inactive months, revenue change, and order activity.
+        </p>
         <div class="two-col" style="margin-top:14px">
           <div class="chart-card">
-            <div class="chart-head"><strong>Data controls</strong></div>
+            <div class="chart-head"><strong>Input</strong></div>
             <ul style="margin:0;padding-left:16px;line-height:1.9">
-              <li>Unzip and discover source CSV files.</li>
-              <li>Validate expected headers and table schema.</li>
-              <li>PostgreSQL <code>COPY</code> after transformation.</li>
-              <li>Track loads in <code>ingest.ingest_log</code>.</li>
+              <li>Customer profile data.</li>
+              <li>Monthly transaction data.</li>
+              <li>Historical activity windows.</li>
             </ul>
           </div>
           <div class="chart-card">
-            <div class="chart-head"><strong>Failure handling</strong></div>
+            <div class="chart-head"><strong>Feature Logic</strong></div>
             <ul style="margin:0;padding-left:16px;line-height:1.9">
-              <li>Copy failed ZIPs to failed-data storage.</li>
-              <li>Preserve original input, never delete.</li>
-              <li>Structured status: rows, skip reason, success, error.</li>
-              <li>Post-ingest maintenance without failing the whole job.</li>
+              <li>Lifetime value and activity.</li>
+              <li>Recent decline or inactivity.</li>
+              <li>Time-aware training windows.</li>
             </ul>
           </div>
         </div>
       </article>
 
-      <!-- 4. Feature Generation -->
       <article class="card reveal">
-        <h2>4. Feature Generation</h2>
-        <p style="margin-top:12px">Static lifetime metrics and dynamic K-month behavior windows in PostgreSQL. The key v1 engineering win is the <strong style="color:var(--soft)">smart recomputation strategy</strong> for sliding windows.</p>
-        <div class="stat-grid" style="margin-top:18px">
-          <div class="stat"><span>Before</span><b>540+</b><em>table computations</em></div>
-          <div class="stat"><span>After</span><b>18–20</b><em>latest windows</em></div>
-          <div class="stat"><span>Time</span><b>45→8 m</b><em>benchmark</em></div>
-          <div class="stat"><span>Reduction</span><b>96%</b><em>less redundant work</em></div>
-        </div>
-        <ul>
-          <li>Existing stable windows are kept; only new and incomplete windows are recomputed.</li>
-          <li>Window table names generated dynamically from month ranges and K values.</li>
-          <li>Checkpoint and batch-insert logic reduce restart cost for long SQL jobs.</li>
-        </ul>
-      </article>
-
-      <!-- 5. Monthly Modeling Pipeline (v1) -->
-      <article class="card reveal">
-        <h2>5. Monthly Modeling Pipeline</h2>
-        <p style="margin-top:12px">Sweeps candidate lookback windows, compares against the previous accepted model, retrains only when the candidate passes acceptance logic, and always scores active customers with the best available bundle.</p>
+        <h2>3. Modeling Approach</h2>
+        <p>
+          The model is trained with time-aware validation so evaluation follows the monthly nature of the
+          business problem. XGBoost is used for churn classification, and SHAP is used to explain the main
+          drivers for each high-risk customer.
+        </p>
         <table class="mock-table" style="margin-top:18px">
-          <tr><th>Step</th><th>Implementation detail</th><th>Portfolio meaning</th></tr>
-          <tr><td>Sweep K</td><td>Find best window candidate</td><td>Model selection is part of the pipeline</td></tr>
-          <tr><td>Accept / reject</td><td>Compare candidate F1 against accepted bundle</td><td>Prevents weak replacement models</td></tr>
-          <tr><td>Score</td><td>Export risk list at threshold percentile</td><td>Produces retention-ready customer list</td></tr>
-          <tr><td>Backtest</td><td>Precision-in-list monitoring</td><td>Checks high-risk list remains useful</td></tr>
+          <tr><th>Component</th><th>Purpose</th><th>Portfolio Value</th></tr>
+          <tr><td>Airflow</td><td>Orchestrate monthly jobs</td><td>Repeatable workflow</td></tr>
+          <tr><td>PostgreSQL</td><td>Store raw, feature, and output tables</td><td>Auditable data flow</td></tr>
+          <tr><td>XGBoost</td><td>Estimate churn probability</td><td>Strong tabular ML baseline</td></tr>
+          <tr><td>SHAP</td><td>Explain risk reasons</td><td>Actionable customer-care output</td></tr>
         </table>
       </article>
 
-      <!-- 6. Monitoring Tables (v1) -->
       <article class="card reveal">
-        <h2>6. Monitoring Tables (v1)</h2>
-        <p style="margin-top:12px">V1 already includes a production-monitoring layer in PostgreSQL, focused on model output quality rather than UI dashboards.</p>
-        <div class="two-col" style="margin-top:14px">
-          <div class="chart-card">
-            <div class="chart-head"><strong>Run-level tables</strong></div>
-            <ul style="margin:0;padding-left:16px;line-height:1.9">
-              <li><code>ml_monitor.run_log</code> — status, accepted flag, notes.</li>
-              <li><code>score_drift</code> — active count, risk count, quantiles, risk-ratio anomalies.</li>
-            </ul>
-          </div>
-          <div class="chart-card">
-            <div class="chart-head"><strong>Quality checks</strong></div>
-            <ul style="margin:0;padding-left:16px;line-height:1.9">
-              <li><code>feature_drift</code> — PSI and discrete KS per feature vs. training profile.</li>
-              <li><code>backtest</code> — precision-in-list when future label windows become available.</li>
-            </ul>
-          </div>
+        <h2>4. Final Output</h2>
+        <p>
+          The final deliverable is a monthly risk table that can be used by business teams. Each row
+          contains customer ID, churn probability, risk tier, and explanation signals. This keeps the model
+          tied to a clear operational decision instead of remaining a standalone experiment.
+        </p>
+        <div class="stat-grid" style="margin-top:18px">
+          <div class="stat"><span>Decision</span><b>Who to contact</b><em>customer-care list</em></div>
+          <div class="stat"><span>Signal</span><b>Why risky</b><em>SHAP reasons</em></div>
+          <div class="stat"><span>Cycle</span><b>Monthly</b><em>repeatable run</em></div>
         </div>
       </article>
 
-      <!-- ── SECTION DIVIDER: v2 ── -->
-      <div class="card card-grey reveal" style="padding:16px 22px;margin-top:12px">
-        <p class="kicker" style="margin:0">Version 2 — Kubernetes · KubernetesPodOperator · Prometheus</p>
-      </div>
-
-      <!-- 7. What v2 Fixes -->
       <article class="card reveal">
-        <h2>7. What v2 Fixes</h2>
-        <p style="margin-top:12px">V1 had the core ML workflow. V2 raises the engineering bar: heavy jobs run in isolated Kubernetes pods, code is packaged as a modular monolith, monitoring splits between model-quality PostgreSQL tables and infrastructure metrics via Prometheus/Grafana.</p>
+        <h2>5. What I Contributed</h2>
         <ul>
-          <li>Airflow uses <strong style="color:var(--soft)">KubernetesPodOperator</strong> for feature, EDA, and monthly model tasks.</li>
-          <li>Local deployment: <strong style="color:var(--soft)">kind, Helm values, Docker images, Kubernetes secrets</strong>, host-mounted churn data.</li>
-          <li>Accepted model bundle stores metrics, threshold, feature names, feature importance, model config, pipeline config.</li>
+          <li>Designed the monthly data flow from raw inputs to customer-level features.</li>
+          <li>Built churn modeling logic with time-aware validation and risk scoring.</li>
+          <li>Created explainable outputs so the result could support customer-care actions.</li>
+          <li>Structured the project as a repeatable workflow using Airflow and PostgreSQL.</li>
         </ul>
       </article>
-
-      <!-- 8. DAG Architecture (v2) -->
-      <article class="card reveal">
-        <h2>8. DAG Architecture (v2)</h2>
-        <div class="pipeline" style="margin-top:18px">
-          <div class="pipeline-step"><span>01</span><b>Ingest</b><small>Scan ZIP files, validate, load source tables, emit XCom status.</small></div>
-          <div class="pipeline-step"><span>02</span><b>Features</b><small>Build lifetime and 1–6 month sliding-window SQL tables.</small></div>
-          <div class="pipeline-step"><span>03</span><b>EDA</b><small>Generate missing, outlier, correlation, class balance, and drift reports.</small></div>
-          <div class="pipeline-step"><span>04</span><b>Pipeline</b><small>Dataset prep, train, evaluate, accept/reject, score, export.</small></div>
-          <div class="pipeline-step"><span>05</span><b>Housekeep</b><small>Clean old bundles, logs, saved files, failed files, incoming files.</small></div>
-        </div>
-      </article>
-
-      <!-- 9. Dataset Preparation (v2) -->
-      <article class="card reveal">
-        <h2>9. Dataset Preparation</h2>
-        <p style="margin-top:12px">The core intellectual part of v2. Handles limited churn labels by combining business scope rules, temporal validation, prototype similarity, PU-style weighting, and label smoothing.</p>
-        <div class="two-col" style="margin-top:14px">
-          <div class="chart-card">
-            <div class="chart-head"><strong>Temporal logic</strong></div>
-            <ul style="margin:0;padding-left:16px;line-height:1.9">
-              <li>2-month prediction horizon.</li>
-              <li>Walk-forward window selection with minimum train windows.</li>
-              <li>Active and at-risk tiers using recency thresholds.</li>
-              <li>Train-only scaling to avoid leakage.</li>
-            </ul>
-          </div>
-          <div class="chart-card">
-            <div class="chart-head"><strong>Label logic</strong></div>
-            <ul style="margin:0;padding-left:16px;line-height:1.9">
-              <li>Confirmed churners from CSKH files.</li>
-              <li>Reliable negatives from recent active customers.</li>
-              <li>Prototype-based pseudo churn via Mahalanobis similarity.</li>
-              <li>Sample weights and soft labels for uncertain groups.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- 10. Accepted Model Card -->
-      <article class="card reveal">
-        <h2>10. Accepted Model Card</h2>
-        <p style="margin-top:12px">Current bundle accepted with rule <code>accepted_no_previous</code>, stores 66 features. Evaluation on held-out set:</p>
-        <div class="stat-grid" style="margin-top:18px">
-          <div class="stat"><span>Eval rows</span><b>46,991</b><em>held-out eval</em></div>
-          <div class="stat"><span>Precision</span><b>0.918</b><em>risk-list trust</em></div>
-          <div class="stat"><span>PR-AUC</span><b>0.866</b><em>imbalance metric</em></div>
-          <div class="stat"><span>Threshold</span><b>0.487</b><em>auto selected</em></div>
-        </div>
-        <p style="margin-top:14px">The accepted bundle retains: eval metrics, decision threshold, feature names, feature importance array, model config, and pipeline config — ensuring full reproducibility.</p>
-      </article>
-
-      <!-- 11. Top Drivers -->
-      <article class="card reveal">
-        <h2>11. Top Feature Drivers</h2>
-        <div class="chart-card" style="margin-top:14px">
-          <div class="chart-head"><strong>Feature Importance</strong><span>latest accepted bundle · 66 features</span></div>
-          <div class="bar-row"><span>recency</span><div class="bar"><i style="--w:96%"></i></div><b>0.193</b></div>
-          <div class="bar-row"><span>inactive_months</span><div class="bar"><i style="--w:94%"></i></div><b>0.188</b></div>
-          <div class="bar-row"><span>active_months</span><div class="bar"><i style="--w:74%"></i></div><b>0.148</b></div>
-          <div class="bar-row"><span>delta_ewma_revenue</span><div class="bar"><i style="--w:46%"></i></div><b>0.091</b></div>
-          <div class="bar-row"><span>delta_ewma_item</span><div class="bar"><i style="--w:22%"></i></div><b>0.043</b></div>
-        </div>
-      </article>
-
-      <!-- 12. Monthly Pipeline Contract (v2) -->
-      <article class="card reveal">
-        <h2>12. Monthly Pipeline Contract</h2>
-        <p style="margin-top:12px">Entry point <code>python -m pipelines.monthly.monthly_v2_cli</code> coordinates eight steps from dataset prep to export. If a new model fails the gate or loses to the prior bundle, the system scores with the accepted bundle.</p>
-        <table class="mock-table" style="margin-top:18px">
-          <tr><th>Stage</th><th>Code responsibility</th><th>Operational value</th></tr>
-          <tr><td>Dataset Prep</td><td>Build train/eval/predict sets</td><td>Same logic every run</td></tr>
-          <tr><td>Guardrail</td><td>Check model-quality minimums</td><td>Blocks degenerate candidates</td></tr>
-          <tr><td>Accept/Reject</td><td>Compare against previous production bundle</td><td>Prevents regression</td></tr>
-          <tr><td>Score + Export</td><td>Write <code>churn_risk_predictions</code></td><td>Feeds CSKH action list</td></tr>
-        </table>
-      </article>
-
-      <!-- 13. Observability -->
-      <article class="card reveal">
-        <h2>13. Observability Proof</h2>
-        <p style="margin-top:12px">Local Prometheus endpoint reports 14 healthy scrape targets across Kubernetes and monitoring jobs. Grafana dashboards cover infrastructure metrics; model-quality monitoring lives in PostgreSQL.</p>
-        <div class="stat-grid" style="margin-top:18px">
-          <div class="stat"><span>Prom targets</span><b>14/14</b><em>up</em></div>
-          <div class="stat"><span>Namespaces</span><b>3</b><em>default, monitoring, kube-system</em></div>
-          <div class="stat"><span>Airflow memory</span><b>1.77 GB</b><em>current query</em></div>
-          <div class="stat"><span>Monitoring</span><b>1.62 GB</b><em>current query</em></div>
-        </div>
-        <ul>
-          <li>PromQL checks: failed/pending KPO pods, XGBoost pod memory, Airflow scheduler restarts.</li>
-          <li>PostgreSQL monitoring: PSI, KS, score drift, run logs, precision-in-list backtests.</li>
-          <li>SHAP top-3 risk drivers exported per customer alongside churn score.</li>
-        </ul>
-      </article>
-
-      <!-- 14. Testing & Code Quality -->
-      <article class="card reveal">
-        <h2>14. Testing &amp; Code Quality</h2>
-        <div class="stat-grid">
-          <div class="stat"><span>Unit tests</span><b>105</b><em>pytest</em></div>
-          <div class="stat"><span>Type hints</span><b>Full</b><em>codebase</em></div>
-          <div class="stat"><span>Config</span><b>Pydantic</b><em>validation</em></div>
-          <div class="stat"><span>Logs</span><b>30-day</b><em>retention</em></div>
-        </div>
-        <p style="margin-top:14px">All core modules covered: ingestion, feature computation, dataset preparation, training, scoring, and monitoring. Pydantic configuration validation throughout ensures runtime safety and prevents misconfigurations in production.</p>
-      </article>
-
     </div>
   </section>
 </main>
 
 <footer class="footer">
   <div class="container">
-    <span>© <span data-year></span> Nguyen Anh Phuong</span>
-    <a href="contact.html">Contact</a>
+    <span>&copy; <span data-year></span> Nguyen Anh Phuong</span>
+    <a href="about.html#contact">Contact</a>
   </div>
 </footer>
 <script src="script.js"></script>

@@ -21,9 +21,7 @@
     <nav class="nav" data-nav>
       <a href="index.html">Home</a>
       <a class="active" href="projects.html">Projects</a>
-      <a href="timeline.html">Timeline</a>
       <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -42,8 +40,9 @@
       for Respiratory Disease Classification
     </h1>
     <p class="hero-text reveal">
-      A hierarchical, multi-layer classification system for 5 respiratory diseases — implemented using tabular feature engineering
-      and Random Forest on an FPGA-integrated architecture, achieving <strong style="color:var(--green)">98.81% accuracy</strong>.
+      A hierarchical, multi-layer classification system for 5 respiratory diseases — combining tabular sound features,
+      Random Forest, ANN, and FPGA integration, achieving <strong style="color:var(--green)">98.81% accuracy</strong>
+      with 52.5% lower energy consumption than a CPU-GPU baseline.
       Published in IEEE Access, vol. 13, 2025.
     </p>
     <div class="tag-row reveal">
@@ -60,7 +59,7 @@
 
   <!-- ── Main layout ── -->
   <section class="container section">
-    <div class="case-layout">
+    <div class="case-layout case-layout-compact">
 
       <!-- ── Sidebar ── -->
       <aside class="side-panel case-body">
@@ -71,9 +70,10 @@
             <div class="kpi"><span>Role</span><b>Research Assistant</b></div>
             <div class="kpi"><span>Period</span><b>Jul 2023 – Feb 2025</b></div>
             <div class="kpi"><span>Problem</span><b>5-class disease classification</b></div>
-            <div class="kpi"><span>Architecture</span><b>3-layer hierarchical</b></div>
-            <div class="kpi"><span>Model</span><b>Random Forest</b></div>
+            <div class="kpi"><span>Architecture</span><b>4-layer hierarchical</b></div>
+            <div class="kpi"><span>Model</span><b>Random Forest + ANN</b></div>
             <div class="kpi"><span>Best Accuracy</span><b style="color:var(--green)">98.81%</b></div>
+            <div class="kpi"><span>Energy saving</span><b>52.5%</b></div>
             <div class="kpi"><span>Dataset</span><b>ICBHI 2017 (respiratory sounds)</b></div>
             <div class="kpi"><span>Platform</span><b>FPGA-integrated system</b></div>
             <div class="kpi"><span>Published</span><b>IEEE Access, vol. 13, 2025</b></div>
@@ -84,17 +84,6 @@
                target="_blank" rel="noreferrer">
               View on IEEE →
             </a>
-          </div>
-        </article>
-
-        <article class="card reveal" style="margin-top:18px">
-          <h3>Classification Results</h3>
-          <div style="margin-top:14px">
-            <div class="bar-row"><span>Accuracy</span><div class="bar"><i style="--w:98%"></i></div><b>98.81%</b></div>
-            <div class="bar-row"><span>Healthy</span><div class="bar"><i style="--w:99%"></i></div><b>High</b></div>
-            <div class="bar-row"><span>COPD</span><div class="bar"><i style="--w:97%"></i></div><b>High</b></div>
-            <div class="bar-row"><span>URTI</span><div class="bar"><i style="--w:98%"></i></div><b>High</b></div>
-            <div class="bar-row"><span>Bronchitis</span><div class="bar"><i style="--w:96%"></i></div><b>High</b></div>
           </div>
         </article>
 
@@ -156,11 +145,11 @@
 
         <!-- 2. System Architecture -->
         <article class="card reveal">
-          <h2>2. Hierarchical 3-Layer Architecture</h2>
+          <h2>2. Hierarchical 4-Layer Architecture</h2>
           <p style="margin-top:14px">
-            The system uses a hierarchical classification strategy across three layers, each operating at a
-            different temporal granularity. This mirrors clinical reasoning — from coarse whole-recording patterns
-            down to fine-grained frame-level acoustic events.
+            The system uses a hierarchical classification strategy across four layers, each operating at a
+            different representation level. This mirrors clinical reasoning — from coarse whole-recording patterns
+            down to frame-level acoustic events and wavelet-based spectrogram evidence.
           </p>
           <div class="pipeline" style="margin-top:18px">
             <div class="pipeline-step">
@@ -179,9 +168,9 @@
               <small>35ms frames, 50% overlap — fine-grained acoustic events</small>
             </div>
             <div class="pipeline-step">
-              <span>Fusion</span>
-              <b>Score aggregation</b>
-              <small>Layer outputs combined for final decision</small>
+              <span>Layer 4</span>
+              <b>Wavelet + ANN</b>
+              <small>Spectrogram images processed for disease diagnosis</small>
             </div>
             <div class="pipeline-step">
               <span>Output</span>
@@ -294,12 +283,12 @@
             </div>
             <div class="stat">
               <span>Architecture</span>
-              <b>3-Layer</b>
+              <b>4-Layer</b>
               <em>hierarchical</em>
             </div>
             <div class="stat">
               <span>Model</span>
-              <b>Random Forest</b>
+              <b>RF + ANN</b>
               <em>multi-class</em>
             </div>
             <div class="stat">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Data science projects by Nguyen Anh Phuong — Customer Churn Prediction, Gold Price Forecasting, IEEE research.">
+  <meta name="description" content="Data science projects by Nguyen Anh Phuong - VNPost churn warning, gold price prediction, and IEEE Access research.">
   <title>Projects | Nguyen Anh Phuong</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,121 +21,121 @@
     <nav class="nav" data-nav>
       <a href="index.html">Home</a>
       <a class="active" href="projects.html">Projects</a>
-      <a href="timeline.html">Timeline</a>
       <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="container case-hero reveal">
-    <p class="kicker">Project Portfolio</p>
-    <h1><span class="gradient-text">Four real applied ML</span> project tracks.</h1>
-    <p class="hero-text">Each project documents the full lifecycle: business framing, data engineering, feature design, model validation, explainability, and monitoring.</p>
-  </section>
-
-  <section class="container section">
-    <div class="grid-2">
-
-      <!-- 01: Churn (merged v1 + v2) -->
+  <section class="container section projects-list-section">
+    <div class="projects-list">
       <article class="card project-card reveal">
         <div class="project-visual">
           <div class="pipeline">
-            <div class="pipeline-step"><span>01</span><b>Ingest</b><small>ZIP scan, COPY to PostgreSQL</small></div>
-            <div class="pipeline-step"><span>02</span><b>Features</b><small>66 features, sliding windows</small></div>
-            <div class="pipeline-step"><span>03</span><b>EDA</b><small>Auto drift + quality reports</small></div>
-            <div class="pipeline-step"><span>04</span><b>Model</b><small>XGBoost, guardrail gate</small></div>
-            <div class="pipeline-step"><span>05</span><b>Score</b><small>SHAP export, top-5% list</small></div>
+            <div class="pipeline-step"><span>01</span><b>Ingest</b><small>ZIP scan and PostgreSQL COPY.</small></div>
+            <div class="pipeline-step"><span>02</span><b>Features</b><small>Lifetime and sliding windows.</small></div>
+            <div class="pipeline-step"><span>03</span><b>Model</b><small>XGBoost with monthly runs.</small></div>
+            <div class="pipeline-step"><span>04</span><b>Explain</b><small>SHAP reasons and fallback rules.</small></div>
+            <div class="pipeline-step"><span>05</span><b>Export</b><small>Top-risk customer list.</small></div>
           </div>
         </div>
         <div class="project-copy">
-          <h3>VNPost Churn Prediction System</h3>
-          <p>End-to-end B2B churn system — Docker Compose (v1) → Kubernetes KubernetesPodOperator (v2). ZIP ingestion, sliding-window features, walk-forward CV, guardrail promotion, SHAP explanations, Prometheus/Grafana monitoring.</p>
-          <div class="metrics" style="margin-top:18px">
-            <div class="metric"><span>Precision</span><b>0.918</b></div>
-            <div class="metric"><span>PR-AUC</span><b>0.866</b></div>
-            <div class="metric"><span>Features</span><b>66</b></div>
+          <div class="pmap-num">01 - VNPost</div>
+          <h3>Churn Risk Warning</h3>
+          <p>
+            Churn warning workflow for B2B customers at Vietnam Post.
+            The case study keeps the project logic around data input, feature generation,
+            modeling, explanation, and monthly customer-care output.
+          </p>
+          <div class="metrics">
+            <div class="metric"><span>Risk cut</span><b>Top 5%</b></div>
+            <div class="metric"><span>Speed-up</span><b>82%</b></div>
+            <div class="metric"><span>Horizon</span><b>2 mo.</b></div>
           </div>
           <div class="tag-row">
-            <span class="tag">Airflow</span><span class="tag">XGBoost</span>
-            <span class="tag">PostgreSQL</span><span class="tag">Kubernetes</span>
-            <span class="tag">SHAP</span><span class="tag">PSI / KS</span>
+            <span class="tag">Airflow</span><span class="tag">XGBoost</span><span class="tag">PostgreSQL</span>
+            <span class="tag">Docker Compose</span><span class="tag">SHAP</span><span class="tag">PSI / KS</span>
           </div>
           <div class="project-actions">
             <a class="btn-case" href="case-study-churn.html">Case Study</a>
-            <a class="btn-gh" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn-gh" href="https://github.com/FindingAnAn/crm_churn_warning" target="_blank" rel="noreferrer">GitHub Repo</a>
           </div>
         </div>
       </article>
 
-      <!-- 03: Gold Price -->
       <article class="card project-card reveal">
         <div class="project-visual">
           <div class="chart-card">
-            <div class="chart-head"><strong>Model Comparison</strong><span>TimeSeriesSplit CV</span></div>
-            <div class="bar-row"><span>XGBoost R²</span><div class="bar"><i style="--w:84%"></i></div><b>0.84</b></div>
-            <div class="bar-row"><span>LightGBM R²</span><div class="bar"><i style="--w:79%"></i></div><b>0.79</b></div>
-            <div class="bar-row"><span>Ridge R²</span><div class="bar"><i style="--w:64%"></i></div><b>0.64</b></div>
-            <div class="bar-row"><span>Naive baseline R²</span><div class="bar"><i style="--w:31%"></i></div><b>0.31</b></div>
+            <div class="chart-head"><strong>Model comparison</strong><span>TimeSeriesSplit CV</span></div>
+            <div class="bar-row"><span>XGBoost R2</span><div class="bar"><i style="--w:84%"></i></div><b>0.84</b></div>
+            <div class="bar-row"><span>LightGBM R2</span><div class="bar"><i style="--w:79%"></i></div><b>0.79</b></div>
+            <div class="bar-row"><span>Ridge R2</span><div class="bar"><i style="--w:64%"></i></div><b>0.64</b></div>
+            <div class="bar-row"><span>Naive R2</span><div class="bar"><i style="--w:31%"></i></div><b>0.31</b></div>
           </div>
         </div>
         <div class="project-copy">
-          <h3>02 · Gold Price Forecasting Pipeline</h3>
-          <p>Modular time-series prediction system integrating multi-source financial data (yfinance, FRED, EIA) into a 3-layer PostgreSQL architecture with 70+ window-function features.</p>
-          <ul>
-            <li><strong>Problem:</strong> Daily gold price forecasting with interpretable feature signals.</li>
-            <li><strong>Approach:</strong> 70+ features across 8 groups; Optuna hyperparameter search; TimeSeriesSplit CV.</li>
-            <li><strong>Outcome:</strong> Best model persisted with prediction logging for drift detection.</li>
-          </ul>
+          <div class="pmap-num">02 - Gold</div>
+          <h3>Gold Price Prediction</h3>
+          <p>
+            Modular forecasting pipeline that integrates yfinance, FRED, and EIA data into a
+            three-layer PostgreSQL architecture, then trains and compares model families with
+            time-aware validation.
+          </p>
+          <div class="metrics">
+            <div class="metric"><span>Best R2</span><b>0.84</b></div>
+            <div class="metric"><span>Features</span><b>70+</b></div>
+            <div class="metric"><span>Groups</span><b>8</b></div>
+          </div>
           <div class="tag-row">
             <span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">Optuna</span>
             <span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">yfinance</span>
           </div>
           <div class="project-actions">
             <a class="btn-case" href="case-study-gold.html">Case Study</a>
-            <a class="btn-gh" href="https://github.com/FindingAnAn" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn-gh" href="https://github.com/FindingAnAn/goldprice_prediction" target="_blank" rel="noreferrer">GitHub Repo</a>
           </div>
         </div>
       </article>
 
-      <!-- 04: IEEE Research -->
       <article class="card project-card reveal">
         <div class="project-visual">
           <div class="stat-grid">
             <div class="stat"><span>Accuracy</span><b>98.81%</b><em>5-class</em></div>
-            <div class="stat"><span>Classes</span><b>5</b><em>diseases</em></div>
-            <div class="stat"><span>Layers</span><b>3</b><em>hierarchical</em></div>
-            <div class="stat"><span>Published</span><b>2025</b><em>IEEE Access</em></div>
+            <div class="stat"><span>Energy</span><b>52.5%</b><em>saving</em></div>
+            <div class="stat"><span>Layers</span><b>4</b><em>hierarchy</em></div>
+            <div class="stat"><span>Venue</span><b>IEEE</b><em>Access</em></div>
           </div>
         </div>
         <div class="project-copy">
-          <h3>03 · Respiratory Disease Classification (IEEE Access 2025)</h3>
-          <p>Hierarchical embedded system for classifying 5 respiratory diseases using FPGA-integrated Random Forest models — published IEEE Access 2025. 98.81% accuracy across Healthy, COPD, URTI, Bronchitis, and Pneumonia.</p>
+          <div class="pmap-num">03 - EDABK Lab</div>
+          <h3>Respiratory Disease Classification</h3>
+          <p>
+            Research project on a hierarchical embedded system for diagnosing respiratory diseases
+            from sound features. The paper was published in IEEE Access, vol. 13, 2025.
+          </p>
           <ul>
-            <li>Recording-level features (Layer 1): RMSE, EED, Temporal Centroid, Log Attack Time, amplitude statistics.</li>
-            <li>Frame-level features (Layers 2 &amp; 3): ZCR, mean, std, skewness, kurtosis over 20ms and 35ms overlapping frames.</li>
-            <li>3-layer hierarchical architecture — 98.81% overall accuracy on FPGA platform.</li>
+            <li>Five target classes: Healthy, COPD, URTI, Bronchitis, and Pneumonia.</li>
+            <li>Random Forest and ANN components integrated into an FPGA-oriented system.</li>
+            <li>Feature work spans recording-level and frame-level respiratory sound signals.</li>
           </ul>
           <div class="tag-row">
-            <span class="tag">Python</span><span class="tag">Random Forest</span><span class="tag">scikit-learn</span>
+            <span class="tag">Python</span><span class="tag">Random Forest</span><span class="tag">ANN</span>
             <span class="tag">FPGA</span><span class="tag">Signal Processing</span><span class="tag">IEEE Access</span>
           </div>
           <div class="project-actions">
             <a class="btn-case" href="case-study-edabk.html">Case Study</a>
-            <a class="btn-gh" href="https://doi.org/10.1109/ACCESS.2025.3573162" target="_blank" rel="noreferrer">IEEE →</a>
+            <a class="btn-gh" href="https://ieeexplore.ieee.org/document/11014092/" target="_blank" rel="noreferrer">IEEE Page</a>
           </div>
         </div>
       </article>
-
     </div>
   </section>
 </main>
 
 <footer class="footer">
   <div class="container">
-    <span>© <span data-year></span> Nguyen Anh Phuong</span>
-    <a href="contact.html">Contact</a>
+    <span>&copy; <span data-year></span> Nguyen Anh Phuong</span>
+    <a href="about.html#contact">Contact</a>
   </div>
 </footer>
 <script src="script.js"></script>
