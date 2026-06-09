@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Gold Price Forecasting Pipeline — modular time-series ML system by Nguyen Anh Phuong.">
+  <meta name="description" content="Situation-Action-Result case study of Nguyen Anh Phuong's gold price forecasting pipeline.">
   <title>Gold Price Forecasting | Nguyen Anh Phuong</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,165 +27,280 @@
 </header>
 
 <main>
-  <section class="container case-hero">
-    <div class="breadcrumbs reveal">
-      <a href="index.html">Home</a><span>›</span>
-      <a href="projects.html">Projects</a><span>›</span>
+  <section class="container case-hero reveal">
+    <div class="breadcrumbs">
+      <a href="index.html">Home</a><span>/</span>
+      <a href="projects.html">Projects</a><span>/</span>
       <span>Gold Price Forecasting</span>
     </div>
-    <p class="kicker">Case Study · Personal Project</p>
-    <h1 class="reveal"><span class="gradient-text">Gold Price Forecasting</span> Pipeline</h1>
-    <p class="hero-text reveal">
-      Modular time-series prediction system for daily gold price forecasting — multi-source financial data,
-      3-layer PostgreSQL architecture, 70+ engineered features, and model comparison with Optuna search.
+    <p class="kicker">Case Study - Personal Project</p>
+    <h1>A modular <span class="gradient-text">gold price forecasting</span> pipeline</h1>
+    <p class="hero-text">
+      A time-series ML system that combines market, macroeconomic, and energy data
+      to forecast the next available gold price.
     </p>
-    <div class="tag-row reveal">
-      <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">XGBoost</span>
-      <span class="tag">LightGBM</span><span class="tag">Optuna</span><span class="tag">SQLAlchemy</span>
-      <span class="tag">yfinance</span><span class="tag">FRED</span><span class="tag">EIA</span>
+    <div class="tag-row" style="margin-top:18px">
+      <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">SQL</span>
+      <span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">Optuna</span>
+      <span class="tag">TimeSeriesSplit</span><span class="tag">SQLAlchemy</span>
     </div>
   </section>
 
-  <section class="container section">
-    <div class="case-layout">
-      <!-- Sidebar -->
-      <aside class="side-panel case-body">
-        <article class="card reveal">
-          <h3>Project Highlights</h3>
-          <div class="kpi-list" style="margin-top:14px">
-            <div class="kpi"><span>Best R²</span><b>0.84 (XGBoost)</b></div>
-            <div class="kpi"><span>Features</span><b>70+ across 8 groups</b></div>
-            <div class="kpi"><span>Data sources</span><b>yfinance, FRED, EIA</b></div>
-            <div class="kpi"><span>DB layers</span><b>Raw → Staging → Features</b></div>
-            <div class="kpi"><span>CV method</span><b>TimeSeriesSplit</b></div>
-            <div class="kpi"><span>Hyperparameter</span><b>Optuna search</b></div>
-            <div class="kpi"><span>GitHub</span><b><a href="https://github.com/FindingAnAn/goldprice_prediction" target="_blank" rel="noreferrer" style="color:var(--green)">goldprice_prediction</a></b></div>
-          </div>
-        </article>
-        <article class="card reveal" style="margin-top:18px">
-          <h3>Model Comparison</h3>
-          <div class="model-bars" style="margin-top:14px">
-            <div class="bar-row"><span>XGBoost R²</span><div class="bar"><i style="--w:84%"></i></div><b>0.84</b></div>
-            <div class="bar-row"><span>LightGBM R²</span><div class="bar"><i style="--w:79%"></i></div><b>0.79</b></div>
-            <div class="bar-row"><span>Ridge R²</span><div class="bar"><i style="--w:64%"></i></div><b>0.64</b></div>
-            <div class="bar-row"><span>Naive R²</span><div class="bar"><i style="--w:31%"></i></div><b>0.31</b></div>
-          </div>
-        </article>
-      </aside>
-
-      <!-- Main body -->
-      <div class="case-body">
-
-        <article class="card reveal">
-          <h2>Business Context</h2>
-          <p style="margin-top:14px">
-            Gold price is one of the most-watched financial signals — influencing investment decisions, hedging strategies,
-            and macroeconomic analysis. The goal was to build a <strong style="color:var(--soft)">modular, production-ready forecasting system</strong>
-            that integrates multiple data streams, engineers meaningful predictive signals entirely in SQL,
-            and compares model families rigorously using time-aware validation.
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h2>Data Architecture — 3-Layer PostgreSQL</h2>
-          <p style="margin-top:14px">Data flows through three isolated schema layers to separate concerns and enable independent reprocessing:</p>
-          <div class="pipeline" style="margin-top:18px">
-            <div class="pipeline-step"><span>RAW</span><b>Ingest</b><small>yfinance, FRED, EIA APIs with source-level fallback</small></div>
-            <div class="pipeline-step"><span>STAGING</span><b>Clean</b><small>Schema enforcement, deduplication, outlier handling</small></div>
-            <div class="pipeline-step"><span>FEATURES</span><b>Engineer</b><small>70+ window-function features in SQL</small></div>
-            <div class="pipeline-step"><span>TRAIN</span><b>Split</b><small>TimeSeriesSplit CV, leakage-free scaler fit</small></div>
-            <div class="pipeline-step"><span>PREDICT</span><b>Log</b><small>Prediction store + drift triggers</small></div>
-          </div>
-          <p style="margin-top:14px">
-            Automated ingestion adapters handle each source independently with source-level fallback for pipeline resilience.
-            All features are computed using PostgreSQL window functions — no Python-side feature leakage.
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h2>Feature Engineering — 70+ Features, 8 Groups</h2>
-          <div class="two-col" style="margin-top:14px">
-            <div class="chart-card">
-              <div class="chart-head"><strong>Feature Groups</strong></div>
-              <ul style="margin:0;padding-left:16px;line-height:2">
-                <li>Financial price metrics (OHLCV returns)</li>
-                <li>Market trend signals (SMA, EMA, Bollinger)</li>
-                <li>Cross-asset relationships (USD, oil, equities)</li>
-                <li>Technical indicators (RSI, MACD, momentum)</li>
-              </ul>
-            </div>
-            <div class="chart-card">
-              <div class="chart-head"><strong>Additional Groups</strong></div>
-              <ul style="margin:0;padding-left:16px;line-height:2">
-                <li>Macroeconomic signals (CPI, Fed rate, GDP)</li>
-                <li>Social sentiment proxies</li>
-                <li>Calendar / seasonality features</li>
-                <li>Lag features and rolling statistics</li>
-              </ul>
-            </div>
-          </div>
-          <p style="margin-top:14px">
-            All features are computed entirely using <strong style="color:var(--soft)">SQL window functions</strong> in the features layer,
-            making them reusable across model iterations and auditable without re-running Python code.
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h2>Model Training &amp; Validation</h2>
-          <p style="margin-top:14px">
-            Five model families were trained and compared across the Ridge-to-XGBoost spectrum:
-          </p>
-          <div class="two-col" style="margin-top:14px">
-            <div class="chart-card">
-              <div class="chart-head"><strong>Validation Strategy</strong></div>
-              <ul style="margin:0;padding-left:16px;line-height:1.9">
-                <li><strong>TimeSeriesSplit</strong> cross-validation — no future data leakage</li>
-                <li>StandardScaler fitted only on training fold</li>
-                <li>Optuna hyperparameter search per model family</li>
-                <li>RMSE, MAE, R² tracked across all candidates</li>
-              </ul>
-            </div>
-            <div class="chart-card">
-              <div class="chart-head"><strong>Model Monitoring</strong></div>
-              <ul style="margin:0;padding-left:16px;line-height:1.9">
-                <li>Best model persisted to prediction store</li>
-                <li>Prediction logging enables retrospective drift detection</li>
-                <li>Retraining triggers based on R² degradation</li>
-                <li>Model versioning with metadata (date, features, params)</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <h2>Outcome &amp; Learnings</h2>
-          <div class="kpi-list" style="margin-top:14px">
-            <div class="kpi"><span>Best model</span><b>XGBoost — R² 0.84, MAE ~18k VND</b></div>
-            <div class="kpi"><span>Baseline</span><b>Naive persistence — R² 0.31</b></div>
-            <div class="kpi"><span>Key insight</span><b>Cross-asset features (USD, oil) dominate importance</b></div>
-            <div class="kpi"><span>Architecture</span><b>3-layer PostgreSQL enables independent layer reprocessing</b></div>
-          </div>
-          <p style="margin-top:14px">
-            The project validated that <strong style="color:var(--soft)">SQL-native feature engineering</strong> with strict time-series CV
-            prevents the leakage that often inflates performance in financial forecasting tasks.
-            The modular architecture allows adding new data sources without touching downstream feature or model code.
-          </p>
-          <p style="margin-top:10px">
-            <a href="https://github.com/FindingAnAn/goldprice_prediction" target="_blank" rel="noreferrer"
-               style="color:var(--green);font-weight:800;text-decoration:underline">
-              → View on GitHub: goldprice_prediction
-            </a>
-          </p>
-        </article>
-
+  <section class="container reveal" style="padding:28px 0 0">
+    <div class="dashboard-shell" aria-label="Gold forecasting pipeline">
+      <div class="window-bar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <span>forecasting workflow</span>
       </div>
+      <div class="dash-content gold-flow">
+        <div class="pipeline">
+          <div class="pipeline-step"><span>01</span><b>Collect</b><small>Market, macro, and energy APIs.</small></div>
+          <div class="pipeline-step"><span>02</span><b>Stage</b><small>Clean and align daily observations.</small></div>
+          <div class="pipeline-step"><span>03</span><b>Engineer</b><small>Create SQL-native indicators.</small></div>
+          <div class="pipeline-step"><span>04</span><b>Validate</b><small>Preserve chronological order.</small></div>
+          <div class="pipeline-step"><span>05</span><b>Select</b><small>Compare models by CV RMSE.</small></div>
+          <div class="pipeline-step"><span>06</span><b>Predict</b><small>Persist latest forecasts to CSV.</small></div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><span>Forecast target</span><b>Next day</b><em>default prediction horizon</em></div>
+          <div class="stat"><span>Data sources</span><b>4 APIs</b><em>market to macro signals</em></div>
+          <div class="stat"><span>Data architecture</span><b>3 schemas</b><em>raw, staging, features</em></div>
+          <div class="stat"><span>Feature pipeline</span><b>9 SQL stages</b><em>auditable transformations</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section case-layout">
+    <aside class="side-panel case-body">
+      <article class="card reveal">
+        <h3>Project Snapshot</h3>
+        <div class="kpi-list" style="margin-top:16px">
+          <div class="kpi"><span>Project type</span><b>Personal ML system</b></div>
+          <div class="kpi"><span>Problem</span><b>Time-series regression</b></div>
+          <div class="kpi"><span>Target</span><b>Next-day gold price</b></div>
+          <div class="kpi"><span>Storage</span><b>PostgreSQL</b></div>
+          <div class="kpi"><span>Validation</span><b>TimeSeriesSplit</b></div>
+          <div class="kpi"><span>Selection</span><b>Lowest CV RMSE</b></div>
+          <div class="kpi"><span>Output</span><b>Model + prediction CSV</b></div>
+        </div>
+        <div class="project-actions" style="margin-top:20px">
+          <a class="btn-gh" href="https://github.com/FindingAnAn/goldprice_prediction" target="_blank" rel="noreferrer">Source Repository</a>
+        </div>
+      </article>
+
+      <article class="card card-grey reveal">
+        <h3>Design Principle</h3>
+        <p>Keep future targets separate from reusable features and evaluate only in chronological order.</p>
+      </article>
+
+      <article class="card reveal">
+        <h3>Case Study</h3>
+        <ol class="case-index">
+          <li><a href="#situation">Situation</a></li>
+          <li><a href="#action">Action</a></li>
+          <li><a href="#result">Result</a></li>
+          <li><a href="#evidence">Evidence and limits</a></li>
+        </ol>
+      </article>
+    </aside>
+
+    <div class="case-body">
+      <article class="card reveal sar-section" id="situation">
+        <div class="sar-heading">
+          <span class="sar-letter">S</span>
+          <div>
+            <p class="section-eyebrow">Situation</p>
+            <h2>Gold reacts to signals distributed across different markets</h2>
+          </div>
+        </div>
+
+        <div class="sar-grid">
+          <div class="sar-card">
+            <span>Fragmented inputs</span>
+            <b>No single source explains the market</b>
+            <p>Gold, USD, equities, volatility, rates, inflation, and oil move on different calendars.</p>
+          </div>
+          <div class="sar-card">
+            <span>Time leakage</span>
+            <b>Future prices are easy to expose</b>
+            <p>Targets and same-period price fields require strict separation.</p>
+          </div>
+          <div class="sar-card">
+            <span>Model risk</span>
+            <b>Random validation is misleading</b>
+            <p>Financial regimes change and observations are time-dependent.</p>
+          </div>
+          <div class="sar-card">
+            <span>Reusability</span>
+            <b>Notebook-only features do not scale</b>
+            <p>New experiments need one consistent and auditable feature layer.</p>
+          </div>
+        </div>
+
+        <div class="label-rule">
+          <div><span>Input contract</span><b>Information available on or before the forecast date</b></div>
+          <div><span>Target contract</span><b>Gold price on the next available trading day</b></div>
+        </div>
+      </article>
+
+      <article class="card reveal sar-section" id="action">
+        <div class="sar-heading">
+          <span class="sar-letter">A</span>
+          <div>
+            <p class="section-eyebrow">Action</p>
+            <h2>I built a reusable forecasting pipeline around PostgreSQL</h2>
+          </div>
+        </div>
+
+        <h3 class="block-title">1. Multi-source ingestion</h3>
+        <div class="source-grid">
+          <div><span>Yahoo Finance</span><b>Gold, silver, USD, equities, VIX</b></div>
+          <div><span>FRED</span><b>Rates, inflation, money supply, labor</b></div>
+          <div><span>EIA</span><b>WTI and Brent oil prices</b></div>
+          <div><span>FreeGoldAPI</span><b>Gold history and market ratios</b></div>
+        </div>
+
+        <h3 class="block-title">2. Three-layer data architecture</h3>
+        <div class="layer-flow">
+          <div><span>Raw</span><b>Source-level tables</b><small>Preserve downloaded records</small></div>
+          <i>→</i>
+          <div><span>Staging</span><b>Daily master table</b><small>Clean, align, deduplicate</small></div>
+          <i>→</i>
+          <div><span>Features</span><b>Model-ready signals</b><small>Reusable SQL transformations</small></div>
+        </div>
+
+        <h3 class="block-title">3. SQL feature system</h3>
+        <div class="feature-grid">
+          <div><b>Price trend</b><span>SMA, EMA, Bollinger bands</span></div>
+          <div><b>Momentum</b><span>RSI, MACD, ROC, stochastic</span></div>
+          <div><b>Trend strength</b><span>ADX and rolling z-scores</span></div>
+          <div><b>Macroeconomics</b><span>rates, CPI, M2, unemployment</span></div>
+          <div><b>Cross-asset</b><span>USD, equities, silver, oil, VIX</span></div>
+          <div><b>Market ratios</b><span>gold/silver, gold/oil, real yield</span></div>
+          <div><b>Rolling windows</b><span>5, 21, 63, and 252-day signals</span></div>
+          <div><b>EWMA</b><span>levels, volatility, and crossovers</span></div>
+        </div>
+
+        <div class="anti-leakage-board">
+          <div><span>Feature table</span><b>Excludes gold close, gold open, and future labels</b></div>
+          <div><span>Target table</span><b>Stores future prices, direction, and percentage change separately</b></div>
+        </div>
+
+        <h3 class="block-title">4. Time-aware model selection</h3>
+        <div class="model-family-grid">
+          <span>Ridge</span>
+          <span>Lasso</span>
+          <span>Random Forest</span>
+          <span>XGBoost</span>
+          <span>LightGBM</span>
+        </div>
+        <div class="governance-flow">
+          <div><span>Split</span><b>Chronological holdout</b></div>
+          <i>→</i>
+          <div><span>Validate</span><b>TimeSeriesSplit</b></div>
+          <i>→</i>
+          <div><span>Tune</span><b>Optional Optuna</b></div>
+          <i>→</i>
+          <div><span>Select</span><b>Lowest CV RMSE</b></div>
+        </div>
+
+        <h3 class="block-title">5. Reproducible execution</h3>
+        <div class="architecture-grid">
+          <div class="architecture-card"><span>CLI 01</span><b>Environment check</b><p>Validate keys, database, tables, and paths.</p></div>
+          <div class="architecture-card"><span>CLI 02</span><b>Ingestion</b><p>Collect data and execute SQL features.</p></div>
+          <div class="architecture-card"><span>CLI 03</span><b>EDA</b><p>Inspect quality, distributions, and relationships.</p></div>
+          <div class="architecture-card"><span>CLI 04</span><b>Modeling</b><p>Train, evaluate, and generate forecasts.</p></div>
+        </div>
+      </article>
+
+      <article class="card reveal sar-section" id="result">
+        <div class="sar-heading">
+          <span class="sar-letter">R</span>
+          <div>
+            <p class="section-eyebrow">Result</p>
+            <h2>A complete experiment-to-prediction workflow</h2>
+          </div>
+        </div>
+
+        <div class="result-board">
+          <div><span>Data product</span><b>Aligned daily market table</b><small>Four source families in PostgreSQL</small></div>
+          <div><span>Feature product</span><b>Reusable SQL feature store</b><small>Independent from Python notebooks</small></div>
+          <div><span>Leakage control</span><b>Separate feature and target tables</b><small>Future values excluded from model inputs</small></div>
+          <div><span>Model product</span><b>Persisted best estimator</b><small>Selected by time-aware CV RMSE</small></div>
+          <div><span>Forecast product</span><b>Timestamped prediction CSV</b><small>Latest one or multiple rows</small></div>
+          <div><span>Extension point</span><b>Source and model adapters</b><small>Add components without rewriting the pipeline</small></div>
+        </div>
+
+        <div class="mini-panels">
+          <div class="chart-card">
+            <div class="chart-head"><strong>Prediction Output</strong><span>batch inference</span></div>
+            <table class="mock-table">
+              <tr><th>Date</th><th>Target</th><th>Output</th></tr>
+              <tr><td>Latest row</td><td>Next-day price</td><td><span class="score high">Forecast</span></td></tr>
+              <tr><td>Recent rows</td><td>Batch request</td><td><span class="score mid">CSV</span></td></tr>
+              <tr><td>Historical holdout</td><td>Evaluation</td><td><span class="score low">RMSE</span></td></tr>
+            </table>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><strong>Experiment Contract</strong><span>repeatable</span></div>
+            <div class="monitor-stack">
+              <div><b>Same feature source</b><span>Training and prediction read the master feature table.</span></div>
+              <div><b>Same selection rule</b><span>Candidate models are ranked by cross-validation RMSE.</span></div>
+              <div><b>Saved artifacts</b><span>Best model and timestamped forecasts remain inspectable.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="block-title">My ownership</h3>
+        <div class="ownership-grid">
+          <span>Data-source integration</span>
+          <span>PostgreSQL schemas</span>
+          <span>Cleaning pipeline</span>
+          <span>SQL feature engineering</span>
+          <span>Leakage controls</span>
+          <span>Time-series validation</span>
+          <span>Model comparison</span>
+          <span>Optuna tuning</span>
+          <span>Batch prediction</span>
+          <span>Tests and documentation</span>
+        </div>
+      </article>
+
+      <article class="card card-grey reveal" id="evidence">
+        <p class="section-eyebrow">Evidence And Limits</p>
+        <h2>Architecture claims are separated from performance claims</h2>
+        <div class="two-col">
+          <div class="chart-card">
+            <div class="chart-head"><strong>Verified in repository</strong></div>
+            <ul class="compact-list">
+              <li>Four ingestion adapters</li>
+              <li>Three PostgreSQL schema layers</li>
+              <li>Nine SQL feature stages</li>
+              <li>Time-aware training and prediction CLI</li>
+            </ul>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><strong>Current limits</strong></div>
+            <ul class="compact-list">
+              <li>Research pipeline, not trading advice</li>
+              <li>No transaction-cost or strategy backtest</li>
+              <li>No automated retraining scheduler</li>
+              <li>Model must be retrained after feature-schema changes</li>
+            </ul>
+          </div>
+        </div>
+        <div class="project-actions">
+          <a class="btn-case" href="https://github.com/FindingAnAn/goldprice_prediction" target="_blank" rel="noreferrer">Inspect the Implementation</a>
+        </div>
+      </article>
     </div>
   </section>
 </main>
 
 <footer class="footer">
   <div class="container">
-    <span>© <span data-year></span> Nguyen Anh Phuong</span>
+    <span>&copy; <span data-year></span> Nguyen Anh Phuong</span>
     <a href="projects.html">All Projects</a>
   </div>
 </footer>

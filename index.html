@@ -115,12 +115,10 @@
       <article class="card">
         <div class="pmap-num">02 - Forecasting</div>
         <h3>Gold Price Prediction</h3>
-        <p>Time-series forecasting system with yfinance, FRED, EIA data, SQL-native feature engineering, model comparison, and prediction logging.</p>
-        <div class="chart-card" style="margin-top:16px">
-          <div class="chart-head"><strong>Model comparison</strong><span>R2</span></div>
-          <div class="bar-row"><span>XGBoost</span><div class="bar"><i style="--w:84%"></i></div><b>0.84</b></div>
-          <div class="bar-row"><span>LightGBM</span><div class="bar"><i style="--w:79%"></i></div><b>0.79</b></div>
-          <div class="bar-row"><span>Ridge</span><div class="bar"><i style="--w:64%"></i></div><b>0.64</b></div>
+        <p>Time-series forecasting system with multi-source ingestion, SQL-native features, chronological validation, and batch prediction.</p>
+        <div class="stat-grid" style="grid-template-columns:repeat(2,1fr);margin-top:16px">
+          <div class="stat"><span>Sources</span><b>4 APIs</b><em>market and macro data</em></div>
+          <div class="stat"><span>Feature flow</span><b>9 stages</b><em>SQL transformations</em></div>
         </div>
         <div class="tag-row">
           <span class="tag">XGBoost</span><span class="tag">Optuna</span><span class="tag">PostgreSQL</span><span class="tag">TimeSeriesSplit</span>

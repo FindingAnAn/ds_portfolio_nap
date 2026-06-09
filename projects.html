@@ -65,26 +65,25 @@
 
       <article class="card project-card reveal">
         <div class="project-visual">
-          <div class="chart-card">
-            <div class="chart-head"><strong>Model comparison</strong><span>TimeSeriesSplit CV</span></div>
-            <div class="bar-row"><span>XGBoost R2</span><div class="bar"><i style="--w:84%"></i></div><b>0.84</b></div>
-            <div class="bar-row"><span>LightGBM R2</span><div class="bar"><i style="--w:79%"></i></div><b>0.79</b></div>
-            <div class="bar-row"><span>Ridge R2</span><div class="bar"><i style="--w:64%"></i></div><b>0.64</b></div>
-            <div class="bar-row"><span>Naive R2</span><div class="bar"><i style="--w:31%"></i></div><b>0.31</b></div>
+          <div class="pipeline">
+            <div class="pipeline-step"><span>01</span><b>Collect</b><small>Four financial data sources.</small></div>
+            <div class="pipeline-step"><span>02</span><b>Engineer</b><small>Nine SQL feature stages.</small></div>
+            <div class="pipeline-step"><span>03</span><b>Validate</b><small>Chronological split and CV.</small></div>
+            <div class="pipeline-step"><span>04</span><b>Predict</b><small>Persist model and forecasts.</small></div>
           </div>
         </div>
         <div class="project-copy">
           <div class="pmap-num">02 - Gold</div>
           <h3>Gold Price Prediction</h3>
           <p>
-            Modular forecasting pipeline that integrates yfinance, FRED, and EIA data into a
+            Modular forecasting pipeline that integrates market, macroeconomic, and energy data into a
             three-layer PostgreSQL architecture, then trains and compares model families with
             time-aware validation.
           </p>
           <div class="metrics">
-            <div class="metric"><span>Best R2</span><b>0.84</b></div>
-            <div class="metric"><span>Features</span><b>70+</b></div>
-            <div class="metric"><span>Groups</span><b>8</b></div>
+            <div class="metric"><span>Sources</span><b>4</b></div>
+            <div class="metric"><span>SQL stages</span><b>9</b></div>
+            <div class="metric"><span>Target</span><b>Next day</b></div>
           </div>
           <div class="tag-row">
             <span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">Optuna</span>
