@@ -21,7 +21,7 @@
     <nav class="nav" data-nav>
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
+      <a href="about.html">Profile</a>
     </nav>
   </div>
 </header>
@@ -115,8 +115,8 @@
           <div class="tl-entry" data-type="work">
             <span class="tl-entry-type type-work">💼 Work</span>
             <h4>Testing Suite Completion</h4>
-            <p>Reached 105 unit tests covering all core pipeline modules: ingestion validators, feature computation functions, dataset preparation steps, training guardrails, and scoring output schema. All tests integrated with CI.</p>
-            <div class="tl-tags"><span>pytest</span><span>Pydantic</span><span>CI/CD</span><span>Unit Tests</span></div>
+            <p>Expanded unit-test coverage across settings, EDA, temporal feature generation, dataset preparation, model guardrails, evaluation, and scoring behavior.</p>
+            <div class="tl-tags"><span>pytest</span><span>Data Validation</span><span>Model Governance</span><span>Unit Tests</span></div>
           </div>
         </div>
       </div>
@@ -126,9 +126,9 @@
         <div class="tl-entries">
           <div class="tl-entry" data-type="work">
             <span class="tl-entry-type type-work">💼 Work</span>
-            <h4>SHAP Explainability Integration</h4>
-            <p>Integrated SHAP gain-based feature importance into the scoring DAG. Each exported customer record now includes top-3 risk drivers in human-readable form to support actionable retention strategies.</p>
-            <div class="tl-tags"><span>SHAP</span><span>XGBoost</span><span>Python</span><span>Airflow DAG 5</span></div>
+            <h4>Operational Reason Signals</h4>
+            <p>Added gain-based feature reason signals to the scoring pipeline. Each flagged customer record includes three human-readable indicators for customer-care review.</p>
+            <div class="tl-tags"><span>Feature Importance</span><span>XGBoost</span><span>Python</span><span>Scoring</span></div>
           </div>
           <div class="tl-entry" data-type="learn">
             <span class="tl-entry-type type-learn">📚 Learning</span>
@@ -145,8 +145,8 @@
           <div class="tl-entry" data-type="work">
             <span class="tl-entry-type type-work">💼 Work</span>
             <h4>Walk-forward CV Validation Framework</h4>
-            <p>Implemented expanding-window walk-forward validation to select the optimal training window size. Compared AUC across 5 folds against Logistic Regression baseline. Selected XGBoost with 12-month window.</p>
-            <div class="tl-tags"><span>XGBoost</span><span>Walk-forward CV</span><span>scikit-learn</span><span>Optuna</span></div>
+            <p>Implemented walk-forward validation to select the historical feature-window size without random temporal mixing, with a minimum number of ordered training windows.</p>
+            <div class="tl-tags"><span>XGBoost</span><span>Walk-forward Validation</span><span>Temporal ML</span><span>Leakage Control</span></div>
           </div>
         </div>
       </div>
@@ -162,7 +162,7 @@
           <div class="tl-entry" data-type="work">
             <span class="tl-entry-type type-work">💼 Work</span>
             <h4>Drift Monitoring Stack — Prometheus + Grafana</h4>
-            <p>Built observability stack for the churn pipeline: PSI/KS tests for feature drift, Prometheus metrics for DAG execution health, Grafana dashboards for weekly model performance review.</p>
+            <p>Built two observability layers for the churn pipeline: PostgreSQL PSI/KS model-quality records and Prometheus/Grafana dashboards for Kubernetes and DAG infrastructure health.</p>
             <div class="tl-tags"><span>Prometheus</span><span>Grafana</span><span>PSI</span><span>KS Test</span></div>
           </div>
         </div>
@@ -174,7 +174,7 @@
           <div class="tl-entry" data-type="work">
             <span class="tl-entry-type type-work">💼 Work</span>
             <h4>Feature Engineering — EWMA + Delta-EWMA</h4>
-            <p>Implemented sliding-window EWMA framework in SQL (3/6/12-month pivots). Added delta-EWMA features to detect short-term momentum shifts — these became the top SHAP-ranked predictors in the final model.</p>
+            <p>Implemented multi-signal EWMA and delta-EWMA features to capture smoothed behavior levels and short-term momentum across volume, revenue, complaints, delays, orders, and satisfaction.</p>
             <div class="tl-tags"><span>PostgreSQL</span><span>EWMA</span><span>Feature Engineering</span><span>SQL</span></div>
           </div>
         </div>

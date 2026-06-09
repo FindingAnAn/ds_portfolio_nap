@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VNPost Churn Warning case study by Nguyen Anh Phuong.">
-  <title>Churn Warning Case Study | Nguyen Anh Phuong</title>
+  <meta name="description" content="A detailed case study of Nguyen Anh Phuong's production-oriented B2B churn warning system for Vietnam Post.">
+  <title>B2B Churn Warning System | Nguyen Anh Phuong</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
     <nav class="nav" data-nav>
       <a href="index.html">Home</a>
       <a class="active" href="projects.html">Projects</a>
-      <a href="about.html">About</a>
+      <a href="about.html">Profile</a>
     </nav>
   </div>
 </header>
@@ -31,50 +31,45 @@
     <div class="breadcrumbs">
       <a href="index.html">Home</a><span>/</span>
       <a href="projects.html">Projects</a><span>/</span>
-      <span>Churn Warning</span>
+      <span>B2B Churn Warning</span>
     </div>
-    <p class="kicker">Case Study - Vietnam Post</p>
-    <h1><span class="gradient-text">Churn Warning</span> for B2B Customers</h1>
+    <p class="kicker">Flagship Case Study - Vietnam Post</p>
+    <h1>A production-oriented <span class="gradient-text">churn warning system</span> for B2B customers</h1>
     <p class="hero-text">
-      A monthly machine learning workflow that identifies B2B customers with high churn risk,
-      explains the main risk signals, and exports a focused list for customer-care follow-up.
+      An end-to-end batch machine learning system that converts monthly transaction data and limited
+      confirmed churn labels into a precision-focused retention list. The system covers ingestion,
+      leakage-safe temporal features, weak supervision, model governance, scoring, monitoring, and
+      Kubernetes-based orchestration.
     </p>
-    <div class="tag-row" style="margin-top:16px">
-      <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">PostgreSQL</span>
-      <span class="tag">Airflow</span><span class="tag">XGBoost</span><span class="tag">SHAP</span>
+    <div class="tag-row" style="margin-top:18px">
+      <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">XGBoost</span>
+      <span class="tag">Airflow</span><span class="tag">Kubernetes</span><span class="tag">Docker</span>
+      <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">pytest</span>
     </div>
   </section>
 
   <section class="container reveal" style="padding:28px 0 0">
-    <div class="dashboard-shell" aria-label="Churn warning workflow mockup">
+    <div class="dashboard-shell" aria-label="End-to-end churn system workflow">
       <div class="window-bar">
         <div class="dots"><span></span><span></span><span></span></div>
-        <span>monthly_churn_pipeline.py</span>
+        <span>production decision flow</span>
       </div>
       <div class="dash-content">
         <div class="pipeline">
-          <div class="pipeline-step"><span>01</span><b>Ingest</b><small>Load monthly customer and transaction data.</small></div>
-          <div class="pipeline-step"><span>02</span><b>Features</b><small>Create lifetime and recent behavior metrics.</small></div>
-          <div class="pipeline-step"><span>03</span><b>Train</b><small>Validate and select the monthly model.</small></div>
-          <div class="pipeline-step"><span>04</span><b>Score</b><small>Rank active customers by churn risk.</small></div>
-          <div class="pipeline-step"><span>05</span><b>Export</b><small>Send high-risk list with reason signals.</small></div>
+          <div class="pipeline-step"><span>01</span><b>Ingest</b><small>Validate ZIP/CSV inputs and load PostgreSQL.</small></div>
+          <div class="pipeline-step"><span>02</span><b>Engineer</b><small>Build lifetime and 1-6 month temporal features.</small></div>
+          <div class="pipeline-step"><span>03</span><b>Prepare</b><small>Create time-aware train, evaluation, and scoring sets.</small></div>
+          <div class="pipeline-step"><span>04</span><b>Learn</b><small>Combine confirmed labels, prototypes, and PU weights.</small></div>
+          <div class="pipeline-step"><span>05</span><b>Govern</b><small>Apply quality gates and compare with the accepted model.</small></div>
+          <div class="pipeline-step"><span>06</span><b>Score</b><small>Rank active customers for a two-month horizon.</small></div>
+          <div class="pipeline-step"><span>07</span><b>Explain</b><small>Attach three feature-based reason signals.</small></div>
+          <div class="pipeline-step"><span>08</span><b>Monitor</b><small>Track runs, scores, drift, backtests, and infrastructure.</small></div>
         </div>
-        <div class="mini-panels">
-          <div class="chart-card">
-            <div class="chart-head"><strong>Main Risk Drivers</strong><span>example output</span></div>
-            <div class="bar-row"><span>recency</span><div class="bar"><i style="--w:96%"></i></div><b>high</b></div>
-            <div class="bar-row"><span>inactive months</span><div class="bar"><i style="--w:84%"></i></div><b>high</b></div>
-            <div class="bar-row"><span>order decline</span><div class="bar"><i style="--w:58%"></i></div><b>mid</b></div>
-          </div>
-          <div class="chart-card">
-            <div class="chart-head"><strong>Action List</strong><span>monthly</span></div>
-            <table class="mock-table">
-              <tr><th>Customer</th><th>Risk</th><th>Reason</th></tr>
-              <tr><td>B2B-1024</td><td><span class="score high">0.87</span></td><td>long recency</td></tr>
-              <tr><td>B2B-1841</td><td><span class="score mid">0.61</span></td><td>inactive months</td></tr>
-              <tr><td>B2B-2027</td><td><span class="score low">0.19</span></td><td>stable activity</td></tr>
-            </table>
-          </div>
+        <div class="stat-grid">
+          <div class="stat"><span>Prediction horizon</span><b>2 months</b><em>forward-looking label window</em></div>
+          <div class="stat"><span>Modeled variables</span><b>66 features</b><em>10 behavioral families</em></div>
+          <div class="stat"><span>Orchestration</span><b>5 DAGs</b><em>ingest to housekeeping</em></div>
+          <div class="stat"><span>Action capacity</span><b>Top 10%</b><em>maximum risk-list target</em></div>
         </div>
       </div>
     </div>
@@ -85,94 +80,399 @@
       <article class="card reveal">
         <h3>Project Snapshot</h3>
         <div class="kpi-list" style="margin-top:16px">
-          <div class="kpi"><span>Company</span><b>Vietnam Post</b></div>
+          <div class="kpi"><span>Organization</span><b>Vietnam Post</b></div>
           <div class="kpi"><span>Role</span><b>Data Scientist</b></div>
-          <div class="kpi"><span>Problem</span><b>Customer churn</b></div>
-          <div class="kpi"><span>Frequency</span><b>Monthly</b></div>
-          <div class="kpi"><span>Output</span><b>Risk list</b></div>
-          <div class="kpi"><span>Model</span><b>XGBoost</b></div>
+          <div class="kpi"><span>Domain</span><b>B2B delivery services</b></div>
+          <div class="kpi"><span>System type</span><b>Batch ML decision support</b></div>
+          <div class="kpi"><span>Architecture</span><b>Modular monolith</b></div>
+          <div class="kpi"><span>Primary model</span><b>XGBoost</b></div>
+          <div class="kpi"><span>Primary metric</span><b>F0.5 and PR-AUC</b></div>
+          <div class="kpi"><span>Consumer</span><b>Customer-care team</b></div>
         </div>
         <div class="project-actions" style="margin-top:20px">
-          <a class="btn-gh" href="https://github.com/FindingAnAn/crm_churn_warning" target="_blank" rel="noreferrer">GitHub Repo</a>
+          <a class="btn-gh" href="https://github.com/FindingAnAn/crm_churn_warning" target="_blank" rel="noreferrer">View Source Repository</a>
         </div>
+      </article>
+
+      <article class="card card-grey reveal">
+        <h3>Design Principle</h3>
+        <p>
+          The model does not make an automatic adverse decision. It prioritizes human outreach and
+          supplies traceable evidence for customer-care review.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <h3>Case Study Map</h3>
+        <ol class="case-index">
+          <li><a href="#business">Business framing</a></li>
+          <li><a href="#label">Target definition</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#features">Feature system</a></li>
+          <li><a href="#labels">Limited-label strategy</a></li>
+          <li><a href="#validation">Validation</a></li>
+          <li><a href="#modeling">Model governance</a></li>
+          <li><a href="#output">Decision output</a></li>
+          <li><a href="#monitoring">Monitoring</a></li>
+          <li><a href="#quality">Engineering quality</a></li>
+          <li><a href="#contribution">My contribution</a></li>
+          <li><a href="#limits">Limits and roadmap</a></li>
+        </ol>
       </article>
     </aside>
 
     <div class="case-body">
-      <article class="card reveal">
-        <h2>1. Business Goal</h2>
+      <article class="card reveal" id="business">
+        <p class="section-eyebrow">01 - Problem Framing</p>
+        <h2>From a probability model to a usable retention decision</h2>
         <p>
-          The project supports customer-care teams by identifying active B2B customers who may stop using
-          services in the next period. Instead of producing only a model score, the workflow creates a
-          practical output: a short list of high-risk customers and the main signals behind each risk score.
+          The business question was not simply, "Can churn be classified?" The operational question was:
+          <strong>which active B2B customers should the customer-care team contact first, before a likely
+          service stop occurs?</strong> A useful system therefore had to optimize the complete decision
+          chain: reliable data, early warning, a manageable list, understandable reasons, repeatable
+          execution, and evidence that the model remained healthy over time.
         </p>
-      </article>
-
-      <article class="card reveal">
-        <h2>2. Data Pipeline</h2>
-        <p>
-          Monthly source files are loaded into PostgreSQL, checked for basic quality, and transformed into
-          customer-level features. The features combine long-term customer history with recent behavior,
-          such as recency, inactive months, revenue change, and order activity.
-        </p>
-        <div class="two-col" style="margin-top:14px">
+        <div class="two-col" style="margin-top:18px">
           <div class="chart-card">
-            <div class="chart-head"><strong>Input</strong></div>
-            <ul style="margin:0;padding-left:16px;line-height:1.9">
-              <li>Customer profile data.</li>
-              <li>Monthly transaction data.</li>
-              <li>Historical activity windows.</li>
+            <div class="chart-head"><strong>Business Constraints</strong></div>
+            <ul class="compact-list">
+              <li>Outreach capacity is limited; a long alert list has low practical value.</li>
+              <li>Confirmed churn labels are sparse, delayed, and incomplete.</li>
+              <li>Customer behavior changes over time, so random validation is misleading.</li>
+              <li>Every warning must be traceable to its data window and model decision.</li>
             </ul>
           </div>
           <div class="chart-card">
-            <div class="chart-head"><strong>Feature Logic</strong></div>
-            <ul style="margin:0;padding-left:16px;line-height:1.9">
-              <li>Lifetime value and activity.</li>
-              <li>Recent decline or inactivity.</li>
-              <li>Time-aware training windows.</li>
+            <div class="chart-head"><strong>System Objective</strong></div>
+            <ul class="compact-list">
+              <li>Score currently active customers for churn within the next two months.</li>
+              <li>Favor precision when selecting customers for intervention.</li>
+              <li>Cap the action list using a dynamic percentile threshold.</li>
+              <li>Keep a previous accepted model available when a new candidate regresses.</li>
             </ul>
           </div>
         </div>
+        <div class="case-callout">
+          <strong>Success is defined at the workflow level.</strong>
+          The deliverable is a governed PostgreSQL action table, not an isolated notebook or a one-time
+          accuracy score.
+        </div>
       </article>
 
-      <article class="card reveal">
-        <h2>3. Modeling Approach</h2>
+      <article class="card reveal" id="label">
+        <p class="section-eyebrow">02 - Target And Time Contract</p>
+        <h2>A strict definition of churn and what the model is allowed to know</h2>
         <p>
-          The model is trained with time-aware validation so evaluation follows the monthly nature of the
-          business problem. XGBoost is used for churn classification, and SHAP is used to explain the main
-          drivers for each high-risk customer.
+          For an observation month <code>T</code>, features are computed only from information available
+          through the feature window end. The target then looks forward over <code>H = 2</code> months.
+          A customer is labeled churned when both item count and revenue are zero throughout that future
+          horizon; any item activity or positive revenue keeps the target active.
+        </p>
+        <div class="formula-block">
+          y = 1 when item_count = 0 AND total_fee = 0 for every month in [T+1, T+H];
+          otherwise y = 0.
+        </div>
+        <p>
+          This temporal contract appears throughout ingestion, feature construction, training-set creation,
+          evaluation, scoring metadata, and backtesting. Lifetime features are also rebuilt "as of" each
+          historical window, preventing future transactions from leaking into past examples.
         </p>
         <table class="mock-table" style="margin-top:18px">
-          <tr><th>Component</th><th>Purpose</th><th>Portfolio Value</th></tr>
-          <tr><td>Airflow</td><td>Orchestrate monthly jobs</td><td>Repeatable workflow</td></tr>
-          <tr><td>PostgreSQL</td><td>Store raw, feature, and output tables</td><td>Auditable data flow</td></tr>
-          <tr><td>XGBoost</td><td>Estimate churn probability</td><td>Strong tabular ML baseline</td></tr>
-          <tr><td>SHAP</td><td>Explain risk reasons</td><td>Actionable customer-care output</td></tr>
+          <tr><th>Dataset</th><th>Time role</th><th>Purpose</th></tr>
+          <tr><td>Training set</td><td>Historical windows only</td><td>Learn behavior before the label horizon.</td></tr>
+          <tr><td>Evaluation set</td><td>Held-out confirmed churners</td><td>Select threshold and test precision-focused quality.</td></tr>
+          <tr><td>Prediction set</td><td>Latest eligible active accounts</td><td>Create the current retention list.</td></tr>
+          <tr><td>Backtest set</td><td>Available after H closes</td><td>Measure precision-in-list with matured outcomes.</td></tr>
         </table>
       </article>
 
-      <article class="card reveal">
-        <h2>4. Final Output</h2>
+      <article class="card reveal" id="architecture">
+        <p class="section-eyebrow">03 - System Architecture</p>
+        <h2>Five Airflow DAGs with separated operational responsibilities</h2>
         <p>
-          The final deliverable is a monthly risk table that can be used by business teams. Each row
-          contains customer ID, churn probability, risk tier, and explanation signals. This keeps the model
-          tied to a clear operational decision instead of remaining a standalone experiment.
+          The repository is organized as a Python modular monolith under <code>src/</code>. Airflow handles
+          orchestration, while computational jobs run in isolated Kubernetes pods. PostgreSQL is both the
+          analytical backbone and the system of record for source data, engineered features, model
+          configuration, predictions, and model-quality monitoring.
         </p>
-        <div class="stat-grid" style="margin-top:18px">
-          <div class="stat"><span>Decision</span><b>Who to contact</b><em>customer-care list</em></div>
-          <div class="stat"><span>Signal</span><b>Why risky</b><em>SHAP reasons</em></div>
-          <div class="stat"><span>Cycle</span><b>Monthly</b><em>repeatable run</em></div>
+        <div class="architecture-grid" style="margin-top:18px">
+          <div class="architecture-card"><span>01</span><b>ingest_data</b><p>Scans incoming ZIP files, validates CSV structure, loads source tables, and records success or failure.</p></div>
+          <div class="architecture-card"><span>02</span><b>build_features</b><p>Builds lifetime and sliding-window features after a successful ingestion run.</p></div>
+          <div class="architecture-card"><span>03</span><b>generate_eda_reports</b><p>Produces missingness, outlier, correlation, class-balance, and temporal-drift evidence.</p></div>
+          <div class="architecture-card"><span>04</span><b>run_churn_pipeline</b><p>Prepares datasets, trains, evaluates, governs, scores, explains, and exports predictions.</p></div>
+          <div class="architecture-card"><span>05</span><b>clean_runtime_files</b><p>Applies retention policies to bundles, logs, processed files, failed files, and incoming data.</p></div>
+        </div>
+        <table class="mock-table" style="margin-top:18px">
+          <tr><th>Layer</th><th>Technology</th><th>Responsibility</th></tr>
+          <tr><td>Orchestration</td><td>Airflow</td><td>Schedules, dependencies, retries, task logs, and run status.</td></tr>
+          <tr><td>Execution</td><td>KubernetesPodOperator</td><td>Resource-isolated ingestion, features, EDA, and model jobs.</td></tr>
+          <tr><td>Data</td><td>PostgreSQL</td><td>Raw tables, feature tables, predictions, configs, and monitoring records.</td></tr>
+          <tr><td>Packaging</td><td>Docker and Helm</td><td>Reproducible images and environment-specific deployment values.</td></tr>
+          <tr><td>Observability</td><td>Prometheus and Grafana</td><td>Pod, node, scheduler, memory, CPU, disk, and restart health.</td></tr>
+        </table>
+      </article>
+
+      <article class="card reveal" id="features">
+        <p class="section-eyebrow">04 - Feature Engineering</p>
+        <h2>Sixty-six modeled variables across behavior, value, quality, and trend</h2>
+        <p>
+          The feature engine combines all-time customer context with rolling 1-6 month behavior windows.
+          PostgreSQL SQL is the default engine for deterministic aggregation; PySpark can be enabled for
+          lifetime-as-of processing when volume requires distributed execution. Window size is not treated
+          as a fixed assumption: the dataset pipeline searches for <code>W*</code> using walk-forward logic.
+        </p>
+        <div class="feature-grid" style="margin-top:18px">
+          <div><b>Volume and revenue</b><span>items, revenue, weight, averages, dispersion</span></div>
+          <div><b>Service quality</b><span>delay, refund, loss, acceptance, complaint, success rate</span></div>
+          <div><b>Satisfaction</b><span>order score and customer satisfaction</span></div>
+          <div><b>Geography</b><span>intra-province and international mix</span></div>
+          <div><b>Engagement</b><span>active/inactive months and days, service gaps</span></div>
+          <div><b>Trend</b><span>item, revenue, satisfaction, and complaint slopes</span></div>
+          <div><b>Variability</b><span>coefficient of variation and observed ranges</span></div>
+          <div><b>Service mix</b><span>service diversity, dominance, and product-family volumes</span></div>
+          <div><b>RFM</b><span>recency, frequency, and monetary value</span></div>
+          <div><b>EWMA signals</b><span>smoothed level and short-term delta for seven signals</span></div>
+        </div>
+        <div class="formula-block">
+          EWMA_t = alpha * X_t + (1 - alpha) * EWMA_(t-1), with default alpha = 0.3.<br>
+          Delta_EWMA = latest smoothed signal - previous smoothed signal.
+        </div>
+        <p>
+          EWMA is applied to item volume, revenue, complaints, delays, incomplete orders, order count, and
+          satisfaction. The paired delta captures acceleration or deterioration that a simple aggregate can
+          miss. Feature sanity checks reject NaN output and columns whose names indicate target or future
+          leakage.
+        </p>
+      </article>
+
+      <article class="card reveal" id="labels">
+        <p class="section-eyebrow">05 - Learning With Limited Labels</p>
+        <h2>Conservative weak supervision instead of pretending unlabeled means negative</h2>
+        <p>
+          Confirmed churn files from customer care provide strong positive evidence, but they do not cover
+          every real churn event. Treating every remaining customer as a true negative would introduce
+          systematic label noise. The dataset pipeline therefore separates four evidence levels.
+        </p>
+        <table class="mock-table" style="margin-top:18px">
+          <tr><th>Group</th><th>Construction</th><th>Training treatment</th></tr>
+          <tr><td>Confirmed churn</td><td>Explicit CSKH confirmation</td><td>Target 1.00, full sample weight</td></tr>
+          <tr><td>Pseudo churn</td><td>Close to churn prototype plus downward trend</td><td>Soft target 0.90, PU-derived weight</td></tr>
+          <tr><td>Reliable negative</td><td>Strong recent activity</td><td>Target 0.00, full sample weight</td></tr>
+          <tr><td>PU unlabeled</td><td>Insufficient evidence either way</td><td>Soft target and reduced confidence weight</td></tr>
+        </table>
+        <p style="margin-top:16px">
+          A leading churn prototype is estimated from confirmed churners before the outcome window. The
+          system uses a regularized covariance matrix and Mahalanobis distance, which accounts for
+          correlation and scale among features rather than relying on raw Euclidean distance.
+        </p>
+        <div class="formula-block">
+          D_M(x) = sqrt((x - mu)^T * Sigma^-1 * (x - mu))
+        </div>
+        <p>
+          Similarity to the prototype is combined with a downward behavior signal before assigning a pseudo
+          positive. A cached prototype may be reused for up to a configured age when a new confirmation file
+          is unavailable, and that fallback is recorded rather than silently changing the training logic.
+        </p>
+      </article>
+
+      <article class="card reveal" id="validation">
+        <p class="section-eyebrow">06 - Validation Design</p>
+        <h2>Time-aware evaluation and explicit leakage controls</h2>
+        <p>
+          Churn is a temporal problem, so a random row split can let the model learn from a future regime and
+          overstate real performance. This system uses walk-forward windows, a minimum number of historical
+          training periods, a held-out portion of confirmed churners, and scaling fitted only on training
+          rows.
+        </p>
+        <div class="flow-list" style="margin-top:18px">
+          <div><span>1</span><p><b>Observation cutoff</b>Detect the latest usable month and move the feature window back before label construction.</p></div>
+          <div><span>2</span><p><b>Scope as of cutoff</b>Apply account age, lifetime order, and inactivity criteria without using later activity.</p></div>
+          <div><span>3</span><p><b>Walk-forward W* search</b>Evaluate candidate history lengths using ordered monthly folds.</p></div>
+          <div><span>4</span><p><b>Label isolation</b>Split confirmed churn IDs before prototype creation and evaluation.</p></div>
+          <div><span>5</span><p><b>Train-only preprocessing</b>Fit scaling statistics on training data, then transform evaluation and prediction data.</p></div>
+          <div><span>6</span><p><b>Matured backtest</b>Measure precision-in-list only after the two-month future window becomes observable.</p></div>
+        </div>
+        <div class="case-callout">
+          The system stores <code>window_end</code>, <code>w_star</code>, <code>horizon</code>, and the
+          effective threshold with its output so a prediction list can be reconstructed and audited.
         </div>
       </article>
 
-      <article class="card reveal">
-        <h2>5. What I Contributed</h2>
+      <article class="card reveal" id="modeling">
+        <p class="section-eyebrow">07 - Modeling And Governance</p>
+        <h2>XGBoost is only one component; the acceptance gate is the control system</h2>
+        <p>
+          XGBoost is used for nonlinear tabular interactions, missing-value tolerance, regularization, and
+          efficient weighted learning. The model is trained with sample weights from the limited-label
+          strategy and early stopping. Evaluation emphasizes precision because unnecessary outreach consumes
+          operational capacity.
+        </p>
+        <table class="mock-table" style="margin-top:18px">
+          <tr><th>Measure</th><th>Why it is used</th><th>Decision role</th></tr>
+          <tr><td>F0.5</td><td>Weights precision more than recall</td><td>Primary accept/reject comparison</td></tr>
+          <tr><td>PR-AUC</td><td>Evaluates ranking under class imbalance</td><td>Minimum quality guardrail</td></tr>
+          <tr><td>Selected threshold</td><td>Converts scores into a candidate list</td><td>Evaluation-derived operating point</td></tr>
+          <tr><td>Top-percentile cutoff</td><td>Controls action-list size</td><td>Stricter runtime threshold when needed</td></tr>
+        </table>
+        <div class="flow-list" style="margin-top:18px">
+          <div><span>A</span><p><b>Minimum gate</b>The candidate must satisfy configured F0.5 and PR-AUC floors.</p></div>
+          <div><span>B</span><p><b>Regression check</b>Its F0.5 must improve on the previously accepted bundle by more than epsilon.</p></div>
+          <div><span>C</span><p><b>Bundle decision</b>An accepted candidate stores model, metrics, feature names, configs, importance, and feature profile.</p></div>
+          <div><span>D</span><p><b>Fallback scoring</b>If rejected, the previous accepted bundle is loaded for the current scoring run when available.</p></div>
+        </div>
+        <p>
+          Performance is intentionally not presented as one permanent accuracy number. Each run can accept
+          or reject a candidate; authoritative metrics live in bundle metadata and PostgreSQL. This avoids
+          turning a historical benchmark into a misleading production claim.
+        </p>
+      </article>
+
+      <article class="card reveal" id="output">
+        <p class="section-eyebrow">08 - Operational Output</p>
+        <h2>A capacity-aware action list with traceable reason signals</h2>
+        <p>
+          All eligible active customers receive a churn probability. The final effective threshold is the
+          stricter of the evaluation-selected threshold and the dynamic 90th-percentile cutoff. This makes
+          the top 10% a maximum list-size target: if the model threshold is stricter, fewer customers are
+          flagged.
+        </p>
+        <div class="mini-panels" style="margin-top:18px">
+          <div class="chart-card">
+            <div class="chart-head"><strong>Risk Table Contract</strong><span>PostgreSQL</span></div>
+            <ul class="compact-list">
+              <li>Encrypted customer identifier</li>
+              <li>Churn probability and binary flag</li>
+              <li>Effective threshold used</li>
+              <li>Three reason fields</li>
+              <li>Scoring timestamp and feature window</li>
+              <li>Selected window size and prediction horizon</li>
+            </ul>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><strong>Human Decision</strong><span>CSKH</span></div>
+            <table class="mock-table">
+              <tr><th>Priority</th><th>Evidence</th><th>Action</th></tr>
+              <tr><td><span class="score high">High</span></td><td>Probability + reasons</td><td>Review and contact</td></tr>
+              <tr><td><span class="score mid">Watch</span></td><td>Trend deterioration</td><td>Monitor account</td></tr>
+              <tr><td><span class="score low">Stable</span></td><td>Below threshold</td><td>No alert</td></tr>
+            </table>
+          </div>
+        </div>
+        <p style="margin-top:16px">
+          In the current implementation, reason fields are generated from the model's gain-based global
+          feature importance and each customer's position relative to the population median. This is a
+          lightweight operational explanation, not a claim of causal attribution or full local SHAP
+          explanation.
+        </p>
+      </article>
+
+      <article class="card reveal" id="monitoring">
+        <p class="section-eyebrow">09 - Monitoring And Reliability</p>
+        <h2>Separate model-quality evidence from infrastructure telemetry</h2>
+        <p>
+          The design uses two observability planes. PostgreSQL records the statistical and decision behavior
+          of the model, while Prometheus and Grafana monitor the infrastructure that executes it. This
+          separation makes incident diagnosis clearer: a healthy pod does not imply a healthy model, and
+          stable scores do not imply sufficient compute resources.
+        </p>
+        <div class="two-col" style="margin-top:18px">
+          <div class="chart-card">
+            <div class="chart-head"><strong>Model Quality - PostgreSQL</strong></div>
+            <ul class="compact-list">
+              <li><code>run_log</code>: status, acceptance, retraining, scoring, and notes.</li>
+              <li><code>score_drift</code>: score quantiles, list size, and risk ratio.</li>
+              <li><code>feature_drift</code>: PSI and discrete KS by feature.</li>
+              <li><code>backtest</code>: precision-in-list after the label horizon closes.</li>
+            </ul>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><strong>Platform Health - Prometheus/Grafana</strong></div>
+            <ul class="compact-list">
+              <li>Kubernetes pod states and pending/failed jobs.</li>
+              <li>CPU and memory consumption by pipeline pod.</li>
+              <li>Scheduler and container restart rates.</li>
+              <li>Node disk pressure and resource capacity.</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top:16px">
+          Housekeeping runs independently and enforces retention for model bundles, Airflow logs, processed
+          inputs, failed inputs, and unprocessed incoming files. Failed source files are preserved in a
+          dedicated path to support diagnosis and retry.
+        </p>
+      </article>
+
+      <article class="card reveal" id="quality">
+        <p class="section-eyebrow">10 - Engineering Quality</p>
+        <h2>Configuration, tests, documentation, and reproducible artifacts</h2>
+        <p>
+          Production behavior is controlled through typed configuration and environment variables rather
+          than hard-coded credentials or machine-specific paths. Database secrets are injected through
+          Kubernetes Secrets. Accepted bundles preserve the information needed to reproduce scoring and
+          establish future drift baselines.
+        </p>
+        <div class="feature-grid" style="margin-top:18px">
+          <div><b>Data tests</b><span>EWMA, pseudo labels, sample weights, sanity checks, EDA</span></div>
+          <div><b>Temporal tests</b><span>lifetime-as-of SQL and leakage-sensitive feature rules</span></div>
+          <div><b>Model tests</b><span>configuration, evaluator, guardrail, acceptance, scorer</span></div>
+          <div><b>Settings tests</b><span>validation, DSN construction, immutability, secret-safe output</span></div>
+          <div><b>Operations docs</b><span>deployment, monitoring, troubleshooting, incident response</span></div>
+          <div><b>Architecture docs</b><span>system boundaries, data flow, output contract, model card</span></div>
+        </div>
+        <div class="case-callout">
+          Repository documentation and code are treated as a living system contract. Where a README summary
+          and executable code differ, this case study follows the executable implementation and calls out
+          the limitation explicitly.
+        </div>
+      </article>
+
+      <article class="card reveal" id="contribution">
+        <p class="section-eyebrow">11 - My Contribution</p>
+        <h2>Ownership across data science, ML engineering, and operations</h2>
         <ul>
-          <li>Designed the monthly data flow from raw inputs to customer-level features.</li>
-          <li>Built churn modeling logic with time-aware validation and risk scoring.</li>
-          <li>Created explainable outputs so the result could support customer-care actions.</li>
-          <li>Structured the project as a repeatable workflow using Airflow and PostgreSQL.</li>
+          <li>Translated a broad customer-retention need into a two-month, capacity-aware warning decision.</li>
+          <li>Designed the end-to-end temporal data contract and leakage-safe lifetime/window feature logic.</li>
+          <li>Engineered 66 modeled variables spanning value, activity, service quality, trend, variability, service mix, RFM, and EWMA signals.</li>
+          <li>Designed the limited-label strategy using confirmed positives, reliable negatives, a regularized churn prototype, pseudo labels, soft targets, and PU-style weights.</li>
+          <li>Implemented XGBoost training, F0.5/PR-AUC evaluation, threshold selection, guardrails, candidate acceptance, bundle persistence, and fallback scoring.</li>
+          <li>Built the PostgreSQL risk-table contract and reason-signal output for human retention workflows.</li>
+          <li>Structured five Airflow DAGs and Kubernetes pod execution for ingestion, features, EDA, modeling, and retention.</li>
+          <li>Added model-quality monitoring for runs, score drift, feature PSI/KS, and delayed backtesting, alongside Prometheus/Grafana infrastructure monitoring.</li>
+          <li>Created unit tests and detailed architecture, model, deployment, monitoring, troubleshooting, and incident-response documentation.</li>
         </ul>
+      </article>
+
+      <article class="card reveal" id="limits">
+        <p class="section-eyebrow">12 - Limits And Next Steps</p>
+        <h2>What the current system does not claim</h2>
+        <p>
+          A scientifically credible case study should state uncertainty. The system is a batch prioritization
+          tool, not a causal model and not a real-time API. Confirmed outcomes are incomplete, explanation
+          fields are feature-based heuristics, and a precision metric cannot by itself prove business lift.
+        </p>
+        <table class="mock-table" style="margin-top:18px">
+          <tr><th>Current limitation</th><th>Planned improvement</th></tr>
+          <tr><td>Partial and delayed churn labels</td><td>Formalize label coverage measurement and active-learning feedback from CSKH.</td></tr>
+          <tr><td>Global gain-based reason signals</td><td>Add validated local SHAP explanations with stability and usability checks.</td></tr>
+          <tr><td>Offline metrics do not measure retention lift</td><td>Run controlled outreach experiments and measure incremental retained value.</td></tr>
+          <tr><td>Fixed contact-capacity policy</td><td>Optimize thresholds by campaign capacity, expected value, and intervention cost.</td></tr>
+          <tr><td>Batch-only consumption</td><td>Add a governed service layer only if a real-time business requirement emerges.</td></tr>
+          <tr><td>Potential segment variation</td><td>Audit performance by customer tier, revenue band, service mix, and geography.</td></tr>
+        </table>
+      </article>
+
+      <article class="card card-grey reveal">
+        <p class="section-eyebrow">Source Basis</p>
+        <h2>Repository-backed case study</h2>
+        <p>
+          This page was reconciled against the public repository at commit
+          <code>0cd868a</code> dated June 9, 2026. It deliberately avoids fabricated dataset sizes,
+          static performance numbers, screenshots, or business-impact claims that are not stored as
+          reproducible public artifacts.
+        </p>
+        <div class="project-actions">
+          <a class="btn-case" href="https://github.com/FindingAnAn/crm_churn_warning" target="_blank" rel="noreferrer">Inspect the Implementation</a>
+        </div>
       </article>
     </div>
   </section>

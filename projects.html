@@ -21,7 +21,7 @@
     <nav class="nav" data-nav>
       <a href="index.html">Home</a>
       <a class="active" href="projects.html">Projects</a>
-      <a href="about.html">About</a>
+      <a href="about.html">Profile</a>
     </nav>
   </div>
 </header>
@@ -34,8 +34,8 @@
           <div class="pipeline">
             <div class="pipeline-step"><span>01</span><b>Ingest</b><small>ZIP scan and PostgreSQL COPY.</small></div>
             <div class="pipeline-step"><span>02</span><b>Features</b><small>Lifetime and sliding windows.</small></div>
-            <div class="pipeline-step"><span>03</span><b>Model</b><small>XGBoost with monthly runs.</small></div>
-            <div class="pipeline-step"><span>04</span><b>Explain</b><small>SHAP reasons and fallback rules.</small></div>
+            <div class="pipeline-step"><span>03</span><b>Model</b><small>Time-aware XGBoost training.</small></div>
+            <div class="pipeline-step"><span>04</span><b>Govern</b><small>Quality gates and accepted bundles.</small></div>
             <div class="pipeline-step"><span>05</span><b>Export</b><small>Top-risk customer list.</small></div>
           </div>
         </div>
@@ -45,16 +45,16 @@
           <p>
             Churn warning workflow for B2B customers at Vietnam Post.
             The case study keeps the project logic around data input, feature generation,
-            modeling, explanation, and monthly customer-care output.
+            weak supervision, model governance, monitoring, and customer-care output.
           </p>
           <div class="metrics">
-            <div class="metric"><span>Risk cut</span><b>Top 5%</b></div>
-            <div class="metric"><span>Speed-up</span><b>82%</b></div>
+            <div class="metric"><span>Risk cap</span><b>Top 10%</b></div>
+            <div class="metric"><span>Features</span><b>66</b></div>
             <div class="metric"><span>Horizon</span><b>2 mo.</b></div>
           </div>
           <div class="tag-row">
             <span class="tag">Airflow</span><span class="tag">XGBoost</span><span class="tag">PostgreSQL</span>
-            <span class="tag">Docker Compose</span><span class="tag">SHAP</span><span class="tag">PSI / KS</span>
+            <span class="tag">Kubernetes</span><span class="tag">Prometheus</span><span class="tag">PSI / KS</span>
           </div>
           <div class="project-actions">
             <a class="btn-case" href="case-study-churn.html">Case Study</a>
