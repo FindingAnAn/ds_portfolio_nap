@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hierarchical Respiratory Disease Classification — EDABK Lab research project by Nguyen Anh Phuong, published IEEE Access 2025.">
+  <meta name="description" content="Situation-Action-Result case study of an FPGA-based respiratory disease classification system published in IEEE Access.">
   <title>Respiratory Disease Classification | Nguyen Anh Phuong</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,340 +27,236 @@
 </header>
 
 <main>
-  <!-- ── Hero ── -->
-  <section class="container case-hero">
-    <div class="breadcrumbs reveal">
-      <a href="index.html">Home</a><span>›</span>
-      <a href="projects.html">Projects</a><span>›</span>
+  <section class="container case-hero reveal">
+    <div class="breadcrumbs">
+      <a href="index.html">Home</a><span>/</span>
+      <a href="projects.html">Projects</a><span>/</span>
       <span>Respiratory Disease Classification</span>
     </div>
-    <p class="kicker reveal">Case Study · EDABK Laboratory · IEEE Access 2025</p>
-    <h1 class="reveal">
-      <span class="gradient-text">Hierarchical Embedded System</span><br>
-      for Respiratory Disease Classification
-    </h1>
-    <p class="hero-text reveal">
-      A hierarchical, multi-layer classification system for 5 respiratory diseases — combining tabular sound features,
-      Random Forest, ANN, and FPGA integration, achieving <strong style="color:var(--green)">98.81% accuracy</strong>
-      with 52.5% lower energy consumption than a CPU-GPU baseline.
-      Published in IEEE Access, vol. 13, 2025.
+    <p class="kicker">EDABK Laboratory - IEEE Access 2025</p>
+    <h1>A <span class="gradient-text">hierarchical embedded system</span> for respiratory diagnosis</h1>
+    <p class="hero-text">
+      A five-class respiratory-sound decision-support system combining
+      multi-resolution signal features, Random Forest, ANN, and FPGA deployment.
     </p>
-    <div class="tag-row reveal">
-      <span class="tag">Python</span>
-      <span class="tag">Random Forest</span>
-      <span class="tag">scikit-learn</span>
-      <span class="tag">NumPy</span>
-      <span class="tag">Pandas</span>
-      <span class="tag">FPGA</span>
-      <span class="tag">Signal Processing</span>
-      <span class="tag">IEEE Access</span>
+    <div class="tag-row" style="margin-top:18px">
+      <span class="tag">Python</span><span class="tag">Random Forest</span><span class="tag">ANN</span>
+      <span class="tag">Signal Processing</span><span class="tag">FPGA</span><span class="tag">IEEE Access</span>
     </div>
   </section>
 
-  <!-- ── Main layout ── -->
-  <section class="container section">
-    <div class="case-layout case-layout-compact">
-
-      <!-- ── Sidebar ── -->
-      <aside class="side-panel case-body">
-        <article class="card reveal">
-          <h3>Project Snapshot</h3>
-          <div class="kpi-list" style="margin-top:14px">
-            <div class="kpi"><span>Institution</span><b>EDABK Lab — HUST</b></div>
-            <div class="kpi"><span>Role</span><b>Research Assistant</b></div>
-            <div class="kpi"><span>Period</span><b>Jul 2023 – Feb 2025</b></div>
-            <div class="kpi"><span>Problem</span><b>5-class disease classification</b></div>
-            <div class="kpi"><span>Architecture</span><b>4-layer hierarchical</b></div>
-            <div class="kpi"><span>Model</span><b>Random Forest + ANN</b></div>
-            <div class="kpi"><span>Best Accuracy</span><b style="color:var(--green)">98.81%</b></div>
-            <div class="kpi"><span>Energy saving</span><b>52.5%</b></div>
-            <div class="kpi"><span>Dataset</span><b>ICBHI 2017 (respiratory sounds)</b></div>
-            <div class="kpi"><span>Platform</span><b>FPGA-integrated system</b></div>
-            <div class="kpi"><span>Published</span><b>IEEE Access, vol. 13, 2025</b></div>
-          </div>
-          <div style="margin-top:16px">
-            <a class="btn btn-primary btn-block"
-               href="https://doi.org/10.1109/ACCESS.2025.3573162"
-               target="_blank" rel="noreferrer">
-              View on IEEE →
-            </a>
-          </div>
-        </article>
-
-        <article class="card reveal" style="margin-top:18px">
-          <h3>Publication</h3>
-          <p style="margin-top:10px;font-size:.88rem;line-height:1.8">
-            T.-T. Han, K. Le Trung, <strong>P. Nguyen Anh</strong> and A. Do Trung,<br>
-            <em>"Hierarchical Embedded System Based on FPGA for Classification of Respiratory Diseases,"</em><br>
-            <strong style="color:var(--green)">IEEE Access</strong>, vol. 13, pp. 93017–93032, 2025.
-          </p>
-          <p style="margin-top:8px">
-            <a href="https://doi.org/10.1109/ACCESS.2025.3573162"
-               target="_blank" rel="noreferrer"
-               style="color:var(--green);font-weight:800;font-size:.88rem;text-decoration:underline">
-              DOI: 10.1109/ACCESS.2025.3573162
-            </a>
-          </p>
-        </article>
-      </aside>
-
-      <!-- ── Body ── -->
-      <div class="case-body">
-
-        <!-- 1. Problem -->
-        <article class="card reveal">
-          <h2>1. Research Problem</h2>
-          <p style="margin-top:14px">
-            Respiratory diseases — COPD, URTI, Bronchitis, Pneumonia — are among the leading causes of
-            global morbidity. Clinical diagnosis typically requires specialist interpretation of auscultation sounds,
-            which is time-consuming and inaccessible in resource-limited settings.
-          </p>
-          <p style="margin-top:12px">
-            The research question: <strong style="color:var(--soft)">can a hierarchical, embedded ML system
-            accurately classify 5 respiratory disease categories from audio signals</strong>, and can it run
-            efficiently on an FPGA-integrated hardware platform?
-          </p>
-          <div class="two-col" style="margin-top:18px">
-            <div class="chart-card">
-              <div class="chart-head"><strong>Target Classes (5)</strong></div>
-              <ul style="margin:0;padding-left:16px;line-height:2.1;color:var(--muted)">
-                <li>Healthy</li>
-                <li>COPD</li>
-                <li>URTI (Upper Respiratory Tract Infection)</li>
-                <li>Bronchitis</li>
-                <li>Pneumonia</li>
-              </ul>
-            </div>
-            <div class="chart-card">
-              <div class="chart-head"><strong>Key Constraints</strong></div>
-              <ul style="margin:0;padding-left:16px;line-height:2.1;color:var(--muted)">
-                <li>Must run on embedded FPGA hardware</li>
-                <li>Clinically interpretable features</li>
-                <li>Multi-layer hierarchical architecture</li>
-                <li>High accuracy across all 5 classes</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <!-- 2. System Architecture -->
-        <article class="card reveal">
-          <h2>2. Hierarchical 4-Layer Architecture</h2>
-          <p style="margin-top:14px">
-            The system uses a hierarchical classification strategy across four layers, each operating at a
-            different representation level. This mirrors clinical reasoning — from coarse whole-recording patterns
-            down to frame-level acoustic events and wavelet-based spectrogram evidence.
-          </p>
-          <div class="pipeline" style="margin-top:18px">
-            <div class="pipeline-step">
-              <span>Layer 1</span>
-              <b>Recording</b>
-              <small>Patient-level features over the full audio recording</small>
-            </div>
-            <div class="pipeline-step">
-              <span>Layer 2</span>
-              <b>Non-overlapping frames</b>
-              <small>20ms frames — statistical descriptors per segment</small>
-            </div>
-            <div class="pipeline-step">
-              <span>Layer 3</span>
-              <b>Overlapping frames</b>
-              <small>35ms frames, 50% overlap — fine-grained acoustic events</small>
-            </div>
-            <div class="pipeline-step">
-              <span>Layer 4</span>
-              <b>Wavelet + ANN</b>
-              <small>Spectrogram images processed for disease diagnosis</small>
-            </div>
-            <div class="pipeline-step">
-              <span>Output</span>
-              <b>Disease class</b>
-              <small>One of 5 disease labels per patient</small>
-            </div>
-          </div>
-        </article>
-
-        <!-- 3. My contribution: Layer 1 -->
-        <article class="card reveal">
-          <h2>3. My Contribution — Layer 1: Recording-Level Features</h2>
-          <p style="margin-top:14px">
-            I was responsible for computing <strong style="color:var(--soft)">recording-level (patient-level) features</strong>
-            from pre-extracted signal data. These features capture global acoustic properties of a full respiratory
-            recording and form the foundation of Layer 1 classification.
-          </p>
-
-          <div class="two-col" style="margin-top:18px">
-            <div class="chart-card">
-              <div class="chart-head"><strong>Energy-based Features</strong></div>
-              <div class="kpi-list">
-                <div class="kpi">
-                  <span>RMSE</span>
-                  <b style="font-size:.82rem">Root Mean Square Energy</b>
-                </div>
-                <div class="kpi">
-                  <span>EED</span>
-                  <b style="font-size:.82rem">Extreme Energy Difference</b>
-                </div>
-                <div class="kpi">
-                  <span>Temporal Centroid</span>
-                  <b style="font-size:.82rem">Energy-weighted time center</b>
-                </div>
-                <div class="kpi">
-                  <span>Log Attack Time</span>
-                  <b style="font-size:.82rem">Log of onset rise duration</b>
-                </div>
-              </div>
-            </div>
-            <div class="chart-card">
-              <div class="chart-head"><strong>Amplitude Statistics</strong></div>
-              <div class="kpi-list">
-                <div class="kpi"><span>Mean</span><b style="font-size:.82rem">Global signal mean</b></div>
-                <div class="kpi"><span>Variance</span><b style="font-size:.82rem">Signal variability</b></div>
-                <div class="kpi"><span>Min / Max</span><b style="font-size:.82rem">Amplitude range</b></div>
-                <div class="kpi"><span>Histogram</span><b style="font-size:.82rem">Amplitude distribution bins</b></div>
-              </div>
-            </div>
-          </div>
-
-          <p style="margin-top:14px">
-            These features were computed per patient from pre-extracted signal data using Python (NumPy, Pandas).
-            The resulting tabular feature vectors were used as input to the Layer 1 Random Forest classifier.
-          </p>
-        </article>
-
-        <!-- 4. Layer 2 & 3 -->
-        <article class="card reveal">
-          <h2>4. My Contribution — Layers 2 &amp; 3: Frame-Level Features</h2>
-          <p style="margin-top:14px">
-            I also contributed to frame-level feature computation at two temporal resolutions, capturing
-            short-time acoustic properties that distinguish breathing patterns across disease classes.
-          </p>
-
-          <div class="two-col" style="margin-top:18px">
-            <div class="chart-card">
-              <div class="chart-head"><strong>Layer 2 — 20ms frames (non-overlapping)</strong></div>
-              <ul style="margin:0;padding-left:16px;line-height:2;color:var(--muted)">
-                <li><strong style="color:var(--soft)">ZCR</strong> — Zero Crossing Rate per frame</li>
-                <li><strong style="color:var(--soft)">Mean</strong> — average amplitude per frame</li>
-                <li><strong style="color:var(--soft)">Std</strong> — standard deviation</li>
-                <li><strong style="color:var(--soft)">Skewness</strong> — asymmetry of distribution</li>
-                <li><strong style="color:var(--soft)">Kurtosis</strong> — tail heaviness of distribution</li>
-              </ul>
-            </div>
-            <div class="chart-card">
-              <div class="chart-head"><strong>Layer 3 — 35ms frames (50% overlap)</strong></div>
-              <ul style="margin:0;padding-left:16px;line-height:2;color:var(--muted)">
-                <li><strong style="color:var(--soft)">ZCR</strong> — Zero Crossing Rate per frame</li>
-                <li><strong style="color:var(--soft)">Mean</strong> — average amplitude per frame</li>
-                <li><strong style="color:var(--soft)">Std</strong> — standard deviation</li>
-                <li><strong style="color:var(--soft)">Skewness</strong> — asymmetry of distribution</li>
-                <li><strong style="color:var(--soft)">Kurtosis</strong> — tail heaviness of distribution</li>
-              </ul>
-            </div>
-          </div>
-
-          <p style="margin-top:14px">
-            The 50% overlap in Layer 3 provides higher temporal resolution and captures transient acoustic events
-            (e.g., crackles, wheezes) that are diagnostically significant for distinguishing Pneumonia and Bronchitis
-            from URTI and Healthy classes.
-          </p>
-        </article>
-
-        <!-- 5. Model & Evaluation -->
-        <article class="card reveal">
-          <h2>5. Model Evaluation</h2>
-          <p style="margin-top:14px">
-            The final system uses multi-class Random Forest classifiers at each layer, with outputs fused
-            hierarchically for the final patient-level prediction. I analyzed classification performance across
-            all 5 disease classes using standard metrics.
-          </p>
-
-          <div class="stat-grid" style="margin-top:18px">
-            <div class="stat">
-              <span>Overall Accuracy</span>
-              <b style="color:var(--green)">98.81%</b>
-              <em>5-class</em>
-            </div>
-            <div class="stat">
-              <span>Architecture</span>
-              <b>4-Layer</b>
-              <em>hierarchical</em>
-            </div>
-            <div class="stat">
-              <span>Model</span>
-              <b>RF + ANN</b>
-              <em>multi-class</em>
-            </div>
-            <div class="stat">
-              <span>Platform</span>
-              <b>FPGA</b>
-              <em>embedded</em>
-            </div>
-          </div>
-
-          <div style="margin-top:18px">
-            <div class="bar-row"><span>Healthy</span><div class="bar"><i style="--w:99%"></i></div><b>~99%</b></div>
-            <div class="bar-row"><span>COPD</span><div class="bar"><i style="--w:97%"></i></div><b>~97%</b></div>
-            <div class="bar-row"><span>URTI</span><div class="bar"><i style="--w:98%"></i></div><b>~98%</b></div>
-            <div class="bar-row"><span>Bronchitis</span><div class="bar"><i style="--w:96%"></i></div><b>~96%</b></div>
-            <div class="bar-row"><span>Pneumonia</span><div class="bar"><i style="--w:98%"></i></div><b>~98%</b></div>
-          </div>
-
-          <p style="margin-top:14px">
-            The hierarchical structure enables the system to first separate broad disease groups before
-            distinguishing finer sub-categories, reducing inter-class confusion compared to a flat classifier.
-          </p>
-        </article>
-
-        <!-- 6. FPGA Integration -->
-        <article class="card reveal">
-          <h2>6. FPGA-Integrated Deployment</h2>
-          <p style="margin-top:14px">
-            The full system was designed for deployment on an FPGA-integrated platform — enabling real-time
-            inference in clinical or point-of-care settings without cloud dependency. This connects directly
-            to my graduation thesis work on embedded AI systems for respiratory diagnostics.
-          </p>
-          <div class="two-col" style="margin-top:16px">
-            <div class="chart-card">
-              <div class="chart-head"><strong>Embedded advantages</strong></div>
-              <ul style="margin:0;padding-left:16px;line-height:2;color:var(--muted)">
-                <li>Real-time inference on-device</li>
-                <li>No network dependency</li>
-                <li>Low power consumption</li>
-                <li>Suitable for resource-limited settings</li>
-              </ul>
-            </div>
-            <div class="chart-card">
-              <div class="chart-head"><strong>System components</strong></div>
-              <ul style="margin:0;padding-left:16px;line-height:2;color:var(--muted)">
-                <li>Audio acquisition + preprocessing</li>
-                <li>Feature extraction pipeline</li>
-                <li>Compressed RF model on FPGA</li>
-                <li>Disease label output</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <!-- 7. Learnings -->
-        <article class="card reveal">
-          <h2>7. Key Learnings</h2>
-          <ul style="margin-top:14px;line-height:2">
-            <li><strong style="color:var(--soft)">Hierarchical classifiers</strong> outperform flat multi-class classifiers when class confusion is structured (e.g., URTI vs Healthy are easy to separate, but Bronchitis vs Pneumonia are not).</li>
-            <li><strong style="color:var(--soft)">Temporal granularity matters</strong> — features extracted at different frame lengths capture complementary acoustic information. The 50% overlap in Layer 3 was critical for capturing transient breathing events.</li>
-            <li><strong style="color:var(--soft)">Tabular features for audio</strong> can be highly competitive with deep learning approaches when the feature engineering is domain-informed — RMSE, ZCR, and statistical descriptors encoded clinically meaningful signal properties.</li>
-            <li><strong style="color:var(--soft)">Embedded constraints drive feature design</strong> — every feature had to be computationally lightweight enough to run on the FPGA platform, which shaped the choice of statistical features over spectrograms or MFCC sequences.</li>
-          </ul>
-        </article>
-
+  <section class="container reveal" style="padding:28px 0 0">
+    <div class="dashboard-shell" aria-label="Respiratory classification workflow">
+      <div class="window-bar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <span>hierarchical diagnostic flow</span>
       </div>
+      <div class="dash-content research-flow">
+        <div class="pipeline">
+          <div class="pipeline-step"><span>01</span><b>Acquire</b><small>Respiratory sound recordings.</small></div>
+          <div class="pipeline-step"><span>02</span><b>Record</b><small>Patient-level acoustic features.</small></div>
+          <div class="pipeline-step"><span>03</span><b>Frame</b><small>Two temporal resolutions.</small></div>
+          <div class="pipeline-step"><span>04</span><b>Classify</b><small>Random Forest and ANN layers.</small></div>
+          <div class="pipeline-step"><span>05</span><b>Fuse</b><small>Hierarchical disease decision.</small></div>
+          <div class="pipeline-step"><span>06</span><b>Deploy</b><small>FPGA-integrated inference.</small></div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><span>Target classes</span><b>5 diseases</b><em>including healthy</em></div>
+          <div class="stat"><span>Architecture</span><b>4 layers</b><em>hierarchical decision</em></div>
+          <div class="stat"><span>Accuracy</span><b>98.81%</b><em>reported system result</em></div>
+          <div class="stat"><span>Energy</span><b>52.5% lower</b><em>than CPU-GPU baseline</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section case-layout">
+    <aside class="side-panel case-body">
+      <article class="card reveal">
+        <h3>Project Snapshot</h3>
+        <div class="kpi-list" style="margin-top:16px">
+          <div class="kpi"><span>Institution</span><b>EDABK Lab, HUST</b></div>
+          <div class="kpi"><span>Role</span><b>Research Assistant</b></div>
+          <div class="kpi"><span>Period</span><b>Jul 2023 - Feb 2025</b></div>
+          <div class="kpi"><span>Dataset</span><b>ICBHI 2017</b></div>
+          <div class="kpi"><span>Models</span><b>Random Forest + ANN</b></div>
+          <div class="kpi"><span>Platform</span><b>FPGA-integrated</b></div>
+          <div class="kpi"><span>Publication</span><b>IEEE Access 2025</b></div>
+        </div>
+        <div class="project-actions" style="margin-top:20px">
+          <a class="btn-case btn-block" href="https://doi.org/10.1109/ACCESS.2025.3573162" target="_blank" rel="noreferrer">Read IEEE Paper</a>
+        </div>
+      </article>
+
+      <article class="card card-grey reveal">
+        <h3>Clinical Principle</h3>
+        <p>Support screening and diagnostic review. The system does not replace a physician.</p>
+      </article>
+
+      <article class="card reveal">
+        <h3>Case Study</h3>
+        <ol class="case-index">
+          <li><a href="#situation">Situation</a></li>
+          <li><a href="#action">Action</a></li>
+          <li><a href="#result">Result</a></li>
+          <li><a href="#evidence">Evidence and limits</a></li>
+        </ol>
+      </article>
+    </aside>
+
+    <div class="case-body">
+      <article class="card reveal sar-section" id="situation">
+        <div class="sar-heading">
+          <span class="sar-letter">S</span>
+          <div>
+            <p class="section-eyebrow">Situation</p>
+            <h2>Respiratory screening relied heavily on specialist auscultation</h2>
+          </div>
+        </div>
+
+        <div class="sar-grid">
+          <div class="sar-card">
+            <span>Current process</span>
+            <b>Doctors manually interpreted lung sounds</b>
+            <p>Screening depended on clinical experience and careful listening.</p>
+          </div>
+          <div class="sar-card">
+            <span>Access gap</span>
+            <b>Specialists were not always available</b>
+            <p>Resource-limited settings needed accessible diagnostic support.</p>
+          </div>
+          <div class="sar-card">
+            <span>Clinical challenge</span>
+            <b>Diseases share similar acoustic signs</b>
+            <p>Crackles and wheezes appear at different temporal resolutions.</p>
+          </div>
+          <div class="sar-card">
+            <span>Deployment need</span>
+            <b>Point-of-care use required local inference</b>
+            <p>The system needed efficient operation without cloud dependency.</p>
+          </div>
+        </div>
+
+        <div class="label-rule">
+          <div><span>Clinical role</span><b>Assist screening and diagnostic review</b></div>
+          <div><span>Target</span><b>Healthy, COPD, URTI, Bronchitis, Pneumonia</b></div>
+        </div>
+      </article>
+
+      <article class="card reveal sar-section" id="action">
+        <div class="sar-heading">
+          <span class="sar-letter">A</span>
+          <div>
+            <p class="section-eyebrow">Action</p>
+            <h2>We combined multi-resolution audio analysis with embedded inference</h2>
+          </div>
+        </div>
+
+        <h3 class="block-title">1. Hierarchical architecture</h3>
+        <div class="research-hierarchy">
+          <div><span>Layer 1</span><b>Full recording</b><small>Global patient-level patterns</small></div>
+          <i>→</i>
+          <div><span>Layer 2</span><b>20 ms frames</b><small>Non-overlapping local features</small></div>
+          <i>→</i>
+          <div><span>Layer 3</span><b>35 ms frames</b><small>50% overlap for transient events</small></div>
+          <i>→</i>
+          <div><span>Layer 4</span><b>Wavelet + ANN</b><small>Final disease evidence</small></div>
+        </div>
+
+        <h3 class="block-title">2. My feature-engineering contribution</h3>
+        <div class="feature-grid">
+          <div><b>Signal energy</b><span>RMS energy and extreme energy difference</span></div>
+          <div><b>Temporal shape</b><span>Temporal centroid and log attack time</span></div>
+          <div><b>Amplitude profile</b><span>mean, variance, range, histogram</span></div>
+          <div><b>Frame activity</b><span>zero-crossing rate at two resolutions</span></div>
+          <div><b>Distribution shape</b><span>standard deviation, skewness, kurtosis</span></div>
+          <div><b>Transient events</b><span>overlapping frames capture crackles and wheezes</span></div>
+        </div>
+
+        <h3 class="block-title">3. Design for embedded deployment</h3>
+        <div class="two-col">
+          <div class="chart-card">
+            <div class="chart-head"><strong>Model design</strong></div>
+            <ul class="compact-list">
+              <li>Hierarchical decisions reduce class confusion</li>
+              <li>Random Forest handles tabular sound features</li>
+              <li>ANN processes wavelet-based evidence</li>
+            </ul>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><strong>Hardware design</strong></div>
+            <ul class="compact-list">
+              <li>Local real-time inference</li>
+              <li>No network dependency</li>
+              <li>Lower energy consumption</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal sar-section" id="result">
+        <div class="sar-heading">
+          <span class="sar-letter">R</span>
+          <div>
+            <p class="section-eyebrow">Result</p>
+            <h2>A published five-class diagnostic support system</h2>
+          </div>
+        </div>
+
+        <div class="result-board">
+          <div><span>Classification</span><b>98.81% accuracy</b><small>Reported across five target classes</small></div>
+          <div><span>Efficiency</span><b>52.5% lower energy</b><small>Compared with CPU-GPU baseline</small></div>
+          <div><span>Deployment</span><b>On-device inference</b><small>Designed for FPGA integration</small></div>
+          <div><span>Clinical value</span><b>Screening support</b><small>Provides an additional review signal</small></div>
+          <div><span>Research output</span><b>IEEE Access</b><small>Volume 13, pages 93017-93032</small></div>
+          <div><span>Recognition</span><b>Best thesis award</b><small>HUST defense committee</small></div>
+        </div>
+
+        <h3 class="block-title">My ownership</h3>
+        <div class="ownership-grid">
+          <span>Recording-level features</span>
+          <span>Frame-level features</span>
+          <span>Multi-resolution analysis</span>
+          <span>Experimental evaluation</span>
+          <span>Embedded-AI research</span>
+          <span>Paper contribution</span>
+        </div>
+      </article>
+
+      <article class="card card-grey reveal" id="evidence">
+        <p class="section-eyebrow">Evidence And Limits</p>
+        <h2>Published evidence with a clear clinical boundary</h2>
+        <div class="two-col">
+          <div class="chart-card">
+            <div class="chart-head"><strong>Published evidence</strong></div>
+            <ul class="compact-list">
+              <li>Peer-reviewed IEEE Access paper</li>
+              <li>Five-class system evaluation</li>
+              <li>FPGA energy comparison</li>
+              <li>Documented hierarchical architecture</li>
+            </ul>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head"><strong>Current limits</strong></div>
+            <ul class="compact-list">
+              <li>Research prototype, not a certified medical device</li>
+              <li>Performance depends on recording quality</li>
+              <li>External clinical validation is still required</li>
+              <li>Final diagnosis remains with clinicians</li>
+            </ul>
+          </div>
+        </div>
+        <div class="project-actions">
+          <a class="btn-case" href="https://doi.org/10.1109/ACCESS.2025.3573162" target="_blank" rel="noreferrer">Read the Publication</a>
+        </div>
+      </article>
     </div>
   </section>
 </main>
 
 <footer class="footer">
   <div class="container">
-    <span>© <span data-year></span> Nguyen Anh Phuong</span>
+    <span>&copy; <span data-year></span> Nguyen Anh Phuong</span>
     <a href="projects.html">All Projects</a>
   </div>
 </footer>

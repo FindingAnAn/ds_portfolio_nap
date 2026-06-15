@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Data science projects by Nguyen Anh Phuong - VNPost churn warning, gold price prediction, and IEEE Access research.">
+  <meta name="description" content="Selected data science, machine learning, and applied research projects by Nguyen Anh Phuong.">
   <title>Projects | Nguyen Anh Phuong</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,103 +27,157 @@
 </header>
 
 <main>
+  <section class="container projects-hero reveal">
+    <div>
+      <p class="kicker">Selected Work</p>
+      <h1>Systems built around <span class="gradient-text">real decisions</span></h1>
+    </div>
+    <p>
+      Three projects across production machine learning, time-series forecasting,
+      and published embedded-AI research. Each case study follows the same
+      Situation–Action–Result structure.
+    </p>
+  </section>
+
+  <section class="container projects-overview reveal" aria-label="Project areas">
+    <div><span>01</span><b>Production ML</b><small>B2B retention decision support</small></div>
+    <div><span>02</span><b>Forecasting</b><small>Multi-source financial pipeline</small></div>
+    <div><span>03</span><b>Applied Research</b><small>FPGA respiratory classification</small></div>
+  </section>
+
   <section class="container section projects-list-section">
     <div class="projects-list">
-      <article class="card project-card reveal">
-        <div class="project-visual">
-          <div class="pipeline">
-            <div class="pipeline-step"><span>01</span><b>Ingest</b><small>ZIP scan and PostgreSQL COPY.</small></div>
-            <div class="pipeline-step"><span>02</span><b>Features</b><small>Lifetime and sliding windows.</small></div>
-            <div class="pipeline-step"><span>03</span><b>Model</b><small>Time-aware XGBoost training.</small></div>
-            <div class="pipeline-step"><span>04</span><b>Govern</b><small>Quality gates and accepted bundles.</small></div>
-            <div class="pipeline-step"><span>05</span><b>Export</b><small>Top-risk customer list.</small></div>
+      <article class="project-card project-card-featured reveal">
+        <div class="project-visual project-visual-churn">
+          <div class="project-visual-head">
+            <span>Flagship Project</span>
+            <b>Production decision flow</b>
+          </div>
+          <div class="project-flow">
+            <div><span>01</span><b>Data</b><small>Monthly B2B behavior</small></div>
+            <i>→</i>
+            <div><span>02</span><b>Risk</b><small>Governed XGBoost score</small></div>
+            <i>→</i>
+            <div><span>03</span><b>Action</b><small>Prioritized CSKH list</small></div>
+          </div>
+          <div class="project-visual-stats">
+            <div><span>Horizon</span><b>2 months</b></div>
+            <div><span>Features</span><b>66</b></div>
+            <div><span>Pipeline</span><b>5 DAGs</b></div>
           </div>
         </div>
+
         <div class="project-copy">
-          <div class="pmap-num">01 - VNPost</div>
-          <h3>Churn Risk Warning</h3>
+          <div class="project-card-topline">
+            <div class="pmap-num">01 - Vietnam Post</div>
+            <span class="project-type">Production ML</span>
+          </div>
+          <h2>B2B Churn Warning System</h2>
           <p>
-            Churn warning workflow for B2B customers at Vietnam Post.
-            The case study keeps the project logic around data input, feature generation,
-            weak supervision, model governance, monitoring, and customer-care output.
+            Built an end-to-end warning system that converts sparse churn evidence
+            and monthly customer behavior into a capacity-aware retention list.
           </p>
-          <div class="metrics">
-            <div class="metric"><span>Risk cap</span><b>Top 10%</b></div>
-            <div class="metric"><span>Features</span><b>66</b></div>
-            <div class="metric"><span>Horizon</span><b>2 mo.</b></div>
+          <div class="project-sar">
+            <div><span>Situation</span><b>No standardized early warning for B2B customer churn</b></div>
+            <div><span>Action</span><b>Built temporal features, limited-label learning, model gates, and automated scoring</b></div>
+            <div><span>Result</span><b>Delivered a traceable priority list for timely customer-care intervention</b></div>
           </div>
           <div class="tag-row">
             <span class="tag">Airflow</span><span class="tag">XGBoost</span><span class="tag">PostgreSQL</span>
             <span class="tag">Kubernetes</span><span class="tag">Prometheus</span><span class="tag">PSI / KS</span>
           </div>
           <div class="project-actions">
-            <a class="btn-case" href="case-study-churn.html">Case Study</a>
+            <a class="btn-case" href="case-study-churn.html">Read Case Study</a>
             <a class="btn-gh" href="https://github.com/FindingAnAn/crm_churn_warning" target="_blank" rel="noreferrer">GitHub Repo</a>
           </div>
         </div>
       </article>
 
-      <article class="card project-card reveal">
-        <div class="project-visual">
-          <div class="pipeline">
-            <div class="pipeline-step"><span>01</span><b>Collect</b><small>Four financial data sources.</small></div>
-            <div class="pipeline-step"><span>02</span><b>Engineer</b><small>Nine SQL feature stages.</small></div>
-            <div class="pipeline-step"><span>03</span><b>Validate</b><small>Chronological split and CV.</small></div>
-            <div class="pipeline-step"><span>04</span><b>Predict</b><small>Persist model and forecasts.</small></div>
+      <article class="project-card reveal">
+        <div class="project-visual project-visual-gold">
+          <div class="project-visual-head">
+            <span>Forecasting System</span>
+            <b>Market data to next-day prediction</b>
+          </div>
+          <div class="project-layer-stack">
+            <div><span>Raw</span><b>4 data sources</b></div>
+            <div><span>Staging</span><b>Aligned daily market table</b></div>
+            <div><span>Features</span><b>9 SQL stages</b></div>
+          </div>
+          <div class="project-visual-stats">
+            <div><span>Target</span><b>Next day</b></div>
+            <div><span>Validation</span><b>Time-aware</b></div>
+            <div><span>Selection</span><b>CV RMSE</b></div>
           </div>
         </div>
+
         <div class="project-copy">
-          <div class="pmap-num">02 - Gold</div>
-          <h3>Gold Price Prediction</h3>
+          <div class="project-card-topline">
+            <div class="pmap-num">02 - Personal Project</div>
+            <span class="project-type">Forecasting</span>
+          </div>
+          <h2>Gold Price Forecasting Pipeline</h2>
           <p>
-            Modular forecasting pipeline that integrates market, macroeconomic, and energy data into a
-            three-layer PostgreSQL architecture, then trains and compares model families with
-            time-aware validation.
+            Integrated market, macroeconomic, and energy data into a reusable
+            PostgreSQL feature system for chronological model comparison.
           </p>
-          <div class="metrics">
-            <div class="metric"><span>Sources</span><b>4</b></div>
-            <div class="metric"><span>SQL stages</span><b>9</b></div>
-            <div class="metric"><span>Target</span><b>Next day</b></div>
+          <div class="project-sar">
+            <div><span>Situation</span><b>Forecasting signals were fragmented across market and macro data sources</b></div>
+            <div><span>Action</span><b>Unified four sources, engineered SQL features, and compared models chronologically</b></div>
+            <div><span>Result</span><b>Created a repeatable pipeline from ingestion to persisted next-day forecasts</b></div>
           </div>
           <div class="tag-row">
-            <span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">Optuna</span>
-            <span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">yfinance</span>
+            <span class="tag">PostgreSQL</span><span class="tag">XGBoost</span><span class="tag">LightGBM</span>
+            <span class="tag">Optuna</span><span class="tag">SQLAlchemy</span><span class="tag">TimeSeriesSplit</span>
           </div>
           <div class="project-actions">
-            <a class="btn-case" href="case-study-gold.html">Case Study</a>
+            <a class="btn-case" href="case-study-gold.html">Read Case Study</a>
             <a class="btn-gh" href="https://github.com/FindingAnAn/goldprice_prediction" target="_blank" rel="noreferrer">GitHub Repo</a>
           </div>
         </div>
       </article>
 
-      <article class="card project-card reveal">
-        <div class="project-visual">
-          <div class="stat-grid">
-            <div class="stat"><span>Accuracy</span><b>98.81%</b><em>5-class</em></div>
-            <div class="stat"><span>Energy</span><b>52.5%</b><em>saving</em></div>
-            <div class="stat"><span>Layers</span><b>4</b><em>hierarchy</em></div>
-            <div class="stat"><span>Venue</span><b>IEEE</b><em>Access</em></div>
+      <article class="project-card reveal">
+        <div class="project-visual project-visual-research">
+          <div class="project-visual-head">
+            <span>Published Research</span>
+            <b>Hierarchical embedded diagnosis</b>
+          </div>
+          <div class="project-hierarchy">
+            <div><span>L1</span><b>Signal quality</b></div>
+            <div><span>L2</span><b>Healthy vs abnormal</b></div>
+            <div><span>L3</span><b>Disease family</b></div>
+            <div><span>L4</span><b>Final class</b></div>
+          </div>
+          <div class="project-visual-stats">
+            <div><span>Classes</span><b>5</b></div>
+            <div><span>Accuracy</span><b>98.81%</b></div>
+            <div><span>Venue</span><b>IEEE Access</b></div>
           </div>
         </div>
+
         <div class="project-copy">
-          <div class="pmap-num">03 - EDABK Lab</div>
-          <h3>Respiratory Disease Classification</h3>
+          <div class="project-card-topline">
+            <div class="pmap-num">03 - EDABK Laboratory</div>
+            <span class="project-type">Applied Research</span>
+          </div>
+          <h2>Respiratory Disease Classification</h2>
           <p>
-            Research project on a hierarchical embedded system for diagnosing respiratory diseases
-            from sound features. The paper was published in IEEE Access, vol. 13, 2025.
+            Contributed feature engineering and experimental analysis to a
+            hierarchical respiratory-sound system designed for FPGA deployment.
           </p>
-          <ul>
-            <li>Five target classes: Healthy, COPD, URTI, Bronchitis, and Pneumonia.</li>
-            <li>Random Forest and ANN components integrated into an FPGA-oriented system.</li>
-            <li>Feature work spans recording-level and frame-level respiratory sound signals.</li>
-          </ul>
+          <div class="project-sar">
+            <div><span>Situation</span><b>Respiratory screening depended on specialists interpreting lung sounds</b></div>
+            <div><span>Action</span><b>Engineered recording and frame-level features for a hierarchical embedded classifier</b></div>
+            <div><span>Result</span><b>Produced a five-class decision-support system published in IEEE Access</b></div>
+          </div>
           <div class="tag-row">
             <span class="tag">Python</span><span class="tag">Random Forest</span><span class="tag">ANN</span>
             <span class="tag">FPGA</span><span class="tag">Signal Processing</span><span class="tag">IEEE Access</span>
           </div>
           <div class="project-actions">
-            <a class="btn-case" href="case-study-edabk.html">Case Study</a>
-            <a class="btn-gh" href="https://ieeexplore.ieee.org/document/11014092/" target="_blank" rel="noreferrer">IEEE Page</a>
+            <a class="btn-case" href="case-study-edabk.html">Read Case Study</a>
+            <a class="btn-gh" href="https://ieeexplore.ieee.org/document/11014092/" target="_blank" rel="noreferrer">IEEE Paper</a>
           </div>
         </div>
       </article>
