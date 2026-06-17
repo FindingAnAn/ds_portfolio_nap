@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Situation-Action-Result case study of Nguyen Anh Phuong's B2B churn warning system for Vietnam Post.">
+  <meta name="description" content="Problem-Solution-Impact case study of Nguyen Anh Phuong's B2B churn warning system for Vietnam Post.">
   <title>B2B Churn Warning System | Nguyen Anh Phuong</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,7 @@
       <a href="index.html">Home</a>
       <a class="active" href="projects.html">Projects</a>
       <a href="about.html">Profile</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -36,13 +37,14 @@
     <p class="kicker">Flagship Case Study - Vietnam Post</p>
     <h1>A production-oriented <span class="gradient-text">churn warning system</span> for B2B customers</h1>
     <p class="hero-text">
-      A batch ML system that turns monthly customer behavior into a governed,
-      capacity-aware retention list for customer-care teams.
+      A production MLOps batch system, deployed in March 2026, that turns monthly
+      customer behavior and delivery-delay signals into governed retention and
+      postal-operations reports.
     </p>
     <div class="tag-row" style="margin-top:18px">
       <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">XGBoost</span>
       <span class="tag">Airflow</span><span class="tag">Kubernetes</span><span class="tag">Docker</span>
-      <span class="tag">Prometheus</span><span class="tag">Grafana</span>
+      <span class="tag">MLOps</span><span class="tag">Prometheus</span><span class="tag">Grafana</span>
     </div>
   </section>
 
@@ -66,8 +68,8 @@
         <div class="stat-grid">
           <div class="stat"><span>Prediction horizon</span><b>2 months</b><em>early warning window</em></div>
           <div class="stat"><span>Modeled variables</span><b>66 features</b><em>10 behavioral families</em></div>
-          <div class="stat"><span>Orchestration</span><b>5 DAGs</b><em>end-to-end automation</em></div>
-          <div class="stat"><span>Action capacity</span><b>Top 10%</b><em>maximum risk-list target</em></div>
+          <div class="stat"><span>MLOps</span><b>5 DAGs</b><em>Airflow and Kubernetes</em></div>
+          <div class="stat"><span>Mar-Apr 2026</span><b>900+ retained</b><em>15,000 focused contacts</em></div>
         </div>
       </div>
     </div>
@@ -81,10 +83,10 @@
           <div class="kpi"><span>Organization</span><b>Vietnam Post</b></div>
           <div class="kpi"><span>Role</span><b>Data Scientist</b></div>
           <div class="kpi"><span>Domain</span><b>B2B delivery</b></div>
-          <div class="kpi"><span>System</span><b>Batch decision support</b></div>
+          <div class="kpi"><span>System</span><b>MLOps batch decision product</b></div>
           <div class="kpi"><span>Model</span><b>XGBoost</b></div>
           <div class="kpi"><span>Metrics</span><b>F0.5 and PR-AUC</b></div>
-          <div class="kpi"><span>Consumer</span><b>Customer care</b></div>
+          <div class="kpi"><span>Consumers</span><b>Customer care and postal operations</b></div>
         </div>
         <div class="project-actions" style="margin-top:20px">
           <a class="btn-gh" href="https://github.com/FindingAnAn/crm_churn_warning" target="_blank" rel="noreferrer">Source Repository</a>
@@ -99,44 +101,44 @@
       <article class="card reveal">
         <h3>Case Study</h3>
         <ol class="case-index">
-          <li><a href="#situation">Situation</a></li>
-          <li><a href="#action">Action</a></li>
-          <li><a href="#result">Result</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#impact">Impact</a></li>
           <li><a href="#evidence">Evidence and limits</a></li>
         </ol>
       </article>
     </aside>
 
     <div class="case-body">
-      <article class="card reveal sar-section" id="situation">
+      <article class="card reveal sar-section" id="problem">
         <div class="sar-heading">
-          <span class="sar-letter">S</span>
+          <span class="sar-letter">P</span>
           <div>
-            <p class="section-eyebrow">Situation</p>
-            <h2>Vietnam Post had no standardized early-warning process for B2B churn</h2>
+            <p class="section-eyebrow">Problem</p>
+            <h2>Vietnam Post needed earlier, more selective B2B churn intervention</h2>
           </div>
         </div>
 
         <div class="sar-grid">
           <div class="sar-card">
             <span>Current process</span>
-            <b>Customer care was mainly reactive</b>
-            <p>Teams often responded after activity had already fallen or stopped.</p>
+            <b>Customer care used broad rule-based call lists</b>
+            <p>Business teams typically called about 20,000 customers after more than 7 days without service usage.</p>
           </div>
           <div class="sar-card">
             <span>Decision gap</span>
-            <b>No shared method to prioritize accounts</b>
-            <p>Historical behavior was not converted into a consistent risk ranking.</p>
+            <b>Only about 800 customers were usually retained</b>
+            <p>The team needed a smaller, higher-priority list instead of treating every inactive customer similarly.</p>
           </div>
           <div class="sar-card">
-            <span>Business impact</span>
-            <b>Retention opportunities could be missed</b>
-            <p>Late detection reduced the time available to contact and retain customers.</p>
+            <span>Operations gap</span>
+            <b>Late orders were not summarized by delay stage</b>
+            <p>Teams needed to know how many days orders were late and whether the issue came from collection, transport, or delivery.</p>
           </div>
           <div class="sar-card">
-            <span>Operational constraint</span>
-            <b>Customer-care capacity was limited</b>
-            <p>The team needed a short, explainable list rather than alerts for everyone.</p>
+            <span>Business risk</span>
+            <b>Retention and service-recovery windows were short</b>
+            <p>Late detection reduced time to contact customers and repair failing postal-operation steps.</p>
           </div>
         </div>
 
@@ -146,12 +148,12 @@
         </div>
       </article>
 
-      <article class="card reveal sar-section" id="action">
+      <article class="card reveal sar-section" id="solution">
         <div class="sar-heading">
-          <span class="sar-letter">A</span>
+          <span class="sar-letter">S</span>
           <div>
-            <p class="section-eyebrow">Action</p>
-            <h2>I built the data, modeling, and operating system</h2>
+            <p class="section-eyebrow">Solution</p>
+            <h2>I built the data, modeling, and MLOps operating system</h2>
           </div>
         </div>
 
@@ -167,6 +169,7 @@
         <div class="feature-grid">
           <div><b>Value</b><span>volume, revenue, weight</span></div>
           <div><b>Quality</b><span>delay, refund, loss, complaints</span></div>
+          <div><b>Delay stage</b><span>late days by collection, transport, and delivery</span></div>
           <div><b>Engagement</b><span>active periods and service gaps</span></div>
           <div><b>Trend</b><span>slopes and short-term momentum</span></div>
           <div><b>Service mix</b><span>diversity and dominant services</span></div>
@@ -213,7 +216,7 @@
           </div>
         </div>
 
-        <h3 class="block-title">5. Production architecture</h3>
+        <h3 class="block-title">5. Production MLOps architecture</h3>
         <div class="architecture-grid">
           <div class="architecture-card"><span>01</span><b>Ingestion DAG</b><p>Validate and load incoming data.</p></div>
           <div class="architecture-card"><span>02</span><b>Feature DAG</b><p>Build lifetime and rolling windows.</p></div>
@@ -221,42 +224,44 @@
           <div class="architecture-card"><span>04</span><b>Model DAG</b><p>Train, govern, score, and export.</p></div>
           <div class="architecture-card"><span>05</span><b>Cleanup DAG</b><p>Apply artifact retention policies.</p></div>
           <div class="architecture-card"><span>Ops</span><b>Kubernetes</b><p>Run isolated jobs with observable resources.</p></div>
+          <div class="architecture-card"><span>Access</span><b>PostgreSQL outputs</b><p>Separate customer-care lists from operations reports by consumer role.</p></div>
         </div>
       </article>
 
-      <article class="card reveal sar-section" id="result">
+      <article class="card reveal sar-section" id="impact">
         <div class="sar-heading">
-          <span class="sar-letter">R</span>
+          <span class="sar-letter">I</span>
           <div>
-            <p class="section-eyebrow">Result</p>
-            <h2>A repeatable decision product, not a one-time model</h2>
+            <p class="section-eyebrow">Impact</p>
+            <h2>A deployed decision product for retention and operations recovery</h2>
           </div>
         </div>
 
         <div class="result-board">
-          <div><span>Business output</span><b>Prioritized retention list</b><small>Designed for customer-care capacity</small></div>
+          <div><span>Production</span><b>Deployed in Mar 2026</b><small>Scheduled batch scoring and reporting</small></div>
+          <div><span>Campaign focus</span><b>15,000 customers</b><small>April 2026 report narrowed the contact list from the usual 20,000</small></div>
+          <div><span>Retention result</span><b>900+ customers retained</b><small>Compared with the usual around 800 retained from broad statistical lists</small></div>
+          <div><span>Operations output</span><b>Delay-stage reports</b><small>Late days by collection, transport, and delivery stage</small></div>
           <div><span>Coverage</span><b>All eligible active customers</b><small>Scored on each production run</small></div>
-          <div><span>List control</span><b>Maximum top 10%</b><small>Stricter model threshold can reduce it</small></div>
           <div><span>Traceability</span><b>Window + threshold + model</b><small>Stored with each scoring cycle</small></div>
-          <div><span>Continuity</span><b>Fallback accepted bundle</b><small>Rejected candidates do not stop service</small></div>
-          <div><span>Interpretation</span><b>3 reason signals</b><small>Supports human account review</small></div>
         </div>
 
         <div class="mini-panels">
           <div class="chart-card">
-            <div class="chart-head"><strong>PostgreSQL Action Table</strong><span>CSKH output</span></div>
+            <div class="chart-head"><strong>Customer-Care Campaign</strong><span>April 2026</span></div>
             <table class="mock-table">
-              <tr><th>Customer</th><th>Risk</th><th>Reason</th></tr>
-              <tr><td>B2B-1024</td><td><span class="score high">High</span></td><td>activity decline</td></tr>
-              <tr><td>B2B-1841</td><td><span class="score mid">Watch</span></td><td>long recency</td></tr>
-              <tr><td>B2B-2027</td><td><span class="score low">Stable</span></td><td>below threshold</td></tr>
+              <tr><th>Method</th><th>Contacted</th><th>Retained</th></tr>
+              <tr><td>Rule/statistics</td><td>20,000</td><td>~800</td></tr>
+              <tr><td>ML priority list</td><td>15,000</td><td>900+</td></tr>
+              <tr><td>Use case</td><td colspan="2">Focused retention campaign</td></tr>
             </table>
           </div>
           <div class="chart-card">
-            <div class="chart-head"><strong>Monitoring Coverage</strong><span>two planes</span></div>
+            <div class="chart-head"><strong>Postal Operations Report</strong><span>delay repair</span></div>
             <div class="monitor-stack">
-              <div><b>Model quality</b><span>runs, score drift, PSI/KS, backtests</span></div>
-              <div><b>Infrastructure</b><span>pods, CPU, memory, disk, restarts</span></div>
+              <div><b>Delay days</b><span>How many days each order is late.</span></div>
+              <div><b>Delay stage</b><span>Collection, transport, delivery, or downstream handoff.</span></div>
+              <div><b>Repair path</b><span>Reports are pushed to postal operations to repair current delayed orders and reduce future failures.</span></div>
             </div>
           </div>
         </div>
@@ -271,6 +276,7 @@
           <span>Risk-table contract</span>
           <span>5 Airflow DAGs</span>
           <span>Kubernetes operations</span>
+          <span>Operations delay reporting</span>
           <span>Monitoring and tests</span>
         </div>
       </article>
@@ -293,7 +299,7 @@
             <ul class="compact-list">
               <li>No fabricated static accuracy</li>
               <li>No causal retention claim</li>
-              <li>No real-time API claim</li>
+              <li>No real-time API claim; this is a governed batch MLOps product</li>
               <li>No automated adverse decision</li>
             </ul>
           </div>
@@ -309,7 +315,7 @@
 <footer class="footer">
   <div class="container">
     <span>&copy; <span data-year></span> Nguyen Anh Phuong</span>
-    <a href="about.html#contact">Contact</a>
+    <a href="contact.html">Contact</a>
   </div>
 </footer>
 <script src="script.js"></script>

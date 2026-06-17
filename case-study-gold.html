@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Situation-Action-Result case study of Nguyen Anh Phuong's gold price forecasting pipeline.">
+  <meta name="description" content="Problem-Solution-Impact case study of Nguyen Anh Phuong's gold price forecasting pipeline.">
   <title>Gold Price Forecasting | Nguyen Anh Phuong</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,7 @@
       <a href="index.html">Home</a>
       <a class="active" href="projects.html">Projects</a>
       <a href="about.html">Profile</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -97,20 +98,20 @@
       <article class="card reveal">
         <h3>Case Study</h3>
         <ol class="case-index">
-          <li><a href="#situation">Situation</a></li>
-          <li><a href="#action">Action</a></li>
-          <li><a href="#result">Result</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#impact">Impact</a></li>
           <li><a href="#evidence">Evidence and limits</a></li>
         </ol>
       </article>
     </aside>
 
     <div class="case-body">
-      <article class="card reveal sar-section" id="situation">
+      <article class="card reveal sar-section" id="problem">
         <div class="sar-heading">
-          <span class="sar-letter">S</span>
+          <span class="sar-letter">P</span>
           <div>
-            <p class="section-eyebrow">Situation</p>
+            <p class="section-eyebrow">Problem</p>
             <h2>Gold forecasting required a unified view of fragmented market signals</h2>
           </div>
         </div>
@@ -144,11 +145,11 @@
         </div>
       </article>
 
-      <article class="card reveal sar-section" id="action">
+      <article class="card reveal sar-section" id="solution">
         <div class="sar-heading">
-          <span class="sar-letter">A</span>
+          <span class="sar-letter">S</span>
           <div>
-            <p class="section-eyebrow">Action</p>
+            <p class="section-eyebrow">Solution</p>
             <h2>I built a reusable forecasting pipeline around PostgreSQL</h2>
           </div>
         </div>
@@ -187,7 +188,7 @@
           <div><span>Target table</span><b>Stores future prices, direction, and percentage change separately</b></div>
         </div>
 
-        <h3 class="block-title">4. Time-aware model selection</h3>
+        <h3 class="block-title">4. Time-aware model selection and technical accuracy</h3>
         <div class="model-family-grid">
           <span>Ridge</span>
           <span>Lasso</span>
@@ -202,7 +203,7 @@
           <i>→</i>
           <div><span>Tune</span><b>Optional Optuna</b></div>
           <i>→</i>
-          <div><span>Select</span><b>Lowest CV RMSE</b></div>
+          <div><span>Select</span><b>Lowest CV RMSE with MAE/MAPE review</b></div>
         </div>
 
         <h3 class="block-title">5. Reproducible execution</h3>
@@ -214,12 +215,12 @@
         </div>
       </article>
 
-      <article class="card reveal sar-section" id="result">
+      <article class="card reveal sar-section" id="impact">
         <div class="sar-heading">
-          <span class="sar-letter">R</span>
+          <span class="sar-letter">I</span>
           <div>
-            <p class="section-eyebrow">Result</p>
-            <h2>A complete experiment-to-prediction workflow</h2>
+            <p class="section-eyebrow">Impact</p>
+            <h2>A complete experiment-to-prediction workflow with practical decision value</h2>
           </div>
         </div>
 
@@ -227,9 +228,9 @@
           <div><span>Data product</span><b>Aligned daily market table</b><small>Four source families in PostgreSQL</small></div>
           <div><span>Feature product</span><b>Reusable SQL feature store</b><small>Independent from Python notebooks</small></div>
           <div><span>Leakage control</span><b>Separate feature and target tables</b><small>Future values excluded from model inputs</small></div>
-          <div><span>Model product</span><b>Persisted best estimator</b><small>Selected by time-aware CV RMSE</small></div>
-          <div><span>Forecast product</span><b>Timestamped prediction CSV</b><small>Latest one or multiple rows</small></div>
-          <div><span>Extension point</span><b>Source and model adapters</b><small>Add components without rewriting the pipeline</small></div>
+          <div><span>Technical accuracy</span><b>CV and holdout RMSE</b><small>Model quality measured in chronological order</small></div>
+          <div><span>Error diagnosis</span><b>MAE and MAPE review</b><small>Shows absolute and percentage forecast error</small></div>
+          <div><span>Practical usefulness</span><b>Daily forecast file</b><small>Supports monitoring, scenario review, and repeatable market analysis</small></div>
         </div>
 
         <div class="mini-panels">
@@ -239,15 +240,16 @@
               <tr><th>Date</th><th>Target</th><th>Output</th></tr>
               <tr><td>Latest row</td><td>Next-day price</td><td><span class="score high">Forecast</span></td></tr>
               <tr><td>Recent rows</td><td>Batch request</td><td><span class="score mid">CSV</span></td></tr>
-              <tr><td>Historical holdout</td><td>Evaluation</td><td><span class="score low">RMSE</span></td></tr>
+              <tr><td>Historical holdout</td><td>Evaluation</td><td><span class="score low">RMSE / MAE / MAPE</span></td></tr>
             </table>
           </div>
           <div class="chart-card">
             <div class="chart-head"><strong>Experiment Contract</strong><span>repeatable</span></div>
             <div class="monitor-stack">
               <div><b>Same feature source</b><span>Training and prediction read the master feature table.</span></div>
-              <div><b>Same selection rule</b><span>Candidate models are ranked by cross-validation RMSE.</span></div>
+              <div><b>Same selection rule</b><span>Candidate models are ranked by cross-validation RMSE and reviewed with holdout errors.</span></div>
               <div><b>Saved artifacts</b><span>Best model and timestamped forecasts remain inspectable.</span></div>
+              <div><b>Business use boundary</b><span>Useful for analysis and monitoring, not an automated trading signal.</span></div>
             </div>
           </div>
         </div>
@@ -278,6 +280,7 @@
               <li>Three PostgreSQL schema layers</li>
               <li>Nine SQL feature stages</li>
               <li>Time-aware training and prediction CLI</li>
+              <li>Technical accuracy tracked by RMSE, MAE, and MAPE</li>
             </ul>
           </div>
           <div class="chart-card">
