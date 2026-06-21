@@ -98,17 +98,17 @@
         <div class="project-visual project-visual-gold">
           <div class="project-visual-head">
             <span>Forecasting System</span>
-            <b>Market data to next-day prediction</b>
+            <b>Market data to 10-session Open forecasts</b>
           </div>
           <div class="project-layer-stack">
-            <div><span>Raw</span><b>4 data sources</b></div>
-            <div><span>Staging</span><b>Aligned daily market table</b></div>
-            <div><span>Features</span><b>9 SQL stages</b></div>
+            <div><span>Raw</span><b>5 source adapters</b></div>
+            <div><span>Staging</span><b>Point-in-time daily table</b></div>
+            <div><span>Features</span><b>11 SQL stages</b></div>
           </div>
           <div class="project-visual-stats">
-            <div><span>Target</span><b>Next day</b></div>
-            <div><span>Validation</span><b>Time-aware</b></div>
-            <div><span>Selection</span><b>CV RMSE</b></div>
+            <div><span>Target</span><b>Open 1–10</b></div>
+            <div><span>Validation</span><b>6 origins</b></div>
+            <div><span>Best RMSE</span><b>87.07</b></div>
           </div>
         </div>
 
@@ -117,19 +117,19 @@
             <div class="pmap-num">02 - Personal Project</div>
             <span class="project-type">Forecasting</span>
           </div>
-          <h2>Gold Price Forecasting Pipeline</h2>
+          <h2>Gold Open Forecasting Pipeline</h2>
           <p>
-            Integrated market, macroeconomic, and energy data into a reusable
-            PostgreSQL feature system for chronological model comparison.
+            Forecasts the Gold Futures Open for the next 10 sessions by benchmarking
+            deep sequence models and direct tabular models on leakage-controlled data.
           </p>
           <div class="project-sar">
-            <div><span>Problem</span><b>Gold signals were scattered across many data sources</b></div>
-            <div><span>Solution</span><b>Unified sources, SQL features, and time-aware validation</b></div>
-            <div><span>Impact</span><b>Produced repeatable forecasts with clear error tracking</b></div>
+            <div><span>Problem</span><b>Multi-horizon forecasts required point-in-time market and macro signals</b></div>
+            <div><span>Solution</span><b>Benchmarked nine sequence, direct, and ensemble candidates</b></div>
+            <div><span>Impact</span><b>Blend reduced mean RMSE by 36.17% versus PatchTST</b></div>
           </div>
           <div class="tag-row">
             <span class="tag">PostgreSQL</span><span class="tag">XGBoost</span><span class="tag">LightGBM</span>
-            <span class="tag">Optuna</span><span class="tag">SQLAlchemy</span><span class="tag">TimeSeriesSplit</span>
+            <span class="tag">NeuralForecast</span><span class="tag">PyTorch</span><span class="tag">Rolling CV</span>
           </div>
           <div class="project-actions">
             <a class="btn-case" href="case-study-gold.html">Read Case Study</a>

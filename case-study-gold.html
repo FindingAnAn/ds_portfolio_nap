@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Problem-Solution-Impact case study of Nguyen Anh Phuong's gold price forecasting pipeline.">
-  <title>Gold Price Forecasting | Nguyen Anh Phuong</title>
+  <meta name="description" content="Problem-Solution-Impact case study of Nguyen Anh Phuong's 10-session gold Open forecasting pipeline.">
+  <title>Gold Open Forecasting | Nguyen Anh Phuong</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -32,18 +32,18 @@
     <div class="breadcrumbs">
       <a href="index.html">Home</a><span>/</span>
       <a href="projects.html">Projects</a><span>/</span>
-      <span>Gold Price Forecasting</span>
+      <span>Gold Open Forecasting</span>
     </div>
     <p class="kicker">Case Study - Personal Project</p>
-    <h1>A modular <span class="gradient-text">gold price forecasting</span> pipeline</h1>
+    <h1>A leakage-aware <span class="gradient-text">gold Open forecasting</span> pipeline</h1>
     <p class="hero-text">
-      A time-series ML system that combines market, macroeconomic, and energy data
-      to forecast the next available gold price.
+      A hybrid time-series system that combines market, macroeconomic, positioning,
+      and energy data to forecast the Open of the next 10 gold sessions.
     </p>
     <div class="tag-row" style="margin-top:18px">
       <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">SQL</span>
-      <span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">Optuna</span>
-      <span class="tag">TimeSeriesSplit</span><span class="tag">SQLAlchemy</span>
+      <span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">NeuralForecast</span>
+      <span class="tag">PyTorch</span><span class="tag">Rolling CV</span>
     </div>
   </section>
 
@@ -55,18 +55,18 @@
       </div>
       <div class="dash-content gold-flow">
         <div class="pipeline">
-          <div class="pipeline-step"><span>01</span><b>Collect</b><small>Market, macro, and energy APIs.</small></div>
-          <div class="pipeline-step"><span>02</span><b>Stage</b><small>Clean and align daily observations.</small></div>
-          <div class="pipeline-step"><span>03</span><b>Engineer</b><small>Create SQL-native indicators.</small></div>
-          <div class="pipeline-step"><span>04</span><b>Validate</b><small>Preserve chronological order.</small></div>
-          <div class="pipeline-step"><span>05</span><b>Select</b><small>Compare models by CV RMSE.</small></div>
-          <div class="pipeline-step"><span>06</span><b>Predict</b><small>Persist latest forecasts to CSV.</small></div>
+          <div class="pipeline-step"><span>01</span><b>Collect</b><small>Five market and macro source adapters.</small></div>
+          <div class="pipeline-step"><span>02</span><b>Stage</b><small>Align records by safe availability date.</small></div>
+          <div class="pipeline-step"><span>03</span><b>Engineer</b><small>Build 11 auditable SQL stages.</small></div>
+          <div class="pipeline-step"><span>04</span><b>Benchmark</b><small>Evaluate nine model candidates.</small></div>
+          <div class="pipeline-step"><span>05</span><b>Select</b><small>Rank mean RMSE over six origins.</small></div>
+          <div class="pipeline-step"><span>06</span><b>Forecast</b><small>Persist 10 Opens, intervals, and reasons.</small></div>
         </div>
         <div class="stat-grid">
-          <div class="stat"><span>Forecast target</span><b>Next day</b><em>default prediction horizon</em></div>
-          <div class="stat"><span>Data sources</span><b>4 APIs</b><em>market to macro signals</em></div>
-          <div class="stat"><span>Data architecture</span><b>3 schemas</b><em>raw, staging, features</em></div>
-          <div class="stat"><span>Feature pipeline</span><b>9 SQL stages</b><em>auditable transformations</em></div>
+          <div class="stat"><span>Forecast target</span><b>Open 1–10</b><em>independent session horizons</em></div>
+          <div class="stat"><span>Data adapters</span><b>5</b><em>market, macro, positioning, energy</em></div>
+          <div class="stat"><span>Benchmark</span><b>9 models</b><em>sequence, direct, and ensemble</em></div>
+          <div class="stat"><span>Best mean RMSE</span><b>87.07</b><em>six rolling forecast origins</em></div>
         </div>
       </div>
     </div>
@@ -78,12 +78,13 @@
         <h3>Project Snapshot</h3>
         <div class="kpi-list" style="margin-top:16px">
           <div class="kpi"><span>Project type</span><b>Personal ML system</b></div>
-          <div class="kpi"><span>Problem</span><b>Time-series regression</b></div>
-          <div class="kpi"><span>Target</span><b>Next-day gold price</b></div>
-          <div class="kpi"><span>Storage</span><b>PostgreSQL</b></div>
-          <div class="kpi"><span>Validation</span><b>TimeSeriesSplit</b></div>
-          <div class="kpi"><span>Selection</span><b>Lowest CV RMSE</b></div>
-          <div class="kpi"><span>Output</span><b>Model + prediction CSV</b></div>
+          <div class="kpi"><span>Problem</span><b>Direct multi-horizon regression</b></div>
+          <div class="kpi"><span>Target</span><b>Next 1–10 gold Opens</b></div>
+          <div class="kpi"><span>History</span><b>From January 2010</b></div>
+          <div class="kpi"><span>Validation</span><b>6 rolling origins</b></div>
+          <div class="kpi"><span>Best model</span><b>Ridge-XGBoost blend</b></div>
+          <div class="kpi"><span>Result</span><b>RMSE 87.07 · MAPE 1.66%</b></div>
+          <div class="kpi"><span>Output</span><b>10 forecasts + intervals</b></div>
         </div>
         <div class="project-actions" style="margin-top:20px">
           <a class="btn-gh" href="https://github.com/FindingAnAn/goldprice_prediction" target="_blank" rel="noreferrer">Source Repository</a>
@@ -92,7 +93,7 @@
 
       <article class="card card-grey reveal">
         <h3>Design Principle</h3>
-        <p>Keep future targets separate from reusable features and evaluate only in chronological order.</p>
+        <p>Use only information available at each forecast cutoff, purge horizon labels, and compare every candidate on the same rolling origins.</p>
       </article>
 
       <article class="card reveal">
@@ -112,36 +113,36 @@
           <span class="sar-letter">P</span>
           <div>
             <p class="section-eyebrow">Problem</p>
-            <h2>Gold forecasting required a unified view of fragmented market signals</h2>
+            <h2>Gold forecasting required point-in-time data and a fair multi-horizon benchmark</h2>
           </div>
         </div>
 
         <div class="sar-grid">
           <div class="sar-card">
-            <span>Current process</span>
-            <b>Analysis depended on separate data sources</b>
-            <p>Gold, USD, equities, rates, inflation, and oil were collected independently.</p>
+            <span>Data boundary</span>
+            <b>Signals arrive at different frequencies and release times</b>
+            <p>Prices, yields, volatility, policy risk, oil, and CFTC positions could not be joined by date alone.</p>
           </div>
           <div class="sar-card">
-            <span>Decision gap</span>
-            <b>No repeatable forecasting workflow</b>
-            <p>Manual analysis made experiments difficult to reproduce and compare.</p>
+            <span>Model uncertainty</span>
+            <b>Complex sequence models do not automatically perform best</b>
+            <p>The project needed simple controls and tabular challengers beside deep time-series models.</p>
           </div>
           <div class="sar-card">
-            <span>Market reality</span>
-            <b>Gold responds to cross-market conditions</b>
-            <p>A price-only dataset could miss macroeconomic and risk signals.</p>
+            <span>Horizon risk</span>
+            <b>Recursive forecasts can accumulate error</b>
+            <p>Each future session needed an independent target and estimator rather than feeding predictions back into the model.</p>
           </div>
           <div class="sar-card">
-            <span>Project need</span>
-            <b>One auditable experiment pipeline</b>
-            <p>The project needed consistent data, features, validation, and prediction outputs.</p>
+            <span>Evidence need</span>
+            <b>Every result had to remain reproducible</b>
+            <p>Data hashes, metrics, models, forecasts, resource use, and later realized Opens needed one run identity.</p>
           </div>
         </div>
 
         <div class="label-rule">
-          <div><span>Input contract</span><b>Information available on or before the forecast date</b></div>
-          <div><span>Target contract</span><b>Gold price on the next available trading day</b></div>
+          <div><span>Input contract</span><b>Information known after the latest completed gold session</b></div>
+          <div><span>Target contract</span><b>Gold Open for each of the next 10 sessions</b></div>
         </div>
       </article>
 
@@ -150,16 +151,17 @@
           <span class="sar-letter">S</span>
           <div>
             <p class="section-eyebrow">Solution</p>
-            <h2>I built a reusable forecasting pipeline around PostgreSQL</h2>
+            <h2>I built a hybrid benchmark with explicit point-in-time controls</h2>
           </div>
         </div>
 
         <h3 class="block-title">1. Multi-source ingestion</h3>
         <div class="source-grid">
-          <div><span>Yahoo Finance</span><b>Gold, silver, USD, equities, VIX</b></div>
-          <div><span>FRED</span><b>Rates, inflation, money supply, labor</b></div>
-          <div><span>EIA</span><b>WTI and Brent oil prices</b></div>
-          <div><span>FreeGoldAPI</span><b>Gold history and market ratios</b></div>
+          <div><span>Yahoo Finance</span><b>Gold OHLCV, DXY, silver, equities, VIX, rates, and ETF proxies</b></div>
+          <div><span>FRED</span><b>Yields, real yield, inflation expectations, EPU, and credit spread</b></div>
+          <div><span>CFTC</span><b>COMEX gold positioning joined from a conservative availability date</b></div>
+          <div><span>EIA</span><b>WTI and Brent prices with Yahoo Finance fallback</b></div>
+          <div><span>FreeGoldAPI</span><b>Historical fallback prices and gold-silver ratio data</b></div>
         </div>
 
         <h3 class="block-title">2. Three-layer data architecture</h3>
@@ -171,47 +173,53 @@
           <div><span>Features</span><b>Model-ready signals</b><small>Reusable SQL transformations</small></div>
         </div>
 
-        <h3 class="block-title">3. SQL feature system</h3>
+        <h3 class="block-title">3. Eleven-stage SQL feature system</h3>
         <div class="feature-grid">
-          <div><b>Price trend</b><span>SMA, EMA, Bollinger bands</span></div>
-          <div><b>Momentum</b><span>RSI, MACD, ROC, stochastic</span></div>
-          <div><b>Trend strength</b><span>ADX and rolling z-scores</span></div>
-          <div><b>Macroeconomics</b><span>rates, CPI, M2, unemployment</span></div>
-          <div><b>Cross-asset</b><span>USD, equities, silver, oil, VIX</span></div>
-          <div><b>Market ratios</b><span>gold/silver, gold/oil, real yield</span></div>
-          <div><b>Rolling windows</b><span>5, 21, 63, and 252-day signals</span></div>
-          <div><b>EWMA</b><span>levels, volatility, and crossovers</span></div>
+          <div><b>Technical state</b><span>OHLCV, returns, gaps, SMA, EMA, Bollinger, RSI, MACD, ADX, and stochastic</span></div>
+          <div><b>Multi-scale history</b><span>Lags and rolling statistics over 5, 10, 21, 63, 126, and 252 sessions</span></div>
+          <div><b>Cross-asset drivers</b><span>DXY, equities, silver, oil, VIX, rates, and ETF returns</span></div>
+          <div><b>Macro and risk</b><span>Real yield, EPU, credit spread, curve slope, and inflation expectations</span></div>
+          <div><b>Positioning</b><span>CFTC managed-money, producer, swap-dealer, age, change, and z-score signals</span></div>
+          <div><b>Seasonality</b><span>Month, quarter, year progress, cyclic calendar terms, and prior-year analogs</span></div>
+          <div><b>Market regimes</b><span>Leakage-safe analogs based on historical momentum and volatility</span></div>
+          <div><b>Controlled run</b><span>146 direct-model features; sequence inputs used 1 or 15 variables by architecture</span></div>
         </div>
 
         <div class="anti-leakage-board">
-          <div><span>Feature table</span><b>Excludes gold close, gold open, and future labels</b></div>
-          <div><span>Target table</span><b>Stores future prices, direction, and percentage change separately</b></div>
+          <div><span>Target isolation</span><b>Future labels stay outside the master feature table and future-name prefixes are blocked.</b></div>
+          <div><span>Horizon purge</span><b>Horizon h trains only through cutoff − h, with a 10-session purge boundary.</b></div>
+          <div><span>Release timing</span><b>CFTC joins after report availability; monthly FRED fields without vintage timestamps are excluded.</b></div>
+          <div><span>Historical transforms</span><b>No backward-fill; seasonal analogs must be at least one year before the forecast date.</b></div>
         </div>
 
-        <h3 class="block-title">4. Time-aware model selection and technical accuracy</h3>
+        <h3 class="block-title">4. Hybrid model benchmark</h3>
         <div class="model-family-grid">
-          <span>Ridge</span>
-          <span>Lasso</span>
-          <span>Random Forest</span>
-          <span>XGBoost</span>
-          <span>LightGBM</span>
+          <span>TiDE</span>
+          <span>PatchTST</span>
+          <span>N-HiTS</span>
+          <span>DLinear</span>
+          <span>NLinear</span>
+          <span>RidgeDirect</span>
+          <span>XGBoostDirect</span>
+          <span>LightGBMDirect</span>
+          <span>Ridge-XGBoost Blend</span>
         </div>
         <div class="governance-flow">
-          <div><span>Split</span><b>Chronological holdout</b></div>
+          <div><span>Targets</span><b>Sequence log(Open); direct log return</b></div>
           <i>→</i>
-          <div><span>Validate</span><b>TimeSeriesSplit</b></div>
+          <div><span>Fit</span><b>Independent horizon models</b></div>
           <i>→</i>
-          <div><span>Tune</span><b>Optional Optuna</b></div>
+          <div><span>Validate</span><b>6 rolling forecast origins</b></div>
           <i>→</i>
-          <div><span>Select</span><b>Lowest CV RMSE with MAE/MAPE review</b></div>
+          <div><span>Select</span><b>Mean RMSE at h=1, 3, 5, 7, 10</b></div>
         </div>
 
         <h3 class="block-title">5. Reproducible execution</h3>
         <div class="architecture-grid">
-          <div class="architecture-card"><span>CLI 01</span><b>Environment check</b><p>Validate keys, database, tables, and paths.</p></div>
-          <div class="architecture-card"><span>CLI 02</span><b>Ingestion</b><p>Collect data and execute SQL features.</p></div>
-          <div class="architecture-card"><span>CLI 03</span><b>EDA</b><p>Inspect quality, distributions, and relationships.</p></div>
-          <div class="architecture-card"><span>CLI 04</span><b>Modeling</b><p>Train, evaluate, and generate forecasts.</p></div>
+          <div class="architecture-card"><span>CLI 01</span><b>Full refresh</b><p>Re-ingest history from 2010 and rebuild staging and features.</p></div>
+          <div class="architecture-card"><span>CLI 02</span><b>Controlled benchmark</b><p>Run sequence and direct candidates on the same rolling origins.</p></div>
+          <div class="architecture-card"><span>CLI 03</span><b>Open forecast</b><p>Refit the selected model and generate 10 session-level forecasts.</p></div>
+          <div class="architecture-card"><span>CLI 04</span><b>Run tracking</b><p>Persist logs, metrics, models, forecasts, resources, and reconciliation state.</p></div>
         </div>
       </article>
 
@@ -220,36 +228,37 @@
           <span class="sar-letter">I</span>
           <div>
             <p class="section-eyebrow">Impact</p>
-            <h2>A complete experiment-to-prediction workflow with practical decision value</h2>
+            <h2>A measurable benchmark improvement with traceable forecast outputs</h2>
           </div>
         </div>
 
         <div class="result-board">
-          <div><span>Data product</span><b>Aligned daily market table</b><small>Four source families in PostgreSQL</small></div>
-          <div><span>Feature product</span><b>Reusable SQL feature store</b><small>Independent from Python notebooks</small></div>
-          <div><span>Leakage control</span><b>Separate feature and target tables</b><small>Future values excluded from model inputs</small></div>
-          <div><span>Technical accuracy</span><b>CV and holdout RMSE</b><small>Model quality measured in chronological order</small></div>
-          <div><span>Error diagnosis</span><b>MAE and MAPE review</b><small>Shows absolute and percentage forecast error</small></div>
-          <div><span>Practical usefulness</span><b>Daily forecast file</b><small>Supports monitoring, scenario review, and repeatable market analysis</small></div>
+          <div><span>Selected model</span><b>Ridge-XGBoost Blend</b><small>Best mean rolling RMSE across nine candidates</small></div>
+          <div><span>Mean RMSE</span><b>87.07</b><small>Versus 136.41 for the PatchTST benchmark</small></div>
+          <div><span>Mean MAE</span><b>74.84</b><small>Across horizons 1, 3, 5, 7, and 10</small></div>
+          <div><span>Mean MAPE</span><b>1.66%</b><small>Controlled six-origin benchmark</small></div>
+          <div><span>RMSE reduction</span><b>36.17%</b><small>Relative to PatchTST on the same evaluation origins</small></div>
+          <div><span>Direct-model input</span><b>146 features</b><small>Selected run with a 1,260-session training window</small></div>
         </div>
 
         <div class="mini-panels">
           <div class="chart-card">
-            <div class="chart-head"><strong>Prediction Output</strong><span>batch inference</span></div>
+            <div class="chart-head"><strong>Controlled Benchmark</strong><span>mean over six origins</span></div>
             <table class="mock-table">
-              <tr><th>Date</th><th>Target</th><th>Output</th></tr>
-              <tr><td>Latest row</td><td>Next-day price</td><td><span class="score high">Forecast</span></td></tr>
-              <tr><td>Recent rows</td><td>Batch request</td><td><span class="score mid">CSV</span></td></tr>
-              <tr><td>Historical holdout</td><td>Evaluation</td><td><span class="score low">RMSE / MAE / MAPE</span></td></tr>
+              <tr><th>Model</th><th>RMSE</th><th>MAPE</th></tr>
+              <tr><td>Ridge-XGBoost Blend</td><td>87.07</td><td><span class="score high">1.66%</span></td></tr>
+              <tr><td>XGBoostDirect</td><td>93.82</td><td><span class="score mid">1.78%</span></td></tr>
+              <tr><td>RidgeDirect</td><td>95.55</td><td><span class="score mid">1.87%</span></td></tr>
+              <tr><td>PatchTST</td><td>136.41</td><td><span class="score low">2.34%</span></td></tr>
             </table>
           </div>
           <div class="chart-card">
-            <div class="chart-head"><strong>Experiment Contract</strong><span>repeatable</span></div>
+            <div class="chart-head"><strong>Forecast Artifact</strong><span>inspectable</span></div>
             <div class="monitor-stack">
-              <div><b>Same feature source</b><span>Training and prediction read the master feature table.</span></div>
-              <div><b>Same selection rule</b><span>Candidate models are ranked by cross-validation RMSE and reviewed with holdout errors.</span></div>
-              <div><b>Saved artifacts</b><span>Best model and timestamped forecasts remain inspectable.</span></div>
-              <div><b>Business use boundary</b><span>Useful for analysis and monitoring, not an automated trading signal.</span></div>
+              <div><b>Ten session-level Opens</b><span>Each horizon has an independent prediction rather than recursive inference.</span></div>
+              <div><b>Uncertainty ranges</b><span>Empirical 80% and 95% residual intervals are stored per forecast step.</span></div>
+              <div><b>Directional context</b><span>UP, DOWN, or FLAT plus three rule-based economic evidence signals.</span></div>
+              <div><b>Reconciliation</b><span>Realized Opens and errors are added after forecast dates become observable.</span></div>
             </div>
           </div>
         </div>
@@ -261,10 +270,11 @@
           <span>Cleaning pipeline</span>
           <span>SQL feature engineering</span>
           <span>Leakage controls</span>
-          <span>Time-series validation</span>
-          <span>Model comparison</span>
-          <span>Optuna tuning</span>
-          <span>Batch prediction</span>
+          <span>Rolling-origin validation</span>
+          <span>Deep sequence benchmark</span>
+          <span>Direct multi-horizon models</span>
+          <span>Forecast reconciliation</span>
+          <span>Experiment observability</span>
           <span>Tests and documentation</span>
         </div>
       </article>
@@ -276,20 +286,21 @@
           <div class="chart-card">
             <div class="chart-head"><strong>Verified in repository</strong></div>
             <ul class="compact-list">
-              <li>Four ingestion adapters</li>
-              <li>Three PostgreSQL schema layers</li>
-              <li>Nine SQL feature stages</li>
-              <li>Time-aware training and prediction CLI</li>
-              <li>Technical accuracy tracked by RMSE, MAE, and MAPE</li>
+              <li>Five ingestion adapters and four PostgreSQL schemas</li>
+              <li>Eleven SQL stages with target isolation</li>
+              <li>Nine benchmark candidates across sequence and tabular families</li>
+              <li>Completed run with 146 features and six rolling origins</li>
+              <li>RMSE 87.07 and MAPE 1.66% for the selected blend</li>
             </ul>
           </div>
           <div class="chart-card">
             <div class="chart-head"><strong>Current limits</strong></div>
             <ul class="compact-list">
-              <li>Research pipeline, not trading advice</li>
-              <li>No transaction-cost or strategy backtest</li>
-              <li>No automated retraining scheduler</li>
-              <li>Model must be retrained after feature-schema changes</li>
+              <li>Only six forecast origins; the performance estimate remains uncertain</li>
+              <li>Daily FRED history still has vintage and revision risk without ALFRED</li>
+              <li>Forecast dates use a US business-day estimate, not the official CME calendar</li>
+              <li>Intervals are empirical and evidence signals are rule-based, not causal</li>
+              <li>Research pipeline, not a trading strategy or financial advice</li>
             </ul>
           </div>
         </div>

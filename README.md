@@ -5,7 +5,7 @@ A static portfolio website presenting my work in data science, machine learning,
 ## Featured Projects
 
 - **B2B Churn Warning System** - Production-oriented ML pipeline for Vietnam Post.
-- **Gold Price Prediction** - Time-series modeling with multi-source financial data.
+- **Gold Open Forecasting** - Leakage-aware 10-session forecasting with hybrid sequence and direct models.
 - **Respiratory Disease Classification** - FPGA-based research published in IEEE Access.
 
 ## Run Locally
