@@ -1,10 +1,13 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const { syncProfilePhoto } = require("./scripts/sync-profile-photo");
 
 const root = __dirname;
 const port = Number(process.env.PORT || process.argv[2] || 4173);
 const host = "127.0.0.1";
+
+syncProfilePhoto();
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -14,6 +17,8 @@ const mimeTypes = {
   ".png": "image/png",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
+  ".webp": "image/webp",
+  ".avif": "image/avif",
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon",
 };

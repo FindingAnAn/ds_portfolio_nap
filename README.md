@@ -16,4 +16,17 @@ node serve-static.js
 
 Open `http://127.0.0.1:4173`.
 
-The site is built with HTML, CSS, and vanilla JavaScript and can be deployed directly with GitHub Pages.
+## Profile Photo
+
+Keep exactly one image inside `assets/profile-photo/`. The filename may change.
+The local preview and Vercel build automatically update the image path in
+`index.html`.
+
+To update the path without starting the preview server:
+
+```bash
+node scripts/sync-profile-photo.js
+```
+
+The site is built with HTML, CSS, and vanilla JavaScript. Vercel runs the
+profile-photo sync step before serving the static files.
